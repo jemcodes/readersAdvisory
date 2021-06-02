@@ -4,10 +4,10 @@ from app.models import db, Reader
 # Adds a demo user, you can add other users here if you want
 def seed_readers():
 
-    demo = Reader(username='Demo', email='demo@aa.io',
+    demo = Reader(email='demo@aa.io',
                 password='password')
     
-    bookworm = Reader(username='Bookworm', email='bookworm@aa.io',
+    bookworm = Reader(email='bookworm@aa.io',
                 password='password')
 
     db.session.add(demo)

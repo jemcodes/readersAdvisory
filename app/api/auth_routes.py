@@ -21,7 +21,7 @@ def validation_errors_to_error_messages(validation_errors):
 @auth_routes.route('/')
 def authenticate():
     """
-    Authenticates a user.
+    Authenticates a reader.
     """
     if current_user.is_authenticated:
         return current_user.to_dict()
@@ -31,7 +31,7 @@ def authenticate():
 @auth_routes.route('/login', methods=['POST'])
 def login():
     """
-    Logs a user in
+    Logs a reader in
     """
     form = LoginForm()
     print(request.get_json())
@@ -39,39 +39,38 @@ def login():
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        # Add the user to the session, we are logged in!
-        user = User.query.filter(User.email == form.data['email']).first()
-        login_user(user)
-        return user.to_dict()
+        # Add the reader to the session, we are logged in!
+        reader = Reader.query.filter(Reader.email == form.data['email']).first()
+        login_user(reader)
+        return reader.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @auth_routes.route('/logout')
 def logout():
     """
-    Logs a user out
+    Logs a reader out
     """
     logout_user()
-    return {'message': 'User logged out'}
+    return {'message': 'Reader logged out'}
 
 
 @auth_routes.route('/signup', methods=['POST'])
 def sign_up():
     """
-    Creates a new user and logs them in
+    Creates a new reader and logs them in
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        user = User(
-            username=form.data['username'],
+        reader = Reader(
             email=form.data['email'],
             password=form.data['password']
         )
-        db.session.add(user)
+        db.session.add(reader)
         db.session.commit()
-        login_user(user)
-        return user.to_dict()
+        login_user(reader)
+        return reader.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

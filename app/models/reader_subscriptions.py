@@ -18,7 +18,9 @@ class ReaderSubscription(db.Model):
   def to_dict(self):
     return {
       "id": self.id,
-      "email": self.email,
+      "subscription": self.subscription,
+      "payment": self.payment,
+      "reader_id": self.reader_id,
       "created": self.created_at,
       "updated": self.updated_at
     }

@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import Reader, db
+from app.models import Advisor, db, Reader
 from app.forms import LoginForm
 from app.forms import SignUpForm
+from app.forms import AdvisorLoginForm
 from flask_login import current_user, login_user, logout_user, login_required
 
 auth_routes = Blueprint('auth', __name__)
@@ -21,7 +22,7 @@ def validation_errors_to_error_messages(validation_errors):
 @auth_routes.route('/')
 def authenticate():
     """
-    Authenticates a reader.
+    Authenticates a user.
     """
     if current_user.is_authenticated:
         return current_user.to_dict()
@@ -45,14 +46,31 @@ def login():
         return reader.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+@auth_routes.route('/advisor-login', methods=['POST'])
+def advisor_login():
+    """
+    Logs a reader in
+    """
+    form = AdvisorLoginForm()
+    print(request.get_json())
+    # Get the csrf_token from the request cookie and put it into the
+    # form manually to validate_on_submit can be used
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        # Add the reader to the session, we are logged in!
+        advisor = Advisor.query.filter(Advisor.email == form.data['email']).first()
+        login_user(advisor)
+        return advisor.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 
 @auth_routes.route('/logout')
 def logout():
     """
-    Logs a reader out
+    Logs a user out
     """
     logout_user()
-    return {'message': 'Reader logged out'}
+    return {'message': 'User logged out'}
 
 
 @auth_routes.route('/signup', methods=['POST'])

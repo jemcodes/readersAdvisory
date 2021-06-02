@@ -5,8 +5,9 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 
-from .models import db, Reader
+from .models import db, Reader, Advisor
 from .api.reader_routes import reader_routes
+from .api.advisor_routes import advisor_routes
 from .api.auth_routes import auth_routes
 
 from .seeds import seed_commands
@@ -21,8 +22,12 @@ login.login_view = 'auth.unauthorized'
 
 
 @login.user_loader
-def load_user(id):
-    return User.query.get(int(id))
+def load_reader(id):
+    return Reader.query.get(int(id))
+
+@login.user_loader
+def load_advisor(id):
+    return Advisor.query.get(int(id))
 
 
 # Tell flask about our seed commands
@@ -30,6 +35,7 @@ app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
 app.register_blueprint(reader_routes, url_prefix='/api/readers')
+app.register_blueprint(advisor_routes, url_prefix='/api/advisors')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 db.init_app(app)
 Migrate(app, db)

@@ -3,15 +3,18 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-class Reader(db.Model, UserMixin):
-  __tablename__ = 'readers'
+class Advisor(db.Model, UserMixin):
+  __tablename__ = 'advisors'
 
   id = db.Column(db.Integer, primary_key = True)
+  first_name = db.Column(db.String(100), nullable = False)
+  last_name = db.Column(db.String(100), nullable = False)
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable = False)
+  reader_id = db.Column(db.Integer, db.ForeignKey("readers.id"), nullable=False)
   created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
   updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
-  advisor = db.relationship('Advisor', back_populates="readers")
+  readers = db.relationship('Reader', back_populates="advisor")
 
   @property
   def password(self):
@@ -30,7 +33,10 @@ class Reader(db.Model, UserMixin):
   def to_dict(self):
     return {
       "id": self.id,
+      "first_name": self.first_name,
+      "last_name": self.last_name,
       "email": self.email,
+      "reader_id": self.reader_id,
       "created": self.created_at,
       "updated": self.updated_at
     }

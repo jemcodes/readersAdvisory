@@ -1,7 +1,7 @@
 # import datetime
 # from .db import db
 
-# class Reader_Preference(db.Model):
+# class ReaderPreference(db.Model):
 #   __tablename__ = 'reader_preferences'
 
 #   id = db.Column(db.Integer, primary_key = True)

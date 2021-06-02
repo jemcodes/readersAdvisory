@@ -16,11 +16,7 @@ class OrderProduct(db.Model):
   def to_dict(self):
     return {
       "id": self.id,
-      "cover_options": self.cover_options,
-      "genre_options": self.genre_options,
-      "author_options": self.author_options,
-      "reader_id": self.reader_id,
-      "advisor_id": self.advisor_id,
+      "order_id": self.order_id,
       "product_id": self.product_id,
       "created": self.created_at,
       "updated": self.updated_at

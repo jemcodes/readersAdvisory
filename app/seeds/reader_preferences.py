@@ -1,9 +1,9 @@
-# from app.models import db, Reader_Preference
+# from app.models import db, ReaderPreference
 
 # # Adds demo reader preferences
 # def seed_preferences():
 
-#     demo_preferences = Reader_Preference(user_name='Demo_reader',
+#     demo_preferences = ReaderPreference(user_name='Demo_reader',
 #                 cover_choices='Hardcover',
 #                 genre_choices=['Mystery', 'Thriller'],
 #                 author_choices=['Agatha Christie', 'Liane Moriarty'],
@@ -12,7 +12,7 @@
 #                 culprit will keep me turning pages past my bedtime.""",
 #                 reader_id=1)
     
-#     bookworm = Reader_Preference(user_name='Book_Worm',
+#     bookworm = ReaderPreference(user_name='Book_Worm',
 #                 cover_choices='Paperback',
 #                 genre_choices=['Romance', 'Speculative Fiction', 'SciFi'],
 #                 author_choices=['Courtney Milan', 'Alyssa Cole',

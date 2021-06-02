@@ -46,6 +46,26 @@ export const authenticate = () => async (dispatch) => {
     dispatch(setUser(data))
     return {};
   }
+
+export const advisorLogin = (email, password) => async (dispatch) => {
+  const response = await fetch('/api/auth/advisor-login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email,
+      password
+    })
+  });
+  const data = await response.json();
+  if (data.errors) {
+    return data;
+  }
+
+  dispatch(setUser(data))
+  return {};
+}
   
   export const logout = () => async (dispatch) => {
     const response = await fetch("/api/auth/logout", {

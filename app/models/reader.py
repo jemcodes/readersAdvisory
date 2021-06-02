@@ -12,6 +12,7 @@ class Reader(db.Model, UserMixin):
   created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
   updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
   advisor = db.relationship('Advisor', back_populates="readers")
+  subscription= db.relationship('ReaderSubscription', back_populates="reader_sub")
 
   @property
   def password(self):

@@ -1,4 +1,4 @@
-"""empty message
+"""create readers table
 
 Revision ID: fed6fb43667f
 Revises: 

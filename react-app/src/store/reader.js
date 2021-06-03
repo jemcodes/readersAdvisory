@@ -1,111 +1,51 @@
-// constants
-const SET_PREFERENCES = "session/SET_PREFERENCES";
-// const REMOVE_PREFERENCES = "session/PREFERENCES";
+// ACTIONS
+const SET_PREFERENCES = "readers/SET_PREFERENCES";
+const GET_PREFERENCES = "readers/GET_PREFERENCES";
+const REMOVE_PREFERENCES = "readers/PREFERENCES";
 
+
+// ACTION CREATORS
 const setPreferences = (readerPreferences) => ({
     type: SET_PREFERENCES,
     payload: readerPreferences
 });
 
-const removeUser = () => ({
-    type: REMOVE_USER,
+const getPreferences = (readerPreferences) => ({
+    type: GET_PREFERENCES,
+    payload: readerPreferences
 })
 
-const initialState = { user: null };
+const removPreferences = () => ({
+    type: REMOVE_PREFERENCES,
+})
 
-export const authenticate = () => async (dispatch) => {
-    const response = await fetch('/api/auth/', {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-    const data = await response.json();
-    if (data.errors) {
-        return;
+// THUNK ACTIONS
+export const showPreferences = (id) => async (dispatch) => {
+    const response = await fetch(`api/readers/${id}/preferences`);
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(getPreferences(data))
     }
-
-    dispatch(setUser(data))
 }
 
-export const login = (email, password) => async (dispatch) => {
-    const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email,
-            password
-        })
-    });
-    const data = await response.json();
-    if (data.errors) {
-        return data;
-    }
 
-    dispatch(setUser(data))
-    return {};
-}
+// REDUCERS 
 
-export const advisorLogin = (email, password) => async (dispatch) => {
-    const response = await fetch('/api/auth/advisor-login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email,
-            password
-        })
-    });
-    const data = await response.json();
-    if (data.errors) {
-        return data;
-    }
-
-    dispatch(setUser(data))
-    return {};
-}
-
-export const logout = () => async (dispatch) => {
-    const response = await fetch("/api/auth/logout", {
-        headers: {
-            "Content-Type": "application/json",
-        }
-    });
-
-    const data = await response.json();
-    dispatch(removeUser());
+const initialState = {
+    list: [],
 };
 
-
-export const signUp = (email, password) => async (dispatch) => {
-    const response = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            email,
-            password,
-        }),
-    });
-    const data = await response.json();
-    if (data.errors) {
-        return data;
-    }
-
-    dispatch(setUser(data))
-    return {};
-}
-
-export default function reducer(state = initialState, action) {
-    switch (action.type) {
-        case SET_USER:
-            return { user: action.payload }
-        case REMOVE_USER:
-            return { user: null }
+export default function reader(state = initialState, action) {
+    switch(action.type) {
+        case GET_PREFERENCES:
+            const nextState = {}
+            return {
+                ...state,
+                ...nextState
+            }
         default:
             return state;
     }
 }
+
+

@@ -84,7 +84,7 @@ def sign_up():
         reader = Reader(
             email=form.data['email'],
             password=form.data['password']
-        )
+            )
         db.session.add(reader)
         db.session.commit()
         login_user(reader)

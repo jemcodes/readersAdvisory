@@ -76,3 +76,13 @@ def delete_reader_preferences(reader_id):
     db.session.delete(preferences_to_delete)
     db.session.commit()
     return "all good!"
+
+
+@reader_routes.route('/<int:reader_id>', methods=['DELETE'])
+@login_required
+def delete_reader_account(reader_id):
+    """Delete single reader's account"""
+    account_to_delete = Reader.query.get(reader_id)
+    db.session.delete(account_to_delete)
+    db.session.commit()
+    return "all gone!"

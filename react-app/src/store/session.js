@@ -11,7 +11,7 @@ const removeUser = () => ({
     type: REMOVE_USER,
 })
 
-const initialState = { user: null };
+const initialState = { reader: null };
 
 export const authenticate = () => async (dispatch) => {
     const response = await fetch('/api/auth/',{
@@ -102,9 +102,9 @@ export const advisorLogin = (email, password) => async (dispatch) => {
 export default function reducer(state=initialState, action) {
     switch (action.type) {
         case SET_USER:
-            return {user: action.payload}
+            return {reader: action.payload}
         case REMOVE_USER:
-            return {user: null}
+            return {reader: null}
         default:
             return state;
     }

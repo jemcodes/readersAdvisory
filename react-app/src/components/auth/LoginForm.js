@@ -7,7 +7,7 @@ const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const user = useSelector(state => state.session.user);
+  const reader = useSelector(state => state.session.reader);
   const dispatch = useDispatch();
 
   const onLogin = async (e) => {
@@ -26,8 +26,8 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  if (user) {
-    return <Redirect to="/" />;
+  if (reader) {
+    return <Redirect to="/preferences" />;
   }
 
   return (

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import AdvisorLoginForm from "./components/auth/AdvisorLoginForm";
+import ShowPreferences from "./components/ShowPreferences";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -38,6 +39,9 @@ function App() {
         </Route>
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
+        </Route>
+        <Route path="/preferences" exact={true} >
+          <ShowPreferences />
         </Route>
         <ProtectedRoute path="/users" exact={true} >
           <UsersList/>

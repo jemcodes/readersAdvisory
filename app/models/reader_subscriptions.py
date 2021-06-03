@@ -8,7 +8,7 @@ class ReaderSubscription(db.Model):
   subscription = db.Column(db.String(15))
   """in a real-world app, would never store payment info
   this way for security reasons"""
-  payment = db.Column(db.String(19), nullable=False)
+  payment = db.Column(db.String(19))
   reader_id = db.Column(db.Integer, db.ForeignKey("readers.id"), nullable=False)
   created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
   updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)

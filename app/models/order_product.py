@@ -5,7 +5,7 @@ class OrderProduct(db.Model):
   __tablename__ = 'order_products'
 
   id = db.Column(db.Integer, primary_key = True)
-  order_id = db.Column(db.Integer, db.ForeignKey("products.id"), nullable=False)
+  order_id = db.Column(db.Integer, db.ForeignKey("orders.id"), nullable=False)
   product_id = db.Column(db.Integer, db.ForeignKey("products.id"), nullable=False)
   created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
   updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)

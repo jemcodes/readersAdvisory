@@ -6,8 +6,8 @@ class Order(db.Model):
 
   id = db.Column(db.Integer, primary_key = True)
   cover_options = db.Column(db.String(15))
-  genre_options = db.Column(db.String(19), nullable=False)
-  author_options = db.Column(db.Integer, db.ForeignKey("readers.id"), nullable=False)
+  genre_options = db.Column(db.ARRAY(db.Text), nullable=False)
+  author_options = db.Column(db.ARRAY(db.Text), nullable=False)
   reader_id = db.Column(db.Integer, db.ForeignKey("readers.id"), nullable=False)
   advisor_id = db.Column(db.Integer, db.ForeignKey("advisors.id"), nullable=False)
   product_id = db.Column(db.Integer, db.ForeignKey("products.id"), nullable=False)

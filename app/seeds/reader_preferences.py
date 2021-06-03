@@ -12,7 +12,7 @@ def seed_preferences():
                 culprit will keep me turning pages past my bedtime.""",
                 reader_id=1)
     
-    bookworm = ReaderPreference(user_name='Book_Worm',
+    bookworm_preferences = ReaderPreference(user_name='Book_Worm',
                 cover_choices='Paperback',
                 genre_choices=['Romance', 'Speculative Fiction', 'SciFi'],
                 author_choices=['Courtney Milan', 'Alyssa Cole',

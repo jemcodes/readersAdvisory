@@ -16,6 +16,7 @@ class Advisor(db.Model, UserMixin):
   updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
   readers = db.relationship('Reader', back_populates="advisor")
   order = db.relationship('Order', back_populates="advisor_order")
+  messages = db.relationship('Message', back_populates="advisor_messages")
 
   @property
   def password(self):

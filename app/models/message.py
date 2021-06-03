@@ -11,6 +11,8 @@ class Message(db.Model):
   advisor_id = db.Column(db.Integer, db.ForeignKey("advisors.id"), nullable=False)
   created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
   updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
+  reader_messages = db.relationship('Reader', back_populates="messages")
+  advisor_messages = db.relationship('Advisor', back_populates="messages")
 
 
   def to_dict(self):

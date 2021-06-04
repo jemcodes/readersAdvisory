@@ -8,6 +8,7 @@ const ShowPreferences = () => {
     // const { readerId } = useParams()
     const reader = useSelector(state => state.session.reader);
     const preferences = useSelector(state => state.reader.preferences);
+    let authors;
     
     useEffect(() => {
         dispatch(showPreferences(reader.id))
@@ -17,9 +18,13 @@ const ShowPreferences = () => {
        <div>
            <h2>Preferences</h2>
             {preferences && (
-                <div>Username: 
-                    {preferences.user_name}
-                </div>
+                <ul>
+                    <li>Username: {preferences.user_name}</li>
+                    <li>Cover Preference: {preferences.cover_choices}</li>
+                    <li>Genres: {preferences.genre_choices.join(', ')}</li>
+                    <li>Authors: {preferences.author_choices.join(', ')}</li>
+                    <li>Notes: {preferences.other_choices}</li>
+                </ul>
             )}
        </div>
     );

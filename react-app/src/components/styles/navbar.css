@@ -4,16 +4,18 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Sofia', cursive; */
 
 #nav-bar {
+    border: 2px solid green;
     display: flex;
-    justify-content: flex-end;
-    top: 0;
-    width: 100%;
+    justify-content: center;
+    position: relative;
+    top: -10px;
+    width: 100vw;
 }
 
 #nav-container{
     display: flex;
     height: 60px;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     top: 0;
     width: 100%;
@@ -23,7 +25,8 @@ font-family: 'Sofia', cursive; */
 
 #site-title {
     max-height: 150px;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    margin-left: 0;
     font-family: 'Sofia', cursive;
     color: white;
     font-size: 2.3em;

@@ -30,7 +30,7 @@ const SignUpForm = () => {
   };
 
   if (reader) {
-    return <Redirect to="/" />;
+    return <Redirect to="/reader-quiz" />;
   }
 
   return (

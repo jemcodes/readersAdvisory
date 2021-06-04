@@ -7,6 +7,7 @@ import ShowPreferences from "./components/ShowPreferences";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import SetReaderPreference from "./components/SetReaderPreference";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
@@ -40,6 +41,9 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
+        <ProtectedRoute path="/reader-quiz" exact={true} >
+          <SetReaderPreference />
+        </ProtectedRoute>
         <ProtectedRoute path="/preferences" exact={true} >
           <ShowPreferences />
         </ProtectedRoute>
@@ -48,9 +52,6 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} >
           <User />
-        </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true} >
-          <h1>My Home Page</h1>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

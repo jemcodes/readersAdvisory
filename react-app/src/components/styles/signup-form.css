@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat&family=Sofia&display=swap');
+/* font-family: 'Merriweather', serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Sofia', cursive; */
+
+body {
+    background-image: url("https://images.unsplash.com/photo-1596890186985-0de375fc6fba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #F7F7F7;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#signup-container {
+    /* border: 2px solid red; */
+    margin-top: -15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: white;
+    color: black;
+    width: 505;
+}
+
+#signup-email {
+    padding: .5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#signup-password {
+    padding: .5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#signup-repeat-password {
+    padding: .5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.signup-input {
+    margin: .5rem 1rem .5rem .5rem;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #4C4C4C;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.signup-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 1pt #8B478B;
+}
+
+#signup-button {
+    margin: 0 .5rem 0 .5rem;
+    border-radius: 28px;
+    border: 2px solid #6f1a6f;
+    background-color: #6f1a6f;
+    color: white;
+    width: 10rem;
+    height: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+#signup-button:hover {
+    border: 2px solid #8B478B;
+    background-color: #8B478B;
+}
+

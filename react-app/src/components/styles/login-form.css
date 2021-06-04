@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat&family=Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat:wght@600&family=Sofia&display=swap');
 /* font-family: 'Merriweather', serif;
 font-family: 'Montserrat', sans-serif;
 font-family: 'Sofia', cursive; */
@@ -64,3 +64,11 @@ body {
     background-color: #8B478B;
 }
 
+#login-page-greeting {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 54px;
+    font-weight: bold;
+    filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.3));
+}

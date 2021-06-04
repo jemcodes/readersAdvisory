@@ -4,11 +4,11 @@ import { Redirect } from 'react-router-dom';
 import { capturePreferences } from '../store/reader';
 
 const ReaderQuiz = () => {
-    const [username, setUsername] = useState("");
-    const [coverChoices, setCoverChoices] = useState("");
-    const [genreChoices, setGenreChoices] = useState([]);
-    const [authorChoices, setAuthorChoices] = useState([]);
-    const [otherChoices, setOtherChoices] = useState("");
+    const [user_name, setUsername] = useState("");
+    const [cover_choices, setCoverChoices] = useState("");
+    const [genre_choices, setGenreChoices] = useState([]);
+    const [author_choices, setAuthorChoices] = useState([]);
+    const [other_choices, setOtherChoices] = useState("");
     const reader = useSelector(state => state.session.reader);
     const dispatch = useDispatch();
 
@@ -16,14 +16,14 @@ const ReaderQuiz = () => {
         e.preventDefault();
 
         const preferencePayload = {
-            username,
-            coverChoices,
-            genreChoices,
-            authorChoices,
-            otherChoices
+            user_name,
+            cover_choices,
+            genre_choices,
+            author_choices,
+            other_choices
         }
-        
-        await dispatch(capturePreferences(preferencePayload));
+
+        await dispatch(capturePreferences(preferencePayload))
     };
 
     const updateUsername = (e) => {
@@ -46,9 +46,9 @@ const ReaderQuiz = () => {
         setOtherChoices(e.target.value);
     };
 
-    if (reader) {
-        return <Redirect to="/reader-quiz" />;
-    }
+    // if (reader) {
+    //     return <Redirect to="/reader-quiz" />;
+    // }
 
     return (
         <form onSubmit={onQuizCompletion}>
@@ -56,9 +56,9 @@ const ReaderQuiz = () => {
                 <label>Please choose a username</label>
                 <input
                     type="text"
-                    name="username"
+                    name="user_name"
                     onChange={updateUsername}
-                    value={username}
+                    value={user_name}
                     required={true}
                 ></input>
             </div>
@@ -66,9 +66,9 @@ const ReaderQuiz = () => {
                 <label>Please select which cover type you prefer</label>
                 <input
                     type="select"
-                    name="coverChoices"
+                    name="cover_choices"
                     onChange={updateCoverChoices}
-                    value={coverChoices}
+                    value={cover_choices}
                     required={true}
                 ></input>
             </div>
@@ -76,9 +76,9 @@ const ReaderQuiz = () => {
                 <label>Please list some genres you like, separated by commas</label>
                 <input
                     type="text"
-                    name="genreChoices"
+                    name="genre_choices"
                     onChange={updateGenreChoices}
-                    value={genreChoices}
+                    value={genre_choices}
                     required={true}
                 ></input>
             </div>
@@ -86,9 +86,9 @@ const ReaderQuiz = () => {
                 <label>Please list some authors you like, separated by commas</label>
                 <input
                     type="text"
-                    name="authorChoices"
+                    name="author_choices"
                     onChange={updateAuthorChoices}
-                    value={authorChoices}
+                    value={author_choices}
                     required={true}
                 ></input>
             </div>
@@ -96,9 +96,9 @@ const ReaderQuiz = () => {
                 <label>Please provide any additional information that might help your advisor</label>
                 <input
                     type="text"
-                    name="otherChoices"
+                    name="other_choices"
                     onChange={updateOtherChoices}
-                    value={otherChoices}
+                    value={other_choices}
                     required={true}
                 ></input>
             </div>

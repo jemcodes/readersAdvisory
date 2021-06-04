@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
+import '../styles/login-form.css';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -37,26 +38,28 @@ const LoginForm = () => {
           <div>{error}</div>
         ))}
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          name="email"
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type="submit">Reader Login</button>
+      <div id="login-container">
+        <div id="login-email">
+          <label htmlFor="email"></label>
+          <input className="login-input"
+            name="email"
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={updateEmail}
+          />
+        </div>
+        <div id="login-password">
+          <label htmlFor="password"></label>
+          <input className="login-input"
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={updatePassword}
+          />
+          <button id="login-button" type="submit">Reader Login</button>
+        </div>
       </div>
     </form>
   );

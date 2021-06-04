@@ -11,7 +11,7 @@ const NavBar = () => {
             {/* <h1 ></h1> */}
             {/* <div className="nav-link-div"> */}
               <NavLink id="site-title" to="/" exact={true} activeClassName="active">
-                Reader's Advisory
+                Readers' Advisory
               </NavLink>
             {/* </div>   */}
           <div className="nav-links-right">

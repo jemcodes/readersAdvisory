@@ -1,7 +1,7 @@
 // ACTIONS
 const SET_PREFERENCES = "readers/SET_PREFERENCES";
 const GET_PREFERENCES = "readers/GET_PREFERENCES";
-const REMOVE_PREFERENCES = "readers/PREFERENCES";
+// const REMOVE_PREFERENCES = "readers/PREFERENCES";
 
 
 // ACTION CREATORS
@@ -15,9 +15,9 @@ const getPreferences = (readerPreferences) => ({
     payload: readerPreferences
 })
 
-const removPreferences = () => ({
-    type: REMOVE_PREFERENCES,
-})
+// const removPreferences = () => ({
+//     type: REMOVE_PREFERENCES,
+// })
 
 // THUNK ACTIONS
 export const showPreferences = (id) => async (dispatch) => {

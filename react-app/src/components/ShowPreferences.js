@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { useParams } from 'react-router-dom';
 import { showPreferences } from '../store/reader';
 
 const ShowPreferences = () => {
@@ -8,7 +7,7 @@ const ShowPreferences = () => {
     // const { readerId } = useParams()
     const reader = useSelector(state => state.session.reader);
     const preferences = useSelector(state => state.reader.preferences);
-    let authors;
+    // let authors;
     
     useEffect(() => {
         dispatch(showPreferences(reader.id))

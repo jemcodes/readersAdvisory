@@ -4,19 +4,21 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Sofia', cursive; */
 
 #nav-bar {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     display: flex;
     justify-content: center;
     position: relative;
     top: -10px;
-    width: 100vw;
+    min-width: 100vw;
 }
 
 #nav-container{
+    /* border: 2px solid blue; */
     display: flex;
     height: 60px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
     top: 0;
     width: 100%;
     background-color: #000000;
@@ -24,14 +26,57 @@ font-family: 'Sofia', cursive; */
 }
 
 #site-title {
-    max-height: 150px;
-    margin-top: 1.5rem;
-    margin-left: 0;
+    /* max-height: 150px; */
+    /* margin-top: 1rem; */
+    margin-left: 15%;
+    padding-right: 30%;
     font-family: 'Sofia', cursive;
     color: white;
-    font-size: 2.3em;
+    font-size: 2em;
+    text-decoration: none;
+    position: relative;
+}
+
+/* .nav-link-div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border: 2px solid red;
+    margin: 0 2rem 0 2rem;
+} */
+
+.nav-links-right {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    /* flex-wrap: wrap; */
 }
 
 .nav-links {
     color: white;
+    /* margin: 0 4rem 0 2rem; */
+}
+.nav-link-div:focus{
+    outline: none;
+    border-bottom: 6px solid yellow;
+    cursor: pointer;
+}
+
+.nav-bar-buttons {
+    margin: 0 .5rem 0 .5rem;
+    border-radius: 28px;
+    border: 2px solid #6f1a6f;
+    background-color: #6f1a6f;
+    color: white;
+    width: 10rem;
+    height: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+.nav-bar-buttons:hover {
+    border: 2px solid #8B478B;
+    background-color: #8B478B;
 }

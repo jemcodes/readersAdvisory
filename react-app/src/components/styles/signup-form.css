@@ -15,26 +15,33 @@ body {
     justify-content: center;
 }
 
-#login-container {
+#signup-container {
     /* border: 2px solid red; */
     margin-top: -15px;
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     background-color: white;
     color: black;
     width: 505;
 }
 
-#login-email {
+#signup-email {
     padding: .5rem;
     font-family: 'Montserrat', sans-serif;
 }
 
-#login-password {
+#signup-password {
     padding: .5rem;
     font-family: 'Montserrat', sans-serif;
 }
 
-.login-input {
+#signup-repeat-password {
+    padding: .5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.signup-input {
     margin: .5rem 1rem .5rem .5rem;
     padding: 1rem;
     border-radius: 4px;
@@ -42,12 +49,12 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.login-input:focus {
+.signup-input:focus {
     outline: none;
     box-shadow: 0 0 0 1pt #8B478B;
 }
 
-#login-button {
+#signup-button {
     margin: 0 .5rem 0 .5rem;
     border-radius: 28px;
     border: 2px solid #6f1a6f;
@@ -59,7 +66,7 @@ body {
     font-size: 16px;
 }
 
-#login-button:hover {
+#signup-button:hover {
     border: 2px solid #8B478B;
     background-color: #8B478B;
 }

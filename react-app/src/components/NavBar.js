@@ -8,24 +8,26 @@ const NavBar = () => {
   return (
     <nav id="nav-bar">
       <div id="nav-container">
-            <h1 id="site-title">Reader's Advisory</h1>
-            <NavLink className="nav-links" to="/" exact={true} activeClassName="active">
-              Home
-            </NavLink>
-         
-            <NavLink className="nav-links" to="/login" exact={true} activeClassName="active">
-              Reader Login
-            </NavLink>
-          
-            <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
-              Sign Up
-            </NavLink>
-          
-            <div>
-              <DemoUser />
+            {/* <h1 ></h1> */}
+            {/* <div className="nav-link-div"> */}
+              <NavLink id="site-title" to="/" exact={true} activeClassName="active">
+                Reader's Advisory
+              </NavLink>
+            {/* </div>   */}
+          <div className="nav-links-right">
+              <NavLink className="nav-links" to="/login" exact={true} activeClassName="active">
+                <button className="nav-bar-buttons">Login</button>
+              </NavLink>
+            </div>  
+            <div className="nav-links-right">
+              <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
+                <button className="nav-bar-buttons">Sign Up</button>
+              </NavLink>
             </div>
-         
-            <LogoutButton />
+          <div className="nav-links-right">
+              <DemoUser />
+              <LogoutButton />
+          </div>
       </div>
     </nav>
   );

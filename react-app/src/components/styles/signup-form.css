@@ -71,3 +71,12 @@ body {
     background-color: #8B478B;
 }
 
+#signup-page-greeting {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: -2;
+    color: white;
+    font-size: 55px;
+    font-weight: bold;
+    filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.3));
+}

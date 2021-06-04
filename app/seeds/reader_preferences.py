@@ -5,21 +5,16 @@ def seed_preferences():
 
     demo_preferences = ReaderPreference(user_name='Demo_reader',
                 cover_choices='Hardcover',
-                genre_choices=['Mystery', 'Thriller'],
-                author_choices=['Agatha Christie', 'Liane Moriarty'],
-                other_choices="""I love solving a good mystery right alongside
-                the main character. Unraveling the perfect crime to find the
-                culprit will keep me turning pages past my bedtime.""",
+                genre_choices= 'Mystery, Thriller',
+                author_choices='Agatha Christie, Liane Moriarty',
+                other_choices="""I love solving a good mystery right alongside the main character. Unraveling the perfect crime to find the culprit will keep me turning pages past my bedtime.""",
                 reader_id=1)
     
     bookworm_preferences = ReaderPreference(user_name='Book_Worm',
                 cover_choices='Paperback',
-                genre_choices=['Romance', 'Speculative Fiction', 'SciFi'],
-                author_choices=['Courtney Milan', 'Alyssa Cole',
-                'Ursula K. Le Guin', 'Octavia E. Butler'],
-                other_choices="""I really just want a good escape. I like
-                reading a book full of wonder, where the scene feels so real
-                I forget it's all make-believe.""",
+                genre_choices= 'Romance, Speculative Fiction, SciFi',
+                author_choices= 'Courtney Milan, Alyssa Cole, Ursula K. Le Guin, Octavia E. Butler',
+                other_choices="""I really just want a good escape. I like reading a book full of wonder, where the scene feels so real I forget it's all make-believe.""",
                 reader_id=2)
 
     db.session.add(demo_preferences)

@@ -28,21 +28,47 @@ export const showPreferences = (id) => async (dispatch) => {
     }
 }
 
+export const capturePreferences = (readerPreferences) => async (dispatch) => {
+    const response = await fetch(`/api/readers/`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(readerPreferences)
+    })
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(setPreferences(data))
+    }
+}
+
 
 // REDUCERS 
 
 const initialState = {
     list: [],
+    preferences: undefined
 };
 
 export default function reader(state = initialState, action) {
+    let nextState = {}
     switch(action.type) {
         case GET_PREFERENCES:
-            const nextState = {}
+            nextState = {
+                preferences: {
+                    user_name: action.payload.user_name,
+                    cover_choices: action.payload.cover_choices,
+                    genre_choices: action.payload.genre_choices,
+                    author_choices: action.payload.author_choices,
+                    other_choices: action.payload.other_choices
+               }   }
+
             return {
                 ...state,
                 ...nextState
             }
+        case SET_PREFERENCES:
+            return { ...state, ...action.payload };
         default:
             return state;
     }

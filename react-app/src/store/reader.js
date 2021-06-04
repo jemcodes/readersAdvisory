@@ -33,12 +33,20 @@ export const showPreferences = (id) => async (dispatch) => {
 
 const initialState = {
     list: [],
+    preferences: undefined
 };
 
 export default function reader(state = initialState, action) {
     switch(action.type) {
         case GET_PREFERENCES:
-            const nextState = {}
+            const nextState = {preferences: {
+                user_name: action.payload.user_name,
+                cover_choices: action.payload.cover_choices,
+                genre_choices: action.payload.genre_choices,
+                author_choices: action.payload.author_choices,
+                other_choices: action.payload.other_choices}
+            }
+
             return {
                 ...state,
                 ...nextState

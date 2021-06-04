@@ -6,21 +6,25 @@ import { capturePreferences } from '../store/reader';
 const ReaderQuiz = () => {
     const [user_name, setUsername] = useState("");
     const [cover_choices, setCoverChoices] = useState("");
-    const [genre_choices, setGenreChoices] = useState([]);
-    const [author_choices, setAuthorChoices] = useState([]);
+    const [genre_choices, setGenreChoices] = useState("");
+    const [author_choices, setAuthorChoices] = useState("");
     const [other_choices, setOtherChoices] = useState("");
-    const reader = useSelector(state => state.session.reader);
     const dispatch = useDispatch();
-
+    const reader = useSelector(state => state.session.reader);
+    const reader_id = reader.id
+    // const reader = useSelector(state => state.session.reader);
+    
     const onQuizCompletion = async (e) => {
         e.preventDefault();
-
+        
+        const reader_id=reader.id
         const preferencePayload = {
             user_name,
             cover_choices,
             genre_choices,
             author_choices,
-            other_choices
+            other_choices,
+            reader_id
         }
 
         await dispatch(capturePreferences(preferencePayload))
@@ -65,7 +69,7 @@ const ReaderQuiz = () => {
             <div>
                 <label>Please select which cover type you prefer</label>
                 <input
-                    type="select"
+                    type="text"
                     name="cover_choices"
                     onChange={updateCoverChoices}
                     value={cover_choices}
@@ -74,23 +78,23 @@ const ReaderQuiz = () => {
             </div>
             <div>
                 <label>Please list some genres you like, separated by commas</label>
-                <input
-                    type="text"
+                <textarea
+                    // type="text"
                     name="genre_choices"
                     onChange={updateGenreChoices}
                     value={genre_choices}
                     required={true}
-                ></input>
+                />
             </div>
             <div>
                 <label>Please list some authors you like, separated by commas</label>
-                <input
-                    type="text"
+                <textarea
+                    // type="text"
                     name="author_choices"
                     onChange={updateAuthorChoices}
                     value={author_choices}
                     required={true}
-                ></input>
+                />
             </div>
             <div>
                 <label>Please provide any additional information that might help your advisor</label>
@@ -99,6 +103,15 @@ const ReaderQuiz = () => {
                     name="other_choices"
                     onChange={updateOtherChoices}
                     value={other_choices}
+                    required={true}
+                ></input>
+            </div>
+            <div>
+                <input
+                    type="Hidden"
+                    name="reader_id"
+                    // onChange={updateOtherChoices}
+                    value={reader_id}
                     required={true}
                 ></input>
             </div>

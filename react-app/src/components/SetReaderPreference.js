@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { capturePreferences } from '../store/reader';
 
 const SetReaderPreference = () => {

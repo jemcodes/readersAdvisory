@@ -28,6 +28,20 @@ export const showPreferences = (id) => async (dispatch) => {
     }
 }
 
+export const capturePreferences = (readerPreferences) => async (dispatch) => {
+    const response = await fetch(`/api/products/${productId}/reviews`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(setPreferences(data))
+    }
+}
+
 
 // REDUCERS 
 
@@ -51,6 +65,8 @@ export default function reader(state = initialState, action) {
                 ...state,
                 ...nextState
             }
+        case SET_PREFERENCES:
+            return { ...state, ...action.payload };
         default:
             return state;
     }

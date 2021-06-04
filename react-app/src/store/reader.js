@@ -29,12 +29,12 @@ export const showPreferences = (id) => async (dispatch) => {
 }
 
 export const capturePreferences = (readerPreferences) => async (dispatch) => {
-    const response = await fetch(`/api/products/${productId}/reviews`, {
+    const response = await fetch(`/api/readers`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(readerPreferences)
     })
     if (response.ok) {
         const data = await response.json();

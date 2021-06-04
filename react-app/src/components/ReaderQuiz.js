@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { capturePreferences } from '../store/reader';
 
 const ReaderQuiz = () => {
     const [username, setUsername] = useState("");
@@ -47,40 +47,62 @@ const ReaderQuiz = () => {
     };
 
     if (reader) {
-        return <Redirect to="/preferences" />;
+        return <Redirect to="/reader-quiz" />;
     }
 
     return (
         <form onSubmit={onQuizCompletion}>
             <div>
-                <label>Email</label>
+                <label>Please choose a username</label>
                 <input
                     type="text"
-                    name="email"
-                    onChange={updateEmail}
-                    value={email}
-                ></input>
-            </div>
-            <div>
-                <label>Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    onChange={updatePassword}
-                    value={password}
-                ></input>
-            </div>
-            <div>
-                <label>Repeat Password</label>
-                <input
-                    type="password"
-                    name="repeat_password"
-                    onChange={updateRepeatPassword}
-                    value={repeatPassword}
+                    name="username"
+                    onChange={updateUsername}
+                    value={username}
                     required={true}
                 ></input>
             </div>
-            <button type="submit">Sign Up</button>
+            <div>
+                <label>Please select which cover type you prefer</label>
+                <input
+                    type="select"
+                    name="coverChoices"
+                    onChange={updateCoverChoices}
+                    value={coverChoices}
+                    required={true}
+                ></input>
+            </div>
+            <div>
+                <label>Please list some genres you like, separated by commas</label>
+                <input
+                    type="text"
+                    name="genreChoices"
+                    onChange={updateGenreChoices}
+                    value={genreChoices}
+                    required={true}
+                ></input>
+            </div>
+            <div>
+                <label>Please list some authors you like, separated by commas</label>
+                <input
+                    type="text"
+                    name="authorChoices"
+                    onChange={updateAuthorChoices}
+                    value={authorChoices}
+                    required={true}
+                ></input>
+            </div>
+            <div>
+                <label>Please provide any additional information that might help your advisor</label>
+                <input
+                    type="text"
+                    name="otherChoices"
+                    onChange={updateOtherChoices}
+                    value={otherChoices}
+                    required={true}
+                ></input>
+            </div>
+            <button type="submit">Submit my preferences!</button>
         </form>
     );
 };

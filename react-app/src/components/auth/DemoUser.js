@@ -11,7 +11,7 @@ export default function DemoUser() {
     const onLogin = async (e) => {
         e.preventDefault();
         await dispatch(login("demo@aa.io", "password"));
-        history.push('/')
+        history.push('/preferences')
     }
 
     return (

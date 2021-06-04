@@ -12,7 +12,7 @@ import User from "./components/User";
 import { authenticate } from "./store/session";
 
 function App() {
-  const user = useSelector(state => state.session.user)
+  const reader = useSelector(state => state.session.reader)
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
@@ -40,9 +40,9 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
-        <Route path="/preferences" exact={true} >
+        <ProtectedRoute path="/preferences" exact={true} >
           <ShowPreferences />
-        </Route>
+        </ProtectedRoute>
         <ProtectedRoute path="/users" exact={true} >
           <UsersList/>
         </ProtectedRoute>

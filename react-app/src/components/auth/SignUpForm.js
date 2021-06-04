@@ -7,7 +7,7 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const user = useSelector(state => state.session.user);
+  const reader = useSelector(state => state.session.reader);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
@@ -29,7 +29,7 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  if (user) {
+  if (reader) {
     return <Redirect to="/" />;
   }
 

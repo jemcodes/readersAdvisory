@@ -7,7 +7,7 @@ import ShowPreferences from "./components/ShowPreferences";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import ReaderQuiz from "./components/ReaderQuiz";
+import SetReaderPreference from "./components/SetReaderPreference";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
@@ -42,7 +42,7 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path="/reader-quiz" exact={true} >
-          <ReaderQuiz />
+          <SetReaderPreference />
         </ProtectedRoute>
         <ProtectedRoute path="/preferences" exact={true} >
           <ShowPreferences />

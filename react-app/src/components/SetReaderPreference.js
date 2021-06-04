@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { Redirect } from 'react-router-dom';
 import { capturePreferences } from '../store/reader';
 
-const ReaderQuiz = () => {
+const SetReaderPreference = () => {
     const [user_name, setUsername] = useState("");
     const [cover_choices, setCoverChoices] = useState("");
     const [genre_choices, setGenreChoices] = useState("");
@@ -26,9 +26,8 @@ const ReaderQuiz = () => {
             other_choices,
             reader_id
         }
-
-        console.log('&&&&&&&&&&&&&&&', preferencePayload)
         await dispatch(capturePreferences(preferencePayload))
+        // return <Redirect to="/preferences" />
     };
 
     const updateUsername = (e) => {
@@ -112,4 +111,4 @@ const ReaderQuiz = () => {
     );
 };
 
-export default ReaderQuiz;
+export default SetReaderPreference;

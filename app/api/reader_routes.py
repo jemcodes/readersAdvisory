@@ -38,7 +38,8 @@ def add_reader_preferences():
             cover_choices=form.data['cover_choices'],
             genre_choices=form.data['genre_choices'],
             author_choices=form.data['author_choices'],
-            other_choices=form.data['other_choices'])
+            other_choices=form.data['other_choices'],
+            reader_id=form.data['reader_id'])
         db.session.add(new_reader_preferences)
         db.session.commit()
         return new_reader_preferences.to_dict()

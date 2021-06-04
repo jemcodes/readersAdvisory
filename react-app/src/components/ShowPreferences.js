@@ -21,8 +21,8 @@ const ShowPreferences = () => {
                 <ul>
                     <li>Username: {preferences.user_name}</li>
                     <li>Cover Preference: {preferences.cover_choices}</li>
-                    <li>Genres: {preferences.genre_choices.join(', ')}</li>
-                    <li>Authors: {preferences.author_choices.join(', ')}</li>
+                    <li>Genres: {preferences.genre_choices.split(', ').map(choice => (<p>{choice}</p>))}</li>
+                    <li>Authors: {preferences.author_choices.split(', ').map(choice => (<p>{choice}</p>))}</li>
                     <li>Notes: {preferences.other_choices}</li>
                 </ul>
             )}

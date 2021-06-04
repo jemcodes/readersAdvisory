@@ -11,7 +11,7 @@ const ReaderQuiz = () => {
     const [other_choices, setOtherChoices] = useState("");
     const dispatch = useDispatch();
     const reader = useSelector(state => state.session.reader);
-    const reader_id = reader.id
+    // const reader_id = reader.id
     // const reader = useSelector(state => state.session.reader);
     
     const onQuizCompletion = async (e) => {
@@ -27,6 +27,7 @@ const ReaderQuiz = () => {
             reader_id
         }
 
+        console.log('&&&&&&&&&&&&&&&', preferencePayload)
         await dispatch(capturePreferences(preferencePayload))
     };
 
@@ -103,15 +104,6 @@ const ReaderQuiz = () => {
                     name="other_choices"
                     onChange={updateOtherChoices}
                     value={other_choices}
-                    required={true}
-                ></input>
-            </div>
-            <div>
-                <input
-                    type="Hidden"
-                    name="reader_id"
-                    // onChange={updateOtherChoices}
-                    value={reader_id}
                     required={true}
                 ></input>
             </div>

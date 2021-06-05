@@ -25,9 +25,25 @@ def readers():
     return {"readers": [reader.to_dict() for reader in readers]}
 
 
-@reader_routes.route('/', methods=['POST'])
+@reader_routes.route('/<int:reader_id>', methods=['GET'])
 @login_required
-def add_reader_preferences():
+def reader(reader_id):
+    """Get single reader by id"""
+    reader = Reader.query.get(reader_id)
+    return reader.to_dict()
+
+
+@reader_routes.route('/<int:reader_id>/preferences', methods=['GET'])
+@login_required
+def get_reader_preferences(reader_id):
+    """Get single reader's preferences"""
+    preferences = ReaderPreference.query.get(reader_id)
+    return preferences.to_dict()
+
+
+@reader_routes.route('/<int:reader_id>/preferences', methods=['POST'])
+@login_required
+def add_reader_preferences(reader_id):
     """Post a new reader's quiz to create an account"""
     form = ReaderPreferenceForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -44,22 +60,6 @@ def add_reader_preferences():
         db.session.commit()
         return new_reader_preferences.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
-
-@reader_routes.route('/<int:reader_id>', methods=['GET'])
-@login_required
-def reader(reader_id):
-    """Get single reader by id"""
-    reader = Reader.query.get(reader_id)
-    return reader.to_dict()
-
-
-@reader_routes.route('/<int:reader_id>/preferences', methods=['GET'])
-@login_required
-def get_reader_preferences(reader_id):
-    """Get single reader's preferences"""
-    preferences = ReaderPreference.query.get(reader_id)
-    return preferences.to_dict()
 
 
 @reader_routes.route('/<int:reader_id>/preferences', methods=['PUT'])

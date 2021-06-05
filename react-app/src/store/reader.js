@@ -20,8 +20,11 @@ const removPreferences = () => ({
 })
 
 // THUNK ACTIONS
-export const showPreferences = (id) => async (dispatch) => {
-    const response = await fetch(`api/readers/${id}/preferences`);
+export const showPreferences = (readerPreferences) => async (dispatch) => {
+    const { reader_id } = readerPreferences
+        // console.log('$$$$$$$$$$$$$$$$$', reader_id)
+
+    const response = await fetch(`api/readers/${reader_id}/preferences`);
     if (response.ok) {
         const data = await response.json();
         dispatch(getPreferences(data))
@@ -29,7 +32,8 @@ export const showPreferences = (id) => async (dispatch) => {
 }
 
 export const capturePreferences = (readerPreferences) => async (dispatch) => {
-    const response = await fetch(`/api/readers/`, {
+    const { reader_id } = readerPreferences
+    const response = await fetch(`api/readers/${reader_id}/preferences`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -60,7 +64,8 @@ export default function reader(state = initialState, action) {
                     cover_choices: action.payload.cover_choices,
                     genre_choices: action.payload.genre_choices,
                     author_choices: action.payload.author_choices,
-                    other_choices: action.payload.other_choices
+                    other_choices: action.payload.other_choices,
+                    reader_id: action.payload.reader_id
                }   }
 
             return {

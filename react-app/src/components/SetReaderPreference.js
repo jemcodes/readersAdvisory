@@ -16,7 +16,6 @@ const SetReaderPreference = () => {
     
     const onQuizCompletion = async (e) => {
         e.preventDefault();
-        
         const reader_id=reader.id
         const preferencePayload = {
             user_name,
@@ -26,6 +25,7 @@ const SetReaderPreference = () => {
             other_choices,
             reader_id
         }
+        // console.log('&&&&&&&&&&&&&&&&&', reader.id)
         await dispatch(capturePreferences(preferencePayload))
         // return <Redirect to="/preferences" />
     };

@@ -5,14 +5,15 @@ import { showPreferences } from '../store/reader';
 
 const ShowPreferences = () => {
     const dispatch = useDispatch();
-    // const { readerId } = useParams()
+    const { reader_id } = useParams()
     const reader = useSelector(state => state.session.reader);
     const preferences = useSelector(state => state.reader.preferences);
     let authors;
+    // console.log('$$$$$$$$$$$$$$$$$', reader_id)
     
     useEffect(() => {
-        dispatch(showPreferences(reader.id))
-    }, [dispatch, reader.id])
+        dispatch(showPreferences(reader_id))
+    }, [dispatch, reader_id])
 
     return (
        <div>

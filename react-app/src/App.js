@@ -44,7 +44,7 @@ function App() {
         <ProtectedRoute path="/reader-quiz" exact={true} >
           <SetReaderPreference />
         </ProtectedRoute>
-        <ProtectedRoute path="/preferences" exact={true} >
+        <ProtectedRoute path="/readers/:reader_id/preferences" exact={true} >
           <ShowPreferences />
         </ProtectedRoute>
         <ProtectedRoute path="/users" exact={true} >

@@ -91,11 +91,11 @@ def delete_reader_preferences(reader_id):
     return "all good!"
 
 
-@reader_routes.route('/<int:reader_id>', methods=['DELETE'])
-@login_required
-def delete_reader_account(reader_id):
-    """Delete single reader's account"""
-    account_to_delete = Reader.query.filter(Reader.reader_id == reader_id).first()
-    db.session.delete(account_to_delete)
-    db.session.commit()
-    return "all gone!"
+# @reader_routes.route('/<int:reader_id>', methods=['DELETE'])
+# @login_required
+# def delete_reader_account(reader_id):
+#     """Delete single reader's account"""
+#     account_to_delete = Reader.query.filter(Reader.id == reader_id).first()
+#     db.session.delete(account_to_delete)
+#     db.session.commit()
+#     return "all gone!"

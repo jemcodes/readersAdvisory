@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { Redirect, useHistory, useParams } from 'react-router-dom';
-import { showPreferences, updatePreferences } from '../store/reader';
+import { showPreferences, updatePreferences, deletePreferences, deleteAccount } from '../store/reader';
 
 const UpdatePreferencesForm = () => {
     const { reader_id } = useParams();
@@ -67,6 +67,20 @@ const UpdatePreferencesForm = () => {
         history.push(`/readers/${reader_id}/preferences`)
     };
 
+    const onDeletePreferences = async () => {
+        const preferencesDeleted = await dispatch(deletePreferences(preferences))
+        if (preferencesDeleted) {
+            history.push("/reader-quiz")
+        }
+    }
+
+    // const onDeleteAccount = async () => {
+    //     const accountDeleted = await dispatch(deleteAccount(reader))
+    //     if (accountDeleted) {
+    //         history.push("/sign-up")
+    //     }
+    // }
+
     return (
         <form onSubmit={onEditCompletion}>
             <div>
@@ -120,6 +134,8 @@ const UpdatePreferencesForm = () => {
                 ></input>
             </div>
             <button type="submit">Update my preferences!</button>
+            <button type="button" onClick={onDeletePreferences}>Delete These Preferences</button>
+            {/* <button type="button" onClick={onDeleteAccount}>Delete This Account</button> */}
         </form>
     );
 };

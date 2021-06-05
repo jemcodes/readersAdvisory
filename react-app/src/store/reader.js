@@ -3,6 +3,7 @@ const SET_PREFERENCES = "readers/SET_PREFERENCES";
 const GET_PREFERENCES = "readers/GET_PREFERENCES";
 const EDIT_PREFERENCES = "readers/EDIT_PREFERENCES";
 const REMOVE_PREFERENCES = "readers/PREFERENCES";
+// const DELETE_ACCOUNT = "readers/DELETE_ACCOUNT";
 
 
 // ACTION CREATORS
@@ -21,9 +22,15 @@ const editPreferences = (editedPayload) => ({
     payload: editedPayload
 })
 
-const removPreferences = () => ({
+const removePreferences = (deletePayload) => ({
     type: REMOVE_PREFERENCES,
+    payload: deletePayload
 })
+
+// const removeAccount = (readerPayload) => ({
+//     type: DELETE_ACCOUNT,
+//     payload: readerPayload
+// })
 
 // THUNK ACTIONS
 export const showPreferences = (reader_id) => async (dispatch) => {
@@ -64,6 +71,30 @@ export const updatePreferences = (editedPayload) => async (dispatch) => {
     }
 }
 
+export const deletePreferences = (deletePayload) => async (dispatch) => {
+    const { reader_id } = deletePayload
+    const response = await fetch(`/api/readers/${reader_id}/preferences`, {
+        method: "DELETE"
+    });
+
+    if (response.ok) {
+        dispatch(removePreferences(reader_id));
+        return reader_id;
+    }
+}
+
+// export const deleteAccount = (readerPayload) => async (dispatch) => {
+//     const { reader_id } = readerPayload
+//     const response = await fetch(`/api/readers/${reader_id}`, {
+//         method: "DELETE"
+//     });
+
+//     if (response.ok) {
+//         dispatch(removeAccount(reader_id));
+//         return reader_id;
+//     }
+// }
+
 
 // REDUCERS 
 
@@ -95,6 +126,16 @@ export default function reader(state = initialState, action) {
 
         case EDIT_PREFERENCES:
             return { ...state, ...action.payload };
+
+        case REMOVE_PREFERENCES:
+            const lastState = { ...state }
+            delete lastState[action.payload]
+            return lastState
+
+        // case DELETE_ACCOUNT:
+        //     let finalState = { ...state }
+        //     delete finalState[action.payload]
+        //     return finalState
 
         default:
             return state;

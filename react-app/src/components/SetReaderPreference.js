@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { capturePreferences } from '../store/reader';
 
 const SetReaderPreference = () => {
@@ -10,6 +10,7 @@ const SetReaderPreference = () => {
     const [author_choices, setAuthorChoices] = useState("");
     const [other_choices, setOtherChoices] = useState("");
     const dispatch = useDispatch();
+    const history = useHistory();
     const reader = useSelector(state => state.session.reader);
     // const reader_id = reader.id
     // const reader = useSelector(state => state.session.reader);
@@ -28,6 +29,8 @@ const SetReaderPreference = () => {
         // console.log('&&&&&&&&&&&&&&&&&', reader.id)
         await dispatch(capturePreferences(preferencePayload))
         // return <Redirect to="/preferences" />
+        history.push(`/readers/${reader_id}/preferences`)
+
     };
 
     const updateUsername = (e) => {

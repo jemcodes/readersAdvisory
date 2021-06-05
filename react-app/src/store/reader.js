@@ -10,9 +10,9 @@ const setPreferences = (readerPreferences) => ({
     payload: readerPreferences
 });
 
-const getPreferences = (readerPreferences) => ({
+const getPreferences = (reader_id) => ({
     type: GET_PREFERENCES,
-    payload: readerPreferences
+    payload: reader_id
 })
 
 const removPreferences = () => ({
@@ -20,11 +20,8 @@ const removPreferences = () => ({
 })
 
 // THUNK ACTIONS
-export const showPreferences = (readerPreferences) => async (dispatch) => {
-    const { reader_id } = readerPreferences
-        // console.log('$$$$$$$$$$$$$$$$$', reader_id)
-
-    const response = await fetch(`api/readers/${reader_id}/preferences`);
+export const showPreferences = (reader_id) => async (dispatch) => {
+    const response = await fetch(`/api/readers/${reader_id}/preferences`);
     if (response.ok) {
         const data = await response.json();
         dispatch(getPreferences(data))
@@ -33,7 +30,7 @@ export const showPreferences = (readerPreferences) => async (dispatch) => {
 
 export const capturePreferences = (readerPreferences) => async (dispatch) => {
     const { reader_id } = readerPreferences
-    const response = await fetch(`api/readers/${reader_id}/preferences`, {
+    const response = await fetch(`/api/readers/${reader_id}/preferences`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

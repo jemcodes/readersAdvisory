@@ -37,7 +37,7 @@ def reader(reader_id):
 @login_required
 def get_reader_preferences(reader_id):
     """Get single reader's preferences"""
-    preferences = ReaderPreference.query.get(reader_id)
+    preferences = ReaderPreference.query.filter(ReaderPreference.reader_id == reader_id).first()
     return preferences.to_dict()
 
 
@@ -69,7 +69,7 @@ def edit_reader_preferences(reader_id):
     form = ReaderPreferenceForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        updated_preferences = ReaderPreference.query.get(reader_id)
+        updated_preferences = ReaderPreference.query.filter(ReaderPreference.reader_id == reader_id).first()
         updated_preferences.user_name = form.data['user_name']
         updated_preferences.cover_choices = form.data['cover_choices']
         updated_preferences.genre_choices = form.data['genre_choices']
@@ -85,7 +85,7 @@ def edit_reader_preferences(reader_id):
 @login_required
 def delete_reader_preferences(reader_id):
     """Delete single reader's preferences"""
-    preferences_to_delete = ReaderPreference.query.get(reader_id)
+    preferences_to_delete = ReaderPreference.query.filter(ReaderPreference.reader_id == reader_id).first()
     db.session.delete(preferences_to_delete)
     db.session.commit()
     return "all good!"
@@ -95,7 +95,7 @@ def delete_reader_preferences(reader_id):
 @login_required
 def delete_reader_account(reader_id):
     """Delete single reader's account"""
-    account_to_delete = Reader.query.get(reader_id)
+    account_to_delete = Reader.query.filter(Reader.reader_id == reader_id).first()
     db.session.delete(account_to_delete)
     db.session.commit()
     return "all gone!"

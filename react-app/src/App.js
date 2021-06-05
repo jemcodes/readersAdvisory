@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import AdvisorLoginForm from "./components/auth/AdvisorLoginForm";
 import ShowPreferences from "./components/ShowPreferences";
-import UpdatePreferencesForm from "./components/ShowPreferences";
+import UpdatePreferencesForm from "./components/UpdatePreferencesForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -45,11 +45,11 @@ function App() {
         <ProtectedRoute path="/reader-quiz" exact={true} >
           <CreatePreferences />
         </ProtectedRoute>
-        <ProtectedRoute path="/readers/:reader_id/preferences" exact={true} >
-          <ShowPreferences />
-        </ProtectedRoute>
         <ProtectedRoute path="/readers/:reader_id/preferences/update" exact={true} >
           <UpdatePreferencesForm />
+        </ProtectedRoute>
+        <ProtectedRoute path="/readers/:reader_id/preferences" exact={true} >
+          <ShowPreferences />
         </ProtectedRoute>
         <ProtectedRoute path="/users" exact={true} >
           <UsersList/>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { Redirect, useHistory, useParams } from 'react-router-dom';
-import { updatePreferences } from '../store/reader';
+import { showPreferences, updatePreferences } from '../store/reader';
 
 const UpdatePreferencesForm = () => {
     const { reader_id } = useParams();
@@ -38,19 +38,23 @@ const UpdatePreferencesForm = () => {
     };
 
     useEffect(() => {
+        dispatch(showPreferences(reader_id))
+    }, [dispatch, reader_id])
+
+    useEffect(() => {
         if (preferences) {
             setUsername(preferences.user_name)
-            setCoverChoices(preferences.setCoverChoices)
-            setGenreChoices(preferences.setGenreChoices)
-            setAuthorChoices(preferences.setAuthorChoices)
-            setOtherChoices(preferences.setOtherChoices)
+            setCoverChoices(preferences.cover_choices)
+            setGenreChoices(preferences.genre_choices)
+            setAuthorChoices(preferences.author_choices)
+            setOtherChoices(preferences.other_choices)
         }
     }, [preferences])
 
 
     const onEditCompletion = async (e) => {
         e.preventDefault();
-        const reader_id = reader.reader_id
+        const reader_id = reader.id
         const editedPayload = {
             user_name,
             cover_choices,

@@ -28,7 +28,6 @@ const SetReaderPreference = () => {
         }
         // console.log('&&&&&&&&&&&&&&&&&', reader.id)
         await dispatch(capturePreferences(preferencePayload))
-        // return <Redirect to="/preferences" />
         history.push(`/readers/${reader_id}/preferences`)
 
     };

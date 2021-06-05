@@ -27,7 +27,7 @@ const LoginForm = () => {
   };
 
   if (reader) {
-    return <Redirect to="/preferences" />;
+    return <Redirect to={`/readers/${reader.id}/preferences`} />;
   }
 
   return (

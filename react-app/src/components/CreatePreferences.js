@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from 'react-router-dom';
 import { capturePreferences } from '../store/reader';
 
-const SetReaderPreference = () => {
+const CreatePreferences = () => {
     const [user_name, setUsername] = useState("");
     const [cover_choices, setCoverChoices] = useState("");
     const [genre_choices, setGenreChoices] = useState("");
@@ -113,4 +113,4 @@ const SetReaderPreference = () => {
     );
 };
 
-export default SetReaderPreference;
+export default CreatePreferences;

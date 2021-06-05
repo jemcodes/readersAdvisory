@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import { showPreferences } from '../store/reader';
+// import UpdatePreferencesForm from './UpdatePreferencesForm';
 
 const ShowPreferences = () => {
     const dispatch = useDispatch();
@@ -26,6 +27,11 @@ const ShowPreferences = () => {
                     <li>Notes: {preferences.other_choices}</li>
                 </ul>
             )}
+            <NavLink to={`/readers/${reader_id}/preferences/update`}>
+                <button type="button">
+                    Update Preferences
+                </button>
+            </NavLink>
        </div>
     );
 };

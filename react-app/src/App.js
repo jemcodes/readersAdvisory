@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import AdvisorLoginForm from "./components/auth/AdvisorLoginForm";
 import ShowPreferences from "./components/ShowPreferences";
+import UpdatePreferencesForm from "./components/ShowPreferences";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import SetReaderPreference from "./components/SetReaderPreference";
+import CreatePreferences from "./components/CreatePreferences";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
@@ -42,10 +43,13 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path="/reader-quiz" exact={true} >
-          <SetReaderPreference />
+          <CreatePreferences />
         </ProtectedRoute>
         <ProtectedRoute path="/readers/:reader_id/preferences" exact={true} >
           <ShowPreferences />
+        </ProtectedRoute>
+        <ProtectedRoute path="/readers/:reader_id/preferences/update" exact={true} >
+          <UpdatePreferencesForm />
         </ProtectedRoute>
         <ProtectedRoute path="/users" exact={true} >
           <UsersList/>

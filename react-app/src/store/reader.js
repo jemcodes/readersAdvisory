@@ -1,6 +1,7 @@
 // ACTIONS
 const SET_PREFERENCES = "readers/SET_PREFERENCES";
 const GET_PREFERENCES = "readers/GET_PREFERENCES";
+const EDIT_PREFERENCES = "readers/EDIT_PREFERENCES";
 const REMOVE_PREFERENCES = "readers/PREFERENCES";
 
 
@@ -13,6 +14,11 @@ const setPreferences = (readerPreferences) => ({
 const getPreferences = (reader_id) => ({
     type: GET_PREFERENCES,
     payload: reader_id
+})
+
+const editPreferences = (editedPayload) => ({
+    type: EDIT_PREFERENCES,
+    payload: editedPayload
 })
 
 const removPreferences = () => ({
@@ -40,6 +46,21 @@ export const capturePreferences = (readerPreferences) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(setPreferences(data))
+    }
+}
+
+export const updatePreferences = (editedPayload) => async (dispatch) => {
+    const { reader_id } = editedPayload
+    const response = await fetch(`/api/readers/${reader_id}/preferences`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(editedPayload)
+    })
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(editPreferences(data))
     }
 }
 
@@ -71,6 +92,10 @@ export default function reader(state = initialState, action) {
             }
         case SET_PREFERENCES:
             return { ...state, ...action.payload };
+
+        case EDIT_PREFERENCES:
+            return { ...state, ...action.payload };
+
         default:
             return state;
     }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from 'react-router-dom';
 import { capturePreferences } from '../store/reader';
+import Footer from './Footer';
 
 const CreatePreferences = () => {
     const [user_name, setUsername] = useState("");
@@ -109,6 +110,9 @@ const CreatePreferences = () => {
                 ></input>
             </div>
             <button type="submit">Submit my preferences!</button>
+            <div>
+                <Footer />
+            </div>
         </form>
     );
 };

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import Footer from '../Footer';
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -64,6 +65,9 @@ const SignUpForm = () => {
         ></input>
       </div>
       <button type="submit">Sign Up</button>
+      <div>
+        <Footer />
+      </div>
     </form>
   );
 };

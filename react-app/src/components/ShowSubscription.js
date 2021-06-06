@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { useParams, NavLink } from 'react-router-dom';
 import { showSubscription } from '../store/subscription';
+import Footer from '../components/Footer';
 // import UpdatePreferencesForm from './UpdatePreferencesForm';
 
 const ShowPreferences = () => {
@@ -35,6 +36,9 @@ const ShowPreferences = () => {
                     Update Subscription
                 </button>
             </NavLink>
+            <div>
+                <Footer />
+            </div>
         </div>
     );
 };

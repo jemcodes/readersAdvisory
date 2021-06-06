@@ -9,13 +9,14 @@ const ShowPreferences = () => {
     const dispatch = useDispatch();
     const { reader_id } = useParams()
     const reader = useSelector(state => state.session.reader);
-    const subscription = useSelector(state => state.subscription);
-    // console.log('$$$$$$$$$$ THIS IS A SUBSCRIPTION', subscription)
     let authors;
-
+    
     useEffect(() => {
         dispatch(showSubscription(reader_id))
     }, [dispatch, reader_id])
+    
+    const subscription = useSelector(state => state.subscription.subscription);
+    // console.log('$$$$$$$$$$ THIS IS A SUBSCRIPTION', subscription[subscription])
 
     return (
         <div>

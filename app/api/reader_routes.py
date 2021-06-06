@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, Reader, ReaderPreference
+from app.models import db, Reader, ReaderPreference, ReaderSubscription
 from app.forms.preference_form import ReaderPreferenceForm
+from app.forms.subscription_form import SubscriptionForm
 
 reader_routes = Blueprint('readers', __name__)
 
@@ -16,6 +17,8 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f"{field} : {error}")
     return errorMessages
 
+
+"""---------- Access Readers ----------"""
 
 @reader_routes.route('/', methods=['GET'])
 @login_required
@@ -32,6 +35,8 @@ def reader(reader_id):
     reader = Reader.query.get(reader_id)
     return reader.to_dict()
 
+
+"""---------- Reader Preferences ----------"""
 
 @reader_routes.route('/<int:reader_id>/preferences', methods=['GET'])
 @login_required
@@ -90,6 +95,45 @@ def delete_reader_preferences(reader_id):
     db.session.commit()
     return "all good!"
 
+
+"""---------- Reader Subscription ----------"""
+@reader_routes.route('/<int:reader_id>/subscriptions', methods=['GET'])
+@login_required
+def subscription_status(reader_id):
+    """See a single reader's subscription status"""
+    subscription = ReaderSubscription.query.filter(ReaderSubscription.reader_id == reader_id).first()
+    return subscription.to_dict()
+
+
+@reader_routes.route('/<int:reader_id>/subscriptions', methods=['POST'])
+@login_required
+def add_subscription(reader_id):
+    """Add a subscription for a single reader"""
+    form = SubscriptionForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        new_subscription = SubscriptionForm(
+            subscription = form.data['subscription'],
+            payment = form.data['payment'],
+            reader_id = form.data['reader_id']
+        )
+        db.session.add(new_subscription)
+        db.session.commit()
+        return new_subscription.to_dict()
+    return "thanks for subscribing!"
+
+
+@reader_routes.route('/<int:reader_id>/subscriptions', methods=['DELETE'])
+@login_required
+def delete_from_cart(reader_id):
+    """Delete a subscription from a single reader"""
+    subscription_to_delete = ReaderSubscription.query.filter(ReaderSubscription.reader_id == reader_id).first()
+    db.session.delete(subscription_to_delete)
+    db.session.commit()
+    return 'subscription deleted!'
+
+
+"""---------- Reader Account Deletion ----------"""
 
 # @reader_routes.route('/<int:reader_id>', methods=['DELETE'])
 # @login_required

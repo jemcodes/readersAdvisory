@@ -32,6 +32,11 @@ const ShowPreferences = () => {
                     Update Preferences
                 </button>
             </NavLink>
+            <NavLink to={`/readers/${reader_id}/subscription`}>
+                <button type="button">
+                    View My Subscription
+                </button>
+            </NavLink>
        </div>
     );
 };

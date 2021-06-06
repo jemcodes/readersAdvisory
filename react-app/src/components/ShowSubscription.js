@@ -1,0 +1,42 @@
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux"
+import { useParams, NavLink } from 'react-router-dom';
+import { showSubscription } from '../store/subscription';
+// import UpdatePreferencesForm from './UpdatePreferencesForm';
+
+const ShowPreferences = () => {
+    const dispatch = useDispatch();
+    const { reader_id } = useParams()
+    const reader = useSelector(state => state.session.reader);
+    const subscription = useSelector(state => state.subscription);
+    // console.log('$$$$$$$$$$ THIS IS A SUBSCRIPTION', subscription)
+    let authors;
+
+    useEffect(() => {
+        dispatch(showSubscription(reader_id))
+    }, [dispatch, reader_id])
+
+    return (
+        <div>
+            <h2>Subscription</h2>
+            {subscription && (
+                <ul>
+                    <li>Subscription Type: {subscription[subscription.subscription]}</li>
+                    <li>Payment Method: {subscription[subscription.payment]}</li>
+                </ul>
+            )}
+            <NavLink to={`/readers/${reader_id}/subscription/new`}>
+                <button type="button">
+                    Start New Subscription
+                </button>
+            </NavLink>
+            <NavLink to={`/readers/${reader_id}/subscription/update`}>
+                <button type="button">
+                    Update Subscription
+                </button>
+            </NavLink>
+        </div>
+    );
+};
+
+export default ShowPreferences;

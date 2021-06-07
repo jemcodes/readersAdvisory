@@ -9,17 +9,17 @@ const UpdateSubscriptionForm = () => {
     const reader = useSelector(state => state.session.reader);
     const subscription = useSelector(state => state.subscription);
 
-    const [subscription_type, setSubscription] = useState('');
-    const [payment_method, setPayment] = useState('');
+    const [subscription_type, setSubscriptionType] = useState('');
+    const [payment_method, setPaymentMethod] = useState('');
     const dispatch = useDispatch();
     const history = useHistory();
 
     const updateSubscriptionType = (e) => {
-        setSubscription(e.target.value);
+        setSubscriptionType(e.target.value);
     };
 
     const updatePayment = (e) => {
-        setPayment(e.target.value);
+        setPaymentMethod(e.target.value);
     };
 
     useEffect(() => {
@@ -28,8 +28,8 @@ const UpdateSubscriptionForm = () => {
 
     useEffect(() => {
         if (subscription) {
-            setSubscription(subscription.subscription_type)
-            setPayment(subscription.payment_method)
+            setSubscriptionType(subscription.subscription_type)
+            setPaymentMethod(subscription.payment_method)
         }
     }, [subscription])
 

@@ -123,6 +123,22 @@ def add_subscription(reader_id):
     return "thanks for subscribing!"
 
 
+@reader_routes.route('/<int:reader_id>/subscriptions', methods=['PUT'])
+@login_required
+def edit_reader_subscription(reader_id):
+    """Update single reader's preferences"""
+    form = SubscriptionForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        updated_subscription = ReaderSubscription.query.filter(ReaderSubscription.reader_id == reader_id).first()
+        updated_subscription.subscription = form.data['subscription']
+        updated_subscription.payment = form.data['payment']
+        db.session.add(updated_subscription)
+        db.session.commit()
+        return updated_subscription.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
 @reader_routes.route('/<int:reader_id>/subscriptions', methods=['DELETE'])
 @login_required
 def delete_from_cart(reader_id):

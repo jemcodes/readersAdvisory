@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { showPreferences, updatePreferences, deletePreferences, deleteAccount } from '../store/reader';
+import './styles/update-preferences.css';
 
 const UpdatePreferencesForm = () => {
     const { reader_id } = useParams();
@@ -82,61 +83,65 @@ const UpdatePreferencesForm = () => {
     // }
 
     return (
-        <form onSubmit={onEditCompletion}>
-            <div>
-                <label>Please choose a username</label>
-                <input
-                    type="text"
-                    name="user_name"
-                    onChange={updateUsername}
-                    value={user_name}
-                    required={true}
-                ></input>
-            </div>
-            <div>
-                <label>Please select which cover type you prefer</label>
-                <input
-                    type="text"
-                    name="cover_choices"
-                    onChange={updateCoverChoices}
-                    value={cover_choices}
-                    required={true}
-                ></input>
-            </div>
-            <div>
-                <label>Please list some genres you like, separated by commas</label>
-                <textarea
-                    // type="text"
-                    name="genre_choices"
-                    onChange={updateGenreChoices}
-                    value={genre_choices}
-                    required={true}
-                />
-            </div>
-            <div>
-                <label>Please list some authors you like, separated by commas</label>
-                <textarea
-                    // type="text"
-                    name="author_choices"
-                    onChange={updateAuthorChoices}
-                    value={author_choices}
-                    required={true}
-                />
-            </div>
-            <div>
-                <label>Please provide any additional information that might help your advisor</label>
-                <input
-                    type="text"
-                    name="other_choices"
-                    onChange={updateOtherChoices}
-                    value={other_choices}
-                    required={true}
-                ></input>
-            </div>
-            <button type="submit">Update my preferences!</button>
-            <button type="button" onClick={onDeletePreferences}>Delete These Preferences</button>
-            {/* <button type="button" onClick={onDeleteAccount}>Delete This Account</button> */}
-        </form>
+        <div id="update-preferences-container">
+            <form id="update-preferences-contents" onSubmit={onEditCompletion}>
+                <h3 id="update-preferences-header">Update Preferences</h3>
+                <div className="update-preference-list-div">
+                    <label className="update-preference-list-items">Please choose a username</label>
+                    <input className="update-preference-inputs"
+                        type="text"
+                        name="user_name"
+                        onChange={updateUsername}
+                        value={user_name}
+                        required={true}
+                    ></input>
+                </div>
+                <div className="update-preference-list-div">
+                    <label className="update-preference-list-items">Please select which cover type you prefer</label>
+                    <input className="update-preference-inputs"
+                        type="text"
+                        name="cover_choices"
+                        onChange={updateCoverChoices}
+                        value={cover_choices}
+                        required={true}
+                    ></input>
+                </div>
+                <div className="update-preference-list-div">
+                    <label className="update-preference-list-items">Please list some genres you like, separated by commas</label>
+                    <textarea className="update-preference-text"
+                        // type="text"
+                        name="genre_choices"
+                        onChange={updateGenreChoices}
+                        value={genre_choices}
+                        required={true}
+                    />
+                </div>
+                <div className="update-preference-list-div">
+                    <label className="update-preference-list-items">Please list some authors you like, separated by commas</label>
+                    <textarea className="update-preference-text"
+                        // type="text"
+                        name="author_choices"
+                        onChange={updateAuthorChoices}
+                        value={author_choices}
+                        required={true}
+                    />
+                </div>
+                <div className="update-preference-list-div">
+                    <label className="update-preference-list-items">Please provide any additional information that might help your advisor</label>
+                    <textarea className="update-preference-text"
+                        name="other_choices"
+                        onChange={updateOtherChoices}
+                        value={other_choices}
+                        required={true}
+                    />
+                </div>
+                <div id="update-preferences-btns">
+                <button id="update-preferences-btn" type="submit">Update my preferences!</button>
+                    <button id="delete-preferences-btn" type="button" onClick={onDeletePreferences}>Delete These Preferences</button>
+                {/* <button type="button" onClick={onDeleteAccount}>Delete This Account</button> */}
+                </div>
+            </form>
+        </div>
     );
 };
 

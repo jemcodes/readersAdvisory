@@ -6,6 +6,7 @@ const REMOVE_PREFERENCES = "readers/PREFERENCES";
 // const DELETE_ACCOUNT = "readers/DELETE_ACCOUNT";
 
 
+
 // ACTION CREATORS
 const setPreferences = (readerPreferences) => ({
     type: SET_PREFERENCES,
@@ -26,6 +27,7 @@ const removePreferences = (deletePayload) => ({
     type: REMOVE_PREFERENCES,
     payload: deletePayload
 })
+
 
 // const removeAccount = (readerPayload) => ({
 //     type: DELETE_ACCOUNT,

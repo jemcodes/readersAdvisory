@@ -3,6 +3,7 @@ import { login } from "../../store/session";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 
+
 export default function DemoUser() {
     const reader = useSelector(state => state.session.reader);
     const dispatch = useDispatch();
@@ -16,7 +17,7 @@ export default function DemoUser() {
 
     return (
         <form onSubmit={onLogin}>
-            <button type="submit">DemoUser</button>
+            <button className="nav-bar-buttons" type="submit">DemoUser</button>
         </form>
     );
 }

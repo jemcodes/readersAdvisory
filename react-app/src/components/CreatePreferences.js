@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { capturePreferences } from '../store/reader';
 import Footer from './Footer';
 

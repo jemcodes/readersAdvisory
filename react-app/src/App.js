@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import AdvisorLoginForm from "./components/auth/AdvisorLoginForm";
 import ShowPreferences from "./components/ShowPreferences";
@@ -17,7 +17,7 @@ import User from "./components/User";
 import { authenticate } from "./store/session";
 
 function App() {
-  const reader = useSelector(state => state.session.reader)
+  // const reader = useSelector(state => state.session.reader)
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
-  }, []);
+  }, [dispatch]);
 
   if (!loaded) {
     return null;

@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
 import Footer from "../Footer";
+import '../styles/login-form.css';
+
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -32,37 +34,44 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error) => (
-          <div>{error}</div>
-        ))}
+    <div>
+      <form onSubmit={onLogin}>
+        <div>
+          {errors.map((error) => (
+            <div>{error}</div>
+          ))}
+        </div>
+        <div id="login-container">
+          <div id="login-email">
+            <label htmlFor="email"></label>
+            <input className="login-input"
+              name="email"
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          <div id="login-password">
+            <label htmlFor="password"></label>
+            <input className="login-input"
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={updatePassword}
+            />
+            <button id="login-button" type="submit">Reader Login</button>
+          </div>
+        </div>
+        <div>
+          <Footer />
+        </div>
+      </form>
+      <div id="login-page-greeting">
+        <h1>Welcome back, <br></br>reader friend!</h1>
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          name="email"
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={updateEmail}
-        />
       </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type="submit">Reader Login</button>
-      </div>
-      <div>
-        <Footer />
-      </div>
-    </form>
   );
 };
 

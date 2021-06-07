@@ -1,16 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat&family=Sofia&display=swap');
-/* font-family: 'Merriweather', serif;
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Montserrat&family=Sofia&display=swap');
+/* font-family: 'Libre Baskerville', serif;
 font-family: 'Montserrat', sans-serif;
 font-family: 'Sofia', cursive; */
 
 #preferences-container {
+    border: 2px solid red;
     height: 100vh;
     margin-top: -5rem;
+    margin-bottom: -1rem;
     padding-bottom: 5rem;
     background-color: #F6F1F6;
     display: flex;
+    justify-content: center;
 }
 
 #preferences-contents {
-    margin: 100px 1rem 0 1rem;
+    border: 2px solid blue;
+    margin: 250px 0 0 0;
+}
+
+#preferences-header {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+}
+
+.preference-list-div {
+    display: flex;
+    flex-direction: row;
+}
+
+.preference-list-items {
+    list-style: none;
+    font-family: 'Libre Baskerville', serif;
+    /* font-weight: 700; */
+}
+
+.preference-list-contents {
+    font-family: 'Montserrat', sans-serif;
 }

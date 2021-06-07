@@ -1,9 +1,9 @@
 import React from "react";
-// import './Footer.css';
+import "./styles/footer.css"
 
 function Footer() {
     return (
-        <footer>
+        <footer id="footer-bar">
             <ul className="oh-hai-it-me">
                 <li>written with joy by jane martin &copy; 2021  &zwnj; 📚happy reading!📚</li>
             </ul>

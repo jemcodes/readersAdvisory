@@ -64,12 +64,12 @@ const LoginForm = () => {
             <button id="login-button" type="submit">Reader Login</button>
           </div>
         </div>
-        <div>
-          <Footer />
-        </div>
       </form>
       <div id="login-page-greeting">
         <h1>Welcome back, <br></br>reader friend!</h1>
+      </div>
+      <div>
+        <Footer />
       </div>
       </div>
   );

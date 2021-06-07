@@ -7,19 +7,19 @@ const UpdateSubscriptionForm = () => {
     const { reader_id } = useParams();
 
     const reader = useSelector(state => state.session.reader);
-    const reader_subscription = useSelector(state => state.subscription);
+    const subscription = useSelector(state => state.subscription);
 
-    const [subscription, setSubscription] = useState('');
-    const [payment, setPayment] = useState('');
+    const [subscription_type, setSubscriptionType] = useState('');
+    const [payment_method, setPaymentMethod] = useState('');
     const dispatch = useDispatch();
     const history = useHistory();
 
     const updateSubscriptionType = (e) => {
-        setSubscription(e.target.value);
+        setSubscriptionType(e.target.value);
     };
 
     const updatePayment = (e) => {
-        setPayment(e.target.value);
+        setPaymentMethod(e.target.value);
     };
 
     useEffect(() => {
@@ -28,8 +28,8 @@ const UpdateSubscriptionForm = () => {
 
     useEffect(() => {
         if (subscription) {
-            setSubscription(subscription.subscription)
-            setPayment(subscription.payment)
+            setSubscriptionType(subscription.subscription_type)
+            setPaymentMethod(subscription.payment_method)
         }
     }, [subscription])
 
@@ -38,8 +38,8 @@ const UpdateSubscriptionForm = () => {
         e.preventDefault();
         const reader_id = reader.id
         const editedSubscription = {
-            subscription,
-            payment,
+            subscription_type,
+            payment_method,
             reader_id
         }
         await dispatch(updateSubscription(editedSubscription))
@@ -62,7 +62,7 @@ const UpdateSubscriptionForm = () => {
                     type="text"
                     name="subscription"
                     onChange={updateSubscriptionType}
-                    value={subscription}
+                    value={subscription_type}
                      // required={true}
                 ></input>
             </div>
@@ -72,7 +72,7 @@ const UpdateSubscriptionForm = () => {
                     type="text"
                     name="payment"
                     onChange={updatePayment}
-                    value={payment}
+                    value={payment_method}
                     // required={true}
                 ></input>
             </div>

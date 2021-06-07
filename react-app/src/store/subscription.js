@@ -80,8 +80,9 @@ export const deleteSubscription = (subscriptionPayload) => async (dispatch) => {
 // REDUCERS 
 
 const initialState = {
-    list: [],
-    subscription: undefined
+    subscription_type: undefined,
+    payment_method: undefined,
+    reader_id: undefined
 };
 
 export default function subscription(state = initialState, action) {
@@ -89,11 +90,9 @@ export default function subscription(state = initialState, action) {
     switch (action.type) {
         case GET_SUBSCRIPTION:
             nextState = {
-                subscription: {
-                    subscription: action.payload.subscription,
-                    payment: action.payload.payment,
-                    reader_id: action.payload.reader_id
-                }
+                subscription_type: action.payload.subscription_type,
+                payment_method: action.payload.payment_method,
+                reader_id: action.payload.reader_id
             }
 
             return {

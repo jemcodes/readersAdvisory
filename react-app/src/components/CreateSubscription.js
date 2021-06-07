@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { captureSubscription } from '../store/subscription';
 
 const CreateSubscription = () => {
-    const [subscription, setSubscription] = useState("");
-    const [payment, setPayment] = useState("");
+    const [subscription_type, setSubscriptionType] = useState("");
+    const [payment_method, setPaymentMethod] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
     const reader = useSelector(state => state.session.reader);
@@ -16,8 +16,8 @@ const CreateSubscription = () => {
         e.preventDefault();
         const reader_id = reader.id
         const subscriptionPayload = {
-            subscription,
-            payment,
+            subscription_type,
+            payment_method,
             reader_id
         }
         await dispatch(captureSubscription(subscriptionPayload))
@@ -26,11 +26,11 @@ const CreateSubscription = () => {
     };
 
     const updateSubscriptionType = (e) => {
-        setSubscription(e.target.value);
+        setSubscriptionType(e.target.value);
     };
 
     const updatePayment = (e) => {
-        setPayment(e.target.value);
+        setPaymentMethod(e.target.value);
     };
 
     // if (reader) {
@@ -45,7 +45,7 @@ const CreateSubscription = () => {
                     type="text"
                     name="subscription"
                     onChange={updateSubscriptionType}
-                    value={subscription}
+                    value={subscription_type}
                      // required={true}
                 ></input>
             </div>
@@ -55,7 +55,7 @@ const CreateSubscription = () => {
                     type="text"
                     name="payment"
                     onChange={updatePayment}
-                    value={payment}
+                    value={payment_method}
                     // required={true}
                 ></input>
             </div>

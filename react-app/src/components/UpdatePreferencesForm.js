@@ -1,34 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-// import { Redirect } from 'react-router-dom';
-import { capturePreferences } from '../store/reader';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
+import { showPreferences, updatePreferences, deletePreferences, deleteAccount } from '../store/reader';
 
-const SetReaderPreference = () => {
-    const [user_name, setUsername] = useState("");
-    const [cover_choices, setCoverChoices] = useState("");
-    const [genre_choices, setGenreChoices] = useState("");
-    const [author_choices, setAuthorChoices] = useState("");
-    const [other_choices, setOtherChoices] = useState("");
-    const dispatch = useDispatch();
+const UpdatePreferencesForm = () => {
+    const { reader_id } = useParams();
+
     const reader = useSelector(state => state.session.reader);
-    // const reader_id = reader.id
-    // const reader = useSelector(state => state.session.reader);
-    
-    const onQuizCompletion = async (e) => {
-        e.preventDefault();
-        
-        const reader_id=reader.id
-        const preferencePayload = {
-            user_name,
-            cover_choices,
-            genre_choices,
-            author_choices,
-            other_choices,
-            reader_id
-        }
-        await dispatch(capturePreferences(preferencePayload))
-        // return <Redirect to="/preferences" />
-    };
+    const preferences = useSelector(state => state.reader.preferences);
+
+    const [user_name, setUsername] = useState('');
+    const [cover_choices, setCoverChoices] = useState('');
+    const [genre_choices, setGenreChoices] = useState('');
+    const [author_choices, setAuthorChoices] = useState('');
+    const [other_choices, setOtherChoices] = useState('');
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     const updateUsername = (e) => {
         setUsername(e.target.value);
@@ -50,12 +37,52 @@ const SetReaderPreference = () => {
         setOtherChoices(e.target.value);
     };
 
-    // if (reader) {
-    //     return <Redirect to="/reader-quiz" />;
+    useEffect(() => {
+        dispatch(showPreferences(reader_id))
+    }, [dispatch, reader_id])
+
+    useEffect(() => {
+        if (preferences) {
+            setUsername(preferences.user_name)
+            setCoverChoices(preferences.cover_choices)
+            setGenreChoices(preferences.genre_choices)
+            setAuthorChoices(preferences.author_choices)
+            setOtherChoices(preferences.other_choices)
+        }
+    }, [preferences])
+
+
+    const onEditCompletion = async (e) => {
+        e.preventDefault();
+        const reader_id = reader.id
+        const editedPayload = {
+            user_name,
+            cover_choices,
+            genre_choices,
+            author_choices,
+            other_choices,
+            reader_id
+        }
+        await dispatch(updatePreferences(editedPayload))
+        history.push(`/readers/${reader_id}/preferences`)
+    };
+
+    const onDeletePreferences = async () => {
+        const preferencesDeleted = await dispatch(deletePreferences(preferences))
+        if (preferencesDeleted) {
+            history.push("/reader-quiz")
+        }
+    }
+
+    // const onDeleteAccount = async () => {
+    //     const accountDeleted = await dispatch(deleteAccount(reader))
+    //     if (accountDeleted) {
+    //         history.push("/sign-up")
+    //     }
     // }
 
     return (
-        <form onSubmit={onQuizCompletion}>
+        <form onSubmit={onEditCompletion}>
             <div>
                 <label>Please choose a username</label>
                 <input
@@ -106,9 +133,11 @@ const SetReaderPreference = () => {
                     required={true}
                 ></input>
             </div>
-            <button type="submit">Submit my preferences!</button>
+            <button type="submit">Update my preferences!</button>
+            <button type="button" onClick={onDeletePreferences}>Delete These Preferences</button>
+            {/* <button type="button" onClick={onDeleteAccount}>Delete This Account</button> */}
         </form>
     );
 };
 
-export default SetReaderPreference;
+export default UpdatePreferencesForm;

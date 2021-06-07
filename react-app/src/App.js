@@ -4,10 +4,14 @@ import { useDispatch } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import AdvisorLoginForm from "./components/auth/AdvisorLoginForm";
 import ShowPreferences from "./components/ShowPreferences";
+import UpdatePreferencesForm from "./components/UpdatePreferencesForm";
+import UpdateSubscriptionForm from "./components/UpdateSubscriptionForm"
+import ShowSubscription from"./components/ShowSubscription";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import SetReaderPreference from "./components/SetReaderPreference";
+import CreatePreferences from "./components/CreatePreferences";
+import CreateSubscription from "./components/CreateSubscription";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
@@ -42,9 +46,21 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path="/reader-quiz" exact={true} >
-          <SetReaderPreference />
+          <CreatePreferences />
         </ProtectedRoute>
-        <ProtectedRoute path="/preferences" exact={true} >
+        <ProtectedRoute path="/readers/:reader_id/subscription/new" exact={true} >
+          <CreateSubscription />
+        </ProtectedRoute>
+        <ProtectedRoute path="/readers/:reader_id/subscription/update" exact={true} >
+          <UpdateSubscriptionForm />
+        </ProtectedRoute>
+        <ProtectedRoute path="/readers/:reader_id/subscription" exact={true} >
+          <ShowSubscription />
+        </ProtectedRoute>
+        <ProtectedRoute path="/readers/:reader_id/preferences/update" exact={true} >
+          <UpdatePreferencesForm />
+        </ProtectedRoute>
+        <ProtectedRoute path="/readers/:reader_id/preferences" exact={true} >
           <ShowPreferences />
         </ProtectedRoute>
         <ProtectedRoute path="/users" exact={true} >

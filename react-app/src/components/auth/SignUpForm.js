@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import Footer from '../Footer';
 import '../styles/signup-form.css';
 
 const SignUpForm = () => {
@@ -71,11 +72,14 @@ const SignUpForm = () => {
         <button id="signup-button" type="submit">Sign Up</button>
         </div>
         </div>
+        <div>
+          <Footer />
+        </div>
       </form>
       <div id="signup-page-greeting">
         <h1>Discover a new reading <br></br>experience</h1>
       </div>
-    </div>
+      </div>
   );
 };
 

@@ -1,20 +1,24 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
+import { useParams, NavLink } from 'react-router-dom';
+import Footer from './Footer';
 import { showPreferences } from '../store/reader';
 import './styles/show-preferences.css';
+// import UpdatePreferencesForm from './UpdatePreferencesForm';
 
 const ShowPreferences = () => {
     const dispatch = useDispatch();
-    // const { readerId } = useParams()
+    const { reader_id } = useParams()
     const reader = useSelector(state => state.session.reader);
     const preferences = useSelector(state => state.reader.preferences);
     // let authors;
     
     useEffect(() => {
-        dispatch(showPreferences(reader.id))
-    }, [dispatch, reader.id])
+        dispatch(showPreferences(reader_id))
+    }, [dispatch, reader_id])
 
     return (
+
        <div id="preferences-container">
            <div id="preferences-contents">
             <h3 id="preferences-header">Reader Preferences</h3>
@@ -37,6 +41,19 @@ const ShowPreferences = () => {
                         </div>
                     </ul>
                 )}
+                <NavLink to={`/readers/${reader_id}/preferences/update`}>
+                    <button type="button">
+                        Update Preferences
+                    </button>
+                </NavLink>
+                <NavLink to={`/readers/${reader_id}/subscription`}>
+                    <button type="button">
+                        View My Subscription
+                    </button>
+                </NavLink>
+                <div>
+                    <Footer />
+                </div>
             </div>
        </div>
     );

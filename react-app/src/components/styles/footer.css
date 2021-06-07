@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Montserrat&family=Sofia&display=swap');
+/* font-family: 'Libre Baskerville', serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Sofia', cursive; */
+
+#footer-bar {
+    background-color: black;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    position: fixed;
+    margin-top: 338px;
+}
+
+.oh-hai-it-me {
+    list-style: none;
+    text-align: center;
+}
+
+.footer-links {
+    list-style: none;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-links a {
+    color: white;
+    padding: 0 1rem 0 1rem;
+}

@@ -30,7 +30,7 @@ const ShowPreferences = () => {
                         <li className="subscription-list-items">Payment Method: {subscription.payment_method}</li>
                     </ul>
                     <NavLink to={`/readers/${reader_id}/subscription/update`}>
-                    <button type="button">
+                            <button id="update-subscription-btn" type="button">
                             Update Subscription
                     </button>
                     </NavLink>
@@ -39,7 +39,7 @@ const ShowPreferences = () => {
             <div className="subscription-list-div">
                     <h1>Start a new subscription!</h1>
                     <NavLink to={`/readers/${reader_id}/subscription/new`}>
-                        <button type="button">
+                                <button id="start-subscription-btn" type="button">
                             Start New Subscription
                         </button>
                     </NavLink>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from 'react-router-dom';
 import { captureSubscription } from '../store/subscription';
+import './styles/create-subscription.css';
 
 const CreateSubscription = () => {
     const [subscription_type, setSubscriptionType] = useState("");
@@ -38,29 +39,32 @@ const CreateSubscription = () => {
     // }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Please enter a subscription type</label>
-                <input
-                    type="text"
-                    name="subscription"
-                    onChange={updateSubscriptionType}
-                    value={subscription_type}
-                     // required={true}
-                ></input>
-            </div>
-            <div>
-               <label>Please enter a payment method</label>
-                <input
-                    type="text"
-                    name="payment"
-                    onChange={updatePayment}
-                    value={payment_method}
-                    // required={true}
-                ></input>
-            </div>
-            <button type="submit">Start my subscription!</button>
-        </form>
+        <div id="create-subscription-container">
+            <form id="create-subscription-contents" onSubmit={handleSubmit}>
+                <h3 id="create-subscription-header">Build Your Subscription</h3>
+                <div className="create-subscription-div">
+                    <label className="create-subscription-items">Please enter a subscription type</label>
+                    <input className="create-subscription-inputs"
+                        type="text"
+                        name="subscription"
+                        onChange={updateSubscriptionType}
+                        value={subscription_type}
+                        // required={true}
+                    ></input>
+                </div>
+                <div className="create-subscription-div">
+                    <label className="create-subscription-items">Please enter a payment method</label>
+                    <input className="create-subscription-inputs"
+                        type="text"
+                        name="payment"
+                        onChange={updatePayment}
+                        value={payment_method}
+                        // required={true}
+                    ></input>
+                </div>
+                <button id="create-subscription-btn" type="submit">Start my subscription!</button>
+            </form>
+        </div>
     );
 };
 

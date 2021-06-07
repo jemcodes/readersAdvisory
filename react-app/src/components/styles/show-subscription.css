@@ -3,7 +3,7 @@
 font-family: 'Montserrat', sans-serif;
 font-family: 'Sofia', cursive; */
 
-#preferences-container {
+#subscription-container {
     border: 2px solid red;
     height: 100vh;
     margin-top: -5rem;
@@ -14,44 +14,45 @@ font-family: 'Sofia', cursive; */
     justify-content: center;
 }
 
-#preferences-contents {
+#subscription-contents {
     border: 2px solid blue;
     margin: 250px 0 0 0;
-    width: 65%;
 }
 
-#preferences-header {
+#subscription-header {
     font-family: 'Libre Baskerville', serif;
     font-size: 24px;
     font-weight: 700;
     margin-left: 2.5rem;
 }
 
-.preference-list-div {
+.subscription-list-div {
     display: flex;
     flex-wrap: wrap;
 }
 
-.preference-list-items {
+.subscription-list-items {
+    border: 2px solid green;
     list-style: none;
     font-family: 'Libre Baskerville', serif;
+    color: black;
     font-weight: 700;
     font-size: 16px;
     margin-right: 2rem;
     padding: 0 2rem 0 2rem;
 }
 
-.preference-list-contents {
+/* .preference-list-contents {
     font-family: 'Montserrat', sans-serif;
-}
+} */
 
-#show-preferences-btns {
+/* #show-preferences-btns {
     display: flex;
     flex-direction: column;
     margin-left: 3.5rem;
-}
+} */
 
-#show-preferences-update-btn {
+#update-subscription-btn {
     margin: 0 .5rem 0 .5rem;
     border-radius: 28px;
     border: 2px solid #6f1a6f;
@@ -64,12 +65,12 @@ font-family: 'Sofia', cursive; */
     margin-bottom: 1rem;
 }
 
-#show-preferences-update-btn:hover {
+#update-subscription-btn:hover {
     border: 2px solid #8B478B;
     background-color: #8B478B;
 }
 
-#show-preferences-subscription-btn {
+#start-subscription-btn {
     margin: 0 .5rem 0 .5rem;
     border-radius: 28px;
     border: 2px solid #6f1a6f;
@@ -81,7 +82,7 @@ font-family: 'Sofia', cursive; */
     font-size: 16px;
 }
 
-#show-preferences-subscription-btn:hover {
+#start-subscription-btn:hover {
     border: 2px solid #8B478B;
     background-color: #8B478B;
 }

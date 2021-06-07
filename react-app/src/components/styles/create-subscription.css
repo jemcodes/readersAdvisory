@@ -3,7 +3,7 @@
 font-family: 'Montserrat', sans-serif;
 font-family: 'Sofia', cursive; */
 
-#preferences-container {
+#create-subscription-container {
     border: 2px solid red;
     height: 100vh;
     margin-top: -5rem;
@@ -14,44 +14,43 @@ font-family: 'Sofia', cursive; */
     justify-content: center;
 }
 
-#preferences-contents {
+#create-subscription-contents {
     border: 2px solid blue;
     margin: 250px 0 0 0;
-    width: 65%;
+    width: 50%;
 }
 
-#preferences-header {
+#create-subscription-header {
     font-family: 'Libre Baskerville', serif;
     font-size: 24px;
     font-weight: 700;
     margin-left: 2.5rem;
 }
 
-.preference-list-div {
+.create-subscription-div {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.preference-list-items {
+.create-subscription-items {
     list-style: none;
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 16px;
-    margin-right: 2rem;
+    margin-top: 0.75rem;
     padding: 0 2rem 0 2rem;
 }
 
-.preference-list-contents {
+.create-subscription-inputs {
     font-family: 'Montserrat', sans-serif;
+    margin: 0.5rem 0 0.5rem 2rem;
+    width: 75%;
+    padding: .5rem;
 }
 
-#show-preferences-btns {
-    display: flex;
-    flex-direction: column;
-    margin-left: 3.5rem;
-}
-
-#show-preferences-update-btn {
+#create-subscription-btn {
     margin: 0 .5rem 0 .5rem;
     border-radius: 28px;
     border: 2px solid #6f1a6f;
@@ -61,27 +60,11 @@ font-family: 'Sofia', cursive; */
     height: 3rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    margin-bottom: 1rem;
+    margin-top: .5rem;
+    margin-left: 2rem;
 }
 
-#show-preferences-update-btn:hover {
-    border: 2px solid #8B478B;
-    background-color: #8B478B;
-}
-
-#show-preferences-subscription-btn {
-    margin: 0 .5rem 0 .5rem;
-    border-radius: 28px;
-    border: 2px solid #6f1a6f;
-    background-color: #6f1a6f;
-    color: white;
-    width: 10rem;
-    height: 3rem;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-}
-
-#show-preferences-subscription-btn:hover {
+#create-subscription-btn:hover {
     border: 2px solid #8B478B;
     background-color: #8B478B;
 }

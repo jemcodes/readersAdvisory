@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 // import { Redirect } from 'react-router-dom';
 import { capturePreferences } from '../store/reader';
 import Footer from './Footer';
+import './styles/create-preferences.css';
 
 const CreatePreferences = () => {
     const [user_name, setUsername] = useState("");
@@ -59,62 +60,65 @@ const CreatePreferences = () => {
     // }
 
     return (
-        <form onSubmit={onQuizCompletion}>
-            <div>
-                <label>Please choose a username</label>
-                <input
-                    type="text"
-                    name="user_name"
-                    onChange={updateUsername}
-                    value={user_name}
-                    required={true}
-                ></input>
-            </div>
-            <div>
-                <label>Please select which cover type you prefer</label>
-                <input
-                    type="text"
-                    name="cover_choices"
-                    onChange={updateCoverChoices}
-                    value={cover_choices}
-                    required={true}
-                ></input>
-            </div>
-            <div>
-                <label>Please list some genres you like, separated by commas</label>
-                <textarea
-                    // type="text"
-                    name="genre_choices"
-                    onChange={updateGenreChoices}
-                    value={genre_choices}
-                    required={true}
-                />
-            </div>
-            <div>
-                <label>Please list some authors you like, separated by commas</label>
-                <textarea
-                    // type="text"
-                    name="author_choices"
-                    onChange={updateAuthorChoices}
-                    value={author_choices}
-                    required={true}
-                />
-            </div>
-            <div>
-                <label>Please provide any additional information that might help your advisor</label>
-                <input
-                    type="text"
-                    name="other_choices"
-                    onChange={updateOtherChoices}
-                    value={other_choices}
-                    required={true}
-                ></input>
-            </div>
-            <button type="submit">Submit my preferences!</button>
-            <div>
-                <Footer />
-            </div>
-        </form>
+        <div id="create-preferences-container">
+            <form id="create-preferences-contents" onSubmit={onQuizCompletion}>
+                <h3 id="create-preferences-header">Create Preferences</h3>
+                <div className="create-preference-list-div">
+                    <label className="create-preference-list-items">Please choose a username</label>
+                    <input className="create-preference-inputs"
+                        type="text"
+                        name="user_name"
+                        onChange={updateUsername}
+                        value={user_name}
+                        required={true}
+                    ></input>
+                </div>
+                <div className="create-preference-list-div">
+                    <label className="create-preference-list-items">Please select which cover type you prefer</label>
+                    <input className="create-preference-inputs"
+                        type="text"
+                        name="cover_choices"
+                        onChange={updateCoverChoices}
+                        value={cover_choices}
+                        required={true}
+                    ></input>
+                </div>
+                <div className="create-preference-list-div">
+                    <label className="create-preference-list-items">Please list some genres you like, separated by commas</label>
+                    <textarea className="create-preference-text"
+                        // type="text"
+                        name="genre_choices"
+                        onChange={updateGenreChoices}
+                        value={genre_choices}
+                        required={true}
+                    />
+                </div>
+                <div className="create-preference-list-div">
+                    <label className="create-preference-list-items">Please list some authors you like, separated by commas</label>
+                    <textarea className="create-preference-text"
+                        // type="text"
+                        name="author_choices"
+                        onChange={updateAuthorChoices}
+                        value={author_choices}
+                        required={true}
+                    />
+                </div>
+                <div className="create-preference-list-div">
+                    <label className="create-preference-list-items">Please provide any additional information that might help your advisor</label>
+                    <textarea className="create-preference-text"
+                        type="text"
+                        name="other_choices"
+                        onChange={updateOtherChoices}
+                        value={other_choices}
+                        required={true}
+                    />
+                </div>
+                <button id="create-preferences-btn" type="submit">Submit my preferences!</button>
+                <div>
+                    <Footer />
+                </div>
+            </form>
+        </div>
     );
 };
 

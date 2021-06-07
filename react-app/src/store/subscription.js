@@ -90,8 +90,8 @@ export default function subscription(state = initialState, action) {
     switch (action.type) {
         case GET_SUBSCRIPTION:
             nextState = {
-                subscription_type: action.payload.subscription,
-                payment_method: action.payload.payment,
+                subscription_type: action.payload.subscription_type,
+                payment_method: action.payload.payment_method,
                 reader_id: action.payload.reader_id
             }
 

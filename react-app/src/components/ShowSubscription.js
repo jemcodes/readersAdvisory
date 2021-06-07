@@ -15,28 +15,34 @@ const ShowPreferences = () => {
         dispatch(showSubscription(reader_id))
     }, [dispatch, reader_id])
     
-    const subscription = useSelector(state => state.subscription.subscription);
+    const subscription = useSelector(state => state.subscription);
     // console.log('$$$$$$$$$$ THIS IS A SUBSCRIPTION', subscription[subscription])
 
     return (
         <div>
             <h2>Subscription</h2>
-            {subscription && (
-                <ul>
-                    <li>Subscription Type: {subscription[subscription.subscription]}</li>
-                    <li>Payment Method: {subscription[subscription.payment]}</li>
-                </ul>
+            {subscription.subscription_type ? (
+                <div>
+                    <ul>
+                        <li>Subscription Type: {subscription.subscription_type}</li>
+                        <li>Payment Method: {subscription.payment_method}</li>
+                    </ul>
+                    <NavLink to={`/readers/${reader_id}/subscription/update`}>
+                    <button type="button">
+                            Update Subscription
+                    </button>
+                    </NavLink>
+                </div>
+            ) : (
+                <div>
+                    <h1>Start a new subscription!</h1>
+                    <NavLink to={`/readers/${reader_id}/subscription/new`}>
+                        <button type="button">
+                            Start New Subscription
+                        </button>
+                    </NavLink>
+                </div>
             )}
-            <NavLink to={`/readers/${reader_id}/subscription/new`}>
-                <button type="button">
-                    Start New Subscription
-                </button>
-            </NavLink>
-            <NavLink to={`/readers/${reader_id}/subscription/update`}>
-                <button type="button">
-                    Update Subscription
-                </button>
-            </NavLink>
             <div>
                 <Footer />
             </div>

@@ -17,6 +17,7 @@ font-family: 'Sofia', cursive; */
 #create-subscription-contents {
     border: 2px solid blue;
     margin: 250px 0 0 0;
+    width: 50%;
 }
 
 #create-subscription-header {
@@ -42,28 +43,14 @@ font-family: 'Sofia', cursive; */
     padding: 0 2rem 0 2rem;
 }
 
-.update-preference-inputs {
+.create-subscription-inputs {
     font-family: 'Montserrat', sans-serif;
     margin: 0.5rem 0 0.5rem 2rem;
     width: 75%;
     padding: .5rem;
 }
 
-.update-preference-text {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0.5rem 0 0.5rem 2rem;
-    width: 77%;
-    height: 5rem;
-}
-
-#update-preferences-btns {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 0.75rem;
-    margin-left: 1.5rem;
-}
-
-#update-preferences-btn {
+#create-subscription-btn {
     margin: 0 .5rem 0 .5rem;
     border-radius: 28px;
     border: 2px solid #6f1a6f;
@@ -73,29 +60,11 @@ font-family: 'Sofia', cursive; */
     height: 3rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    margin-bottom: 1rem;
-    margin-right: 5rem;
+    margin-top: .5rem;
+    margin-left: 2rem;
 }
 
-#update-preferences-btn:hover {
-    border: 2px solid #8B478B;
-    background-color: #8B478B;
-}
-
-#delete-preferences-btn {
-    margin: 0 .5rem 0 .5rem;
-    border-radius: 28px;
-    border: 2px solid #6f1a6f;
-    background-color: #6f1a6f;
-    color: white;
-    width: 10rem;
-    height: 3rem;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    margin-left: 5.5rem;
-}
-
-#delete-preferences-btn:hover {
+#create-subscription-btn:hover {
     border: 2px solid #8B478B;
     background-color: #8B478B;
 }

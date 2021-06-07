@@ -44,7 +44,7 @@ const CreateSubscription = () => {
                 <h3 id="create-subscription-header">Build Your Subscription</h3>
                 <div className="create-subscription-div">
                     <label className="create-subscription-items">Please enter a subscription type</label>
-                    <input
+                    <input className="create-subscription-inputs"
                         type="text"
                         name="subscription"
                         onChange={updateSubscriptionType}
@@ -54,7 +54,7 @@ const CreateSubscription = () => {
                 </div>
                 <div className="create-subscription-div">
                     <label className="create-subscription-items">Please enter a payment method</label>
-                    <input
+                    <input className="create-subscription-inputs"
                         type="text"
                         name="payment"
                         onChange={updatePayment}
@@ -62,7 +62,7 @@ const CreateSubscription = () => {
                         // required={true}
                     ></input>
                 </div>
-                <button type="submit">Start my subscription!</button>
+                <button id="create-subscription-btn" type="submit">Start my subscription!</button>
             </form>
         </div>
     );

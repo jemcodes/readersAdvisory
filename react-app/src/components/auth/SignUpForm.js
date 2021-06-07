@@ -72,12 +72,12 @@ const SignUpForm = () => {
         <button id="signup-button" type="submit">Sign Up</button>
         </div>
         </div>
-        <div>
-          <Footer />
-        </div>
       </form>
       <div id="signup-page-greeting">
         <h1>Discover a new reading <br></br>experience</h1>
+      </div>
+      <div>
+        <Footer />
       </div>
       </div>
   );

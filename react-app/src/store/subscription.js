@@ -45,6 +45,7 @@ export const showSubscription = (reader_id) => async (dispatch) => {
 
 export const captureSubscription = (subscriptionPayload) => async (dispatch) => {
     const { reader_id } = subscriptionPayload
+    console.log('$$$$$$$$$$$$$$$$$$$', subscriptionPayload)
     const response = await fetch(`/api/readers/${reader_id}/subscriptions`, {
         method: "POST",
         headers: {

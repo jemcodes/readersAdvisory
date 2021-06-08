@@ -21,6 +21,7 @@ const CreateSubscription = () => {
             payment_method,
             reader_id
         }
+        console.log(subscriptionPayload)
         await dispatch(captureSubscription(subscriptionPayload))
         history.push(`/readers/${reader_id}/subscription`)
 
@@ -44,19 +45,16 @@ const CreateSubscription = () => {
                 <h3 id="create-subscription-header">Build Your Subscription</h3>
                 <div className="create-subscription-div">
                     <label className="create-subscription-items">Please enter a subscription type</label>
-                        <>
-                            <select className="create-subscription-inputs"
-                                type="text"
-                                name="subscription"
-                                onChange={updateSubscriptionType}
-                                value={subscription_type}
-                                // required={true}
-                            >
-                                {['Quarterly', 'Monthly', 'Weekly'].map((choice) => (
-                                    <option value={choice}>{choice}</option>
-                                ))}
-                            </select>
-                        </>
+                        <select className="create-subscription-inputs"
+                            type="text"
+                            name="subscription"
+                            onChange={updateSubscriptionType}
+                            value={subscription_type}
+                        >
+                            {['---Subscription Options---', 'Quarterly', 'Monthly', 'Weekly'].map((choice) => (
+                                <option value={choice}>{choice}</option>
+                            ))}
+                        </select>
                 </div>
                 <div className="create-subscription-div">
                     <label className="create-subscription-items">Please enter a payment method</label>
@@ -65,6 +63,7 @@ const CreateSubscription = () => {
                         name="payment"
                         onChange={updatePayment}
                         value={payment_method}
+                        placeholder="xxxx-xxxx-xxxx-xxxx"
                         // required={true}
                     ></input>
                 </div>

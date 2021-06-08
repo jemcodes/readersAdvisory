@@ -58,13 +58,18 @@ const UpdateSubscriptionForm = () => {
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Please update your subscription type</label>
-                <input
-                    type="text"
-                    name="subscription"
-                    onChange={updateSubscriptionType}
-                    value={subscription_type}
-                     // required={true}
-                ></input>
+                <>
+                    <select className="create-subscription-inputs"
+                        type="text"
+                        name="subscription"
+                        onChange={updateSubscriptionType}
+                        value={subscription_type}
+                    >
+                        {['---Subscription Options---', 'Quarterly', 'Monthly', 'Weekly'].map((choice) => (
+                            <option value={choice}>{choice}</option>
+                        ))}
+                    </select>
+                </>
             </div>
             <div>
                 <label>Please update your payment method</label>
@@ -73,6 +78,7 @@ const UpdateSubscriptionForm = () => {
                     name="payment"
                     onChange={updatePayment}
                     value={payment_method}
+                    placeholder="xxxx-xxxx-xxxx-xxxx"
                     // required={true}
                 ></input>
             </div>

@@ -110,6 +110,7 @@ def subscription_status(reader_id):
 def add_subscription(reader_id):
     """Add a subscription for a single reader"""
     form = SubscriptionForm()
+    print('******************', form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_subscription = ReaderSubscription(
@@ -120,7 +121,7 @@ def add_subscription(reader_id):
         db.session.add(new_subscription)
         db.session.commit()
         return new_subscription.to_dict()
-    return "thanks for subscribing!"
+    return form.errors
 
 
 @reader_routes.route('/<int:reader_id>/subscriptions', methods=['PUT'])

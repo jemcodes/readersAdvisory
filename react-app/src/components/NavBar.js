@@ -12,12 +12,11 @@ const NavBar = () => {
               <NavLink id="site-title" to="/" exact={true} activeClassName="active">
                 Readers' Advisory
               </NavLink>
-        <button id="dropdown-button" type="button">READERS</button>
-          {/* <div className="nav-links-right">
+          <div className="nav-links-right">
               <NavLink className="nav-links" to="/login" exact={true} activeClassName="active">
                 <button className="nav-bar-buttons">Login</button>
               </NavLink>
-            </div>  
+            </div>
             <div className="nav-links-right">
               <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
                 <button className="nav-bar-buttons">Sign Up</button>
@@ -26,7 +25,7 @@ const NavBar = () => {
           <div className="nav-links-right">
               <DemoUser />
               <LogoutButton />
-          </div> */}
+          </div>
       </div>
     </nav>
   );

@@ -44,6 +44,15 @@ export const logout = async () => {
   return await response.json();
 };
 
+export const advisorLogout = async () => {
+  const response = await fetch("/api/auth/advisor-logout", {
+    headers: {
+      "Content-Type": "application/json",
+    }
+  });
+  return await response.json();
+};
+
 
 export const signUp = async (email, password) => {
   const response = await fetch("/api/auth/signup", {

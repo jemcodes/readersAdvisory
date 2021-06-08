@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import AdvisorLogoutButton from './auth/AdvisorLogoutButton';
 import DemoUser from './auth/DemoUser';
 import './styles/navbar.css';
 
@@ -19,6 +20,11 @@ const NavBar = () => {
                 <button className="nav-bar-buttons">Login</button>
               </NavLink>
             </div>  
+          <div className="nav-links-right">
+            <NavLink className="nav-links" to="/advisor-login" exact={true} activeClassName="active">
+              <button className="nav-bar-buttons">Advisor Login</button>
+            </NavLink>
+          </div>
             <div className="nav-links-right">
               <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
                 <button className="nav-bar-buttons">Sign Up</button>
@@ -27,6 +33,7 @@ const NavBar = () => {
           <div className="nav-links-right">
               <DemoUser />
               <LogoutButton />
+              <AdvisorLogoutButton />
           </div>
       </div>
     </nav>

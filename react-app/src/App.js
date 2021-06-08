@@ -15,6 +15,7 @@ import CreateSubscription from "./components/CreateSubscription";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
+import AdvisorDashboard from "./components/AdvisorDashboard";
 
 function App() {
   // const reader = useSelector(state => state.session.reader)
@@ -63,6 +64,9 @@ function App() {
         <ProtectedRoute path="/readers/:reader_id/preferences" exact={true} >
           <ShowPreferences />
         </ProtectedRoute>
+        <Route path="/advisors" exact={true} >
+          <AdvisorDashboard />
+        </Route>
         <ProtectedRoute path="/users" exact={true} >
           <UsersList/>
         </ProtectedRoute>

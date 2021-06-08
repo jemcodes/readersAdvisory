@@ -49,7 +49,7 @@ def login():
 @auth_routes.route('/advisor-login', methods=['POST'])
 def advisor_login():
     """
-    Logs a reader in
+    Logs an advisor in
     """
     form = AdvisorLoginForm()
     print(request.get_json())
@@ -64,10 +64,19 @@ def advisor_login():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@auth_routes.route('/logout')
-def logout():
+# @auth_routes.route('/logout')
+# def logout():
+#     """
+#     Logs a user out
+#     """
+#     logout_user()
+#     return {'message': 'User logged out'}
+
+
+@auth_routes.route('/advisor-logout')
+def advisor_logout():
     """
-    Logs a user out
+    Logs an advisor out
     """
     logout_user()
     return {'message': 'User logged out'}

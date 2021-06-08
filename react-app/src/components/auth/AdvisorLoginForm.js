@@ -27,7 +27,7 @@ const AdvisorLoginForm = () => {
     };
 
     if (advisor) {
-        return <Redirect to="/" />;
+        return <Redirect to="/advisors" />;
     }
 
     return (

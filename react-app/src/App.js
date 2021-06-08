@@ -9,6 +9,7 @@ import UpdateSubscriptionForm from "./components/UpdateSubscriptionForm"
 import ShowSubscription from"./components/ShowSubscription";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
+import Home from "./components/Home";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import CreatePreferences from "./components/CreatePreferences";
 import CreateSubscription from "./components/CreateSubscription";
@@ -36,6 +37,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path="/" exact={true}>
+          <Home />
+        </Route>
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>

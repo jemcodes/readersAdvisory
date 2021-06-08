@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { showSubscription, updateSubscription, deleteSubscription } from '../store/subscription';
+import './styles/update-subscription.css'
 
 const UpdateSubscriptionForm = () => {
     const { reader_id } = useParams();
@@ -55,38 +56,41 @@ const UpdateSubscriptionForm = () => {
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Please update your subscription type</label>
-                <>
-                    <select className="create-subscription-inputs"
-                        type="text"
-                        name="subscription"
-                        onChange={updateSubscriptionType}
-                        value={subscription_type}
-                    >
-                        {['---Subscription Options---', 'Quarterly', 'Monthly', 'Weekly'].map((choice) => (
-                            <option value={choice}>{choice}</option>
-                        ))}
-                    </select>
-                </>
-            </div>
-            <div>
-                <label>Please update your payment method</label>
-                <input
-                    type="password"
-                    name="payment"
-                    onChange={updatePayment}
-                    value={payment_method}
-                    placeholder="xxxx-xxxx-xxxx-xxxx"
-                    // required={true}
-                ></input>
-            </div>
-            <div>
-                <button type="submit">Update my subscription!</button>
-            </div>
-            <button type="button" onClick={onDelete}>Delete This Subscription</button>
-        </form>
+        <div id="update-subscription-container">
+            <form id="update-subscription-contents" onSubmit={handleSubmit}>
+                <h3 id="update-subscription-header">Update Your Subscription</h3>
+                <div className="update-subscription-div">
+                    <label className="update-subscription-items">Please update your subscription type</label>
+                    <>
+                        <select className="update-subscription-inputs"
+                            type="text"
+                            name="subscription"
+                            onChange={updateSubscriptionType}
+                            value={subscription_type}
+                        >
+                            {['---Subscription Options---', 'Quarterly', 'Monthly', 'Weekly'].map((choice) => (
+                                <option value={choice}>{choice}</option>
+                            ))}
+                        </select>
+                    </>
+                </div>
+                <div className="update-subscription-div">
+                    <label className="update-subscription-items">Please update your payment method</label>
+                    <input className="update-subscription-inputs"
+                        type="password"
+                        name="payment"
+                        onChange={updatePayment}
+                        value={payment_method}
+                        placeholder="xxxx-xxxx-xxxx-xxxx"
+                        // required={true}
+                    ></input>
+                </div>
+                <div>
+                    <button id="update-subscription-btn" type="submit">Update my subscription!</button>
+                </div>
+                <button id="delete-subscription-btn" type="button" onClick={onDelete}>Delete This Subscription</button>
+            </form>
+        </div>
     );
 };
 

@@ -25,6 +25,7 @@ font-family: 'Sofia', cursive; */
     /* z-index: 1; */
 }
 
+
 #site-title {
     /* max-height: 150px; */
     /* margin-top: 1rem; */
@@ -35,6 +36,20 @@ font-family: 'Sofia', cursive; */
     font-size: 2em;
     text-decoration: none;
     position: relative;
+}
+
+#dropdown-button {
+    border: 2px solid #000;
+    background-color: #000;
+    color: lightgrey;
+    font-size: 20px;
+    padding: 1rem;
+    margin-left: -16rem;
+    border-bottom: 4px solid turquoise;
+}
+
+#dropdown-button:focus {
+    border-bottom: 4px solid red;
 }
 
 /* .nav-link-div {

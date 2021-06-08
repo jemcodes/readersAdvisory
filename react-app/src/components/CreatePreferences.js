@@ -91,7 +91,7 @@ const CreatePreferences = () => {
                 </div>
                 <div className="create-preference-list-div">
                     <label className="create-preference-list-items">Please select which genres you enjoy</label>
-                    {['Horror', 'Romance', 'Pulp Fiction'].map((genre) => (
+                    {['Biography', 'Classic Literature', 'Contemporary Literature', 'Crime', 'Fantasy', 'Graphic Novels & Comics', 'LGBTQ+ Fiction', 'Historical Fiction', 'Horror', 'Humor & Comedy', 'Memoir', 'Mystery', 'Nonfiction', 'Paranormal', 'Philosophical', 'Poetry', 'Pulp Fiction', 'Romance', 'Science Fiction', 'Speculative Fiction', 'Suspense', 'Thriller', 'Young Adult'].map((genre) => (
                        <>
                             <input className="create-preference-text"
                                 type="checkbox"

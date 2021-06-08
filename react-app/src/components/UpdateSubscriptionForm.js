@@ -69,7 +69,7 @@ const UpdateSubscriptionForm = () => {
             <div>
                 <label>Please update your payment method</label>
                 <input
-                    type="text"
+                    type="password"
                     name="payment"
                     onChange={updatePayment}
                     value={payment_method}

@@ -55,7 +55,7 @@ const CreateSubscription = () => {
                 <div className="create-subscription-div">
                     <label className="create-subscription-items">Please enter a payment method</label>
                     <input className="create-subscription-inputs"
-                        type="text"
+                        type="password"
                         name="payment"
                         onChange={updatePayment}
                         value={payment_method}

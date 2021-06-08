@@ -17,7 +17,7 @@ export default function DemoUser() {
 
     return (
         <form onSubmit={onLogin}>
-            <button className="nav-bar-buttons" type="submit">DemoUser</button>
+            <button className="navbar-buttons" type="submit">DemoUser</button>
         </form>
     );
 }

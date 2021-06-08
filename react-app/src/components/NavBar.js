@@ -6,7 +6,7 @@ import './styles/navbar.css';
 
 const NavBar = () => {
   return (
-    <nav id="nav-bar">
+    <nav id="navbar">
       <div id="nav-container">
             {/* <h1 ></h1> */}
             {/* <div className="nav-link-div"> */}
@@ -14,19 +14,18 @@ const NavBar = () => {
                 Readers' Advisory
               </NavLink>
             {/* </div>   */}
-          <div className="nav-links-right">
-              <NavLink className="nav-links" to="/login" exact={true} activeClassName="active">
-                <button className="nav-bar-buttons">Login</button>
-              </NavLink>
-            </div>  
-            <div className="nav-links-right">
-              <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
-                <button className="nav-bar-buttons">Sign Up</button>
-              </NavLink>
+          <div className="dropdown">
+            <button className="dropdown-btn">READERS</button>
+            <div id="dropdown-contents">
+                <NavLink className="nav-links" to="/login" exact={true} activeClassName="active">
+                  <button className="navbar-buttons">Login</button>
+                </NavLink>
+                <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
+                  <button className="navbar-buttons">Sign Up</button>
+                </NavLink>
+                <DemoUser />
+                <LogoutButton />
             </div>
-          <div className="nav-links-right">
-              <DemoUser />
-              <LogoutButton />
           </div>
       </div>
     </nav>

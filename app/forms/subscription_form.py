@@ -5,7 +5,7 @@ from app.models import ReaderSubscription
 
 
 class SubscriptionForm(FlaskForm):
-    subscription = StringField('Subscription Type')
-    payment = StringField('Payment')
+    subscription_type = StringField('Subscription Type')
+    payment_method = StringField('Payment')
     reader_id = IntegerField('Reader Id', validators=[DataRequired()])
     submit = SubmitField('Submit')

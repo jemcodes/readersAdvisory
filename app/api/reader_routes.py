@@ -113,8 +113,8 @@ def add_subscription(reader_id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_subscription = ReaderSubscription(
-            subscription = form.data['subscription'],
-            payment = form.data['payment'],
+            subscription = form.data['subscription_type'],
+            payment = form.data['payment_method'],
             reader_id = form.data['reader_id']
         )
         db.session.add(new_subscription)

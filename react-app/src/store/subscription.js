@@ -26,12 +26,20 @@ const removeSubscription = (subscriptionPayload) => ({
     payload: subscriptionPayload
 })
 
+const initialState = {
+    subscription_type: undefined,
+    payment_method: undefined,
+    reader_id: undefined
+};
+
 // THUNK ACTIONS
 export const showSubscription = (reader_id) => async (dispatch) => {
     const response = await fetch(`/api/readers/${reader_id}/subscriptions`);
     if (response.ok) {
         const data = await response.json();
-        dispatch(getSubscription(data))
+        dispatch(getSubscription(data));
+    } else {
+        dispatch(getSubscription(initialState));
     }
 }
 
@@ -79,11 +87,6 @@ export const deleteSubscription = (subscriptionPayload) => async (dispatch) => {
 
 // REDUCERS 
 
-const initialState = {
-    subscription_type: undefined,
-    payment_method: undefined,
-    reader_id: undefined
-};
 
 export default function subscription(state = initialState, action) {
     let nextState = {}
@@ -103,12 +106,18 @@ export default function subscription(state = initialState, action) {
             return { ...state, ...action.payload };
 
         case EDIT_SUBSCRIPTION:
-            return { ...state, ...action.payload };
+            nextState = {
+                subscription_type: action.payload.subscription,
+                payment_method: action.payload.payment,
+                reader_id: action.payload.reader_id
+            }
 
+            return {
+                ...state,
+                ...nextState
+            };
         case DELETE_SUBSCRIPTION:
-            const lastState = { ...state }
-            delete lastState[action.payload]
-            return lastState
+            return { ...initialState }
 
 
         default:

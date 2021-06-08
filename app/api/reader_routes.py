@@ -131,8 +131,8 @@ def edit_reader_subscription(reader_id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         updated_subscription = ReaderSubscription.query.filter(ReaderSubscription.reader_id == reader_id).first()
-        updated_subscription.subscription = form.data['subscription']
-        updated_subscription.payment = form.data['payment']
+        updated_subscription.subscription = form.data['subscription_type']
+        updated_subscription.payment = form.data['payment_method']
         db.session.add(updated_subscription)
         db.session.commit()
         return updated_subscription.to_dict()

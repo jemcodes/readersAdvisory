@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import DemoUser from './auth/DemoUser';
+import LoginForm from './auth/LoginForm';
+import SignUpForm from './auth/SignUpForm';
 import './styles/navbar.css';
 
 const NavBar = () => {
@@ -23,6 +25,8 @@ const NavBar = () => {
                 <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
                   <button className="navbar-buttons">Sign Up</button>
                 </NavLink>
+                {/* <LoginForm />
+                <SignUpForm /> */}
                 <DemoUser />
                 <LogoutButton />
             </div>

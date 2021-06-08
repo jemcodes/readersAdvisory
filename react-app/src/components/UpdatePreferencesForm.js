@@ -98,23 +98,34 @@ const UpdatePreferencesForm = () => {
                 </div>
                 <div className="update-preference-list-div">
                     <label className="update-preference-list-items">Please select which cover type you prefer</label>
-                    <input className="update-preference-inputs"
-                        type="text"
-                        name="cover_choices"
-                        onChange={updateCoverChoices}
-                        value={cover_choices}
-                        required={true}
-                    ></input>
+                    {['Hardcover', 'Paperback', 'No Preference'].map((choice) => (
+                        <>
+                            <input className="update-preference-inputs"
+                                id={choice}
+                                type="radio"
+                                name="cover_choices"
+                                onChange={updateCoverChoices}
+                                value={choice}
+                                required={true}
+                            ></input>
+                            <label htmlFor={choice}>{choice}</label>
+                        </>
+                    ))}
                 </div>
                 <div className="update-preference-list-div">
-                    <label className="update-preference-list-items">Please list some genres you like, separated by commas</label>
-                    <textarea className="update-preference-text"
-                        // type="text"
-                        name="genre_choices"
-                        onChange={updateGenreChoices}
-                        value={genre_choices}
-                        required={true}
-                    />
+                    <label className="update-preference-list-items">Please select which genres you enjoy</label>
+                    {['Biography', 'Classic Literature', 'Contemporary Literature', 'Crime', 'Fantasy', 'Graphic Novels & Comics', 'LGBTQ+ Fiction', 'Historical Fiction', 'Horror', 'Humor & Comedy', 'Memoir', 'Mystery', 'Nonfiction', 'Paranormal', 'Philosophical', 'Poetry', 'Pulp Fiction', 'Romance', 'Science Fiction', 'Speculative Fiction', 'Suspense', 'Thriller', 'Young Adult'].map((genre) => (
+                        <>
+                            <input className="update-preference-text"
+                                type="checkbox"
+                                name="genre_choices"
+                                onChange={updateGenreChoices}
+                                value={genre}
+                                required={true}
+                            ></input>
+                            <label htmlFor={genre}>{genre}</label>
+                        </>
+                    ))}
                 </div>
                 <div className="update-preference-list-div">
                     <label className="update-preference-list-items">Please list some authors you like, separated by commas</label>

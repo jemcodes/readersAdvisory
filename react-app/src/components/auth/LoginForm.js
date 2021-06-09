@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 import { login } from "../../store/session";
 import Footer from "../Footer";
 import '../styles/login-form.css';
@@ -12,6 +12,19 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const reader = useSelector(state => state.session.reader);
   const dispatch = useDispatch();
+
+  const [showReaderMenu, setShowReaderMenu] = useState(false);
+  const [showAdvisorMenu, setShowAdvisorMenu] = useState(false);
+
+  const toggleReaderMenu = () => {
+    setShowReaderMenu(!showReaderMenu)
+    setShowAdvisorMenu(false)
+  }
+
+  const toggleAdvisorMenu = () => {
+    setShowAdvisorMenu(!showAdvisorMenu)
+    setShowReaderMenu(false)
+  }
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -62,6 +75,9 @@ const LoginForm = () => {
               onChange={updatePassword}
             />
             <button id="login-button" type="submit">Reader Login</button>
+            <NavLink to="/" onClick={toggleReaderMenu} exact={true} activeClassName="active">
+              Cancel
+            </NavLink>
           </div>
         </div>
       </form>

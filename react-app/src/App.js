@@ -16,6 +16,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
 import AdvisorOnly from "./components/AdvisorOnly";
+import Home from "./components/Home";
 
 function App() {
   // const reader = useSelector(state => state.session.reader)
@@ -73,6 +74,9 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true} >
           <User />
         </ProtectedRoute>
+        <Route path="/" exact={true}>
+          <Home />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

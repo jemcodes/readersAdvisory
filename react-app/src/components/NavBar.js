@@ -6,9 +6,18 @@ import './styles/navbar.css';
 import DemoAdvisor from './auth/DemoAdvisor';
 
 const NavBar = () => {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showReaderMenu, setShowReaderMenu] = useState(false);
+  const [showAdvisorMenu, setShowAdvisorMenu] = useState(false);
 
+  const toggleReaderMenu = () => {
+    setShowReaderMenu(!showReaderMenu)
+    setShowAdvisorMenu(false)
+  }
 
+  const toggleAdvisorMenu = () => {
+    setShowAdvisorMenu(!showAdvisorMenu)
+    setShowReaderMenu(false)
+  }
 
   return (
     <>
@@ -19,29 +28,40 @@ const NavBar = () => {
                 <NavLink id="site-title" to="/" exact={true} activeClassName="active">
                   Readers' Advisory
                 </NavLink>
-                <a href="#" onClick={() => setShowMenu(!showMenu)}>READERS</a>
+          <div className="menu-links-div">
+            <a href="#" className="menu-links" onClick={toggleReaderMenu}>READERS</a>
+            <a href="#" className="menu-links" onClick={toggleAdvisorMenu}>ADVISORS</a>
+          </div>
               {/* </div>   */}
         </div>
       </nav>
-        {showMenu && ( 
+        {showReaderMenu && ( 
             <div className="menu-container">
+          <div className="nav-links-left">
+            <NavLink className="nav-links" to="/sign-up" onClick={toggleReaderMenu} exact={true} activeClassName="active">
+              <button className="nav-bar-buttons">Get Started</button>
+            </NavLink>
+          </div>
             <div className="nav-links-right">
-                <NavLink className="nav-links" to="/login" exact={true} activeClassName="active">
-                  <button className="nav-bar-buttons">Login</button>
+            <NavLink className="nav-links" to="/login" onClick={toggleReaderMenu} exact={true} activeClassName="active">
+                  <button className="nav-bar-buttons">Sign In</button>
                 </NavLink>
-              </div>  
-              <div className="nav-links-right">
-                <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
-                  <button className="nav-bar-buttons">Sign Up</button>
-                </NavLink>
-              </div>
-            <div className="nav-links-right" style={{backgroundColor: "white"}}>
                 <DemoUser />
-                <DemoAdvisor />
                 <LogoutButton />
-            </div>
+              </div>  
       </div>
         )}
+      {showAdvisorMenu && (
+        <div className="menu-container">
+          <div className="nav-links-right">
+            <NavLink className="nav-links" to="/advisor-login" exact={true} activeClassName="active">
+              <button className="nav-bar-buttons">Sign In</button>
+            </NavLink>
+            <DemoAdvisor />
+            <LogoutButton />
+          </div>
+          </div>
+      )}
     </>
   );
 }

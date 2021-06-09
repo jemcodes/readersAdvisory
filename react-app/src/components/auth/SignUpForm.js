@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import Footer from '../Footer';
 import '../styles/signup-form.css';
@@ -11,6 +11,19 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const reader = useSelector(state => state.session.reader);
   const dispatch = useDispatch();
+
+  const [showReaderMenu, setShowReaderMenu] = useState(false);
+  const [showAdvisorMenu, setShowAdvisorMenu] = useState(false);
+
+  const toggleReaderMenu = () => {
+    setShowReaderMenu(!showReaderMenu)
+    setShowAdvisorMenu(false)
+  }
+
+  const toggleAdvisorMenu = () => {
+    setShowAdvisorMenu(!showAdvisorMenu)
+    setShowReaderMenu(false)
+  }
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -70,6 +83,9 @@ const SignUpForm = () => {
             required={true}
           ></input>
         <button id="signup-button" type="submit">Sign Up</button>
+            <NavLink to="/" onClick={toggleReaderMenu} exact={true} activeClassName="active">
+              Cancel
+            </NavLink>
         </div>
         </div>
       </form>

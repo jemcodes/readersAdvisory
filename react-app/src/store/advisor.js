@@ -1,33 +1,33 @@
 // ACTIONS
-const GET_ADVISEES = "readers/GET_ADVISEES";
+const GET_ORDERS = "readers/GET_ORDERS";
 
 // ACTION CREATORS
-const getAdvisees = (advisor_id) => ({
-    type: GET_ADVISEES,
+const getOrders = (advisor_id) => ({
+    type: GET_ORDERS,
     payload: advisor_id
 })
 
 // THUNK ACTIONS
-export const showAdvisees = (advisor_id) => async (dispatch) => {
-    const response = await fetch(`/api/advisors/${advisor_id}/advisees`);
+export const showOrders = (advisor_id) => async (dispatch) => {
+    const response = await fetch(`/api/advisors/${advisor_id}/orders`);
     if (response.ok) {
         const data = await response.json();
-        dispatch(getAdvisees(data))
+        dispatch(getOrders(data))
     }
 }
 
 // REDUCERS 
 
 const initialState = {
-    advisees: undefined
+    orders: undefined
 };
 
 export default function advisor(state = initialState, action) {
     let nextState = {}
     switch (action.type) {
-        case GET_ADVISEES:
+        case GET_ORDERS:
             nextState = {
-                advisees: {
+                orders: {
                     user_name: action.payload.user_name,
                     cover_choices: action.payload.cover_choices,
                     genre_choices: action.payload.genre_choices,

@@ -15,7 +15,7 @@ import CreateSubscription from "./components/CreateSubscription";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
-import ShowAdvisees from "./components/ShowAdvisees";
+import ShowOrders from "./components/ShowOrders";
 import Home from "./components/Home";
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
           <LoginForm />
         </Route>
         <Route path="/my-readers" exact={true}>
-          <ShowAdvisees />
+          <ShowOrders />
         </Route>
         <Route path="/advisor-login" exact={true}>
           <AdvisorLoginForm />

@@ -9,6 +9,8 @@ from .models import db, Reader, Advisor
 from .api.reader_routes import reader_routes
 # from .api.advisor_routes import advisor_routes
 from .api.auth_routes import auth_routes
+from .api.advisor_routes import advisor_routes
+from .api.product_routes import product_routes
 
 from .seeds import seed_commands
 
@@ -37,7 +39,8 @@ app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
 app.register_blueprint(reader_routes, url_prefix='/api/readers')
-# app.register_blueprint(advisor_routes, url_prefix='/api/advisors')
+app.register_blueprint(advisor_routes, url_prefix='/api/advisors')
+app.register_blueprint(product_routes, url_prefix='api/products')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 db.init_app(app)
 Migrate(app, db)

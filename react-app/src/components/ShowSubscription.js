@@ -49,6 +49,9 @@ const ShowPreferences = () => {
                     </NavLink>
                 </div>
             )}
+                <NavLink to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
+                    Cancel
+                </NavLink>
             <div>
                 <Footer />
             </div>

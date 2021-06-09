@@ -9,8 +9,6 @@ const NavBar = () => {
   const [showReaderMenu, setShowReaderMenu] = useState(false);
   const [showAdvisorMenu, setShowAdvisorMenu] = useState(false);
 
-
-
   return (
     <>
       <nav id="nav-bar">
@@ -27,19 +25,18 @@ const NavBar = () => {
       </nav>
         {showReaderMenu && ( 
             <div className="menu-container">
+          <div className="nav-links-left">
+            <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
+              <button className="nav-bar-buttons">Get Started</button>
+            </NavLink>
+          </div>
             <div className="nav-links-right">
                 <NavLink className="nav-links" to="/login" exact={true} activeClassName="active">
-                  <button className="nav-bar-buttons">Login</button>
+                  <button className="nav-bar-buttons">Sign In</button>
                 </NavLink>
               </div>  
-              <div className="nav-links-right">
-                <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
-                  <button className="nav-bar-buttons">Sign Up</button>
-                </NavLink>
-              </div>
             <div className="nav-links-right" style={{backgroundColor: "white"}}>
                 <DemoUser />
-                <DemoAdvisor />
                 <LogoutButton />
             </div>
       </div>
@@ -48,16 +45,10 @@ const NavBar = () => {
         <div className="menu-container">
           <div className="nav-links-right">
             <NavLink className="nav-links" to="/login" exact={true} activeClassName="active">
-              <button className="nav-bar-buttons">Login</button>
-            </NavLink>
-          </div>
-          <div className="nav-links-right">
-            <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
-              <button className="nav-bar-buttons">Sign Up</button>
+              <button className="nav-bar-buttons">Sign In</button>
             </NavLink>
           </div>
           <div className="nav-links-right" style={{ backgroundColor: "white" }}>
-            <DemoUser />
             <DemoAdvisor />
             <LogoutButton />
           </div>

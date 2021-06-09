@@ -24,3 +24,9 @@ def advisor(advisor_id):
 
 
 """---------- Advisor-Reader Interactions ----------"""
+@advisor_routes.route('/<int:advisor_id>/advisees', methods=['GET'])
+@login_required
+def get_assigned_readers(advisor_id):
+    """Get a list of readers assigned to a single advisor"""
+    readers = Advisor.query.filter(Advisor.id == advisor_id).join(Reader, Reader.id == Advisor.reader_id).all()
+    return readers.to_dict()

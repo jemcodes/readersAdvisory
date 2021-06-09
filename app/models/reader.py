@@ -36,6 +36,7 @@ class Reader(db.Model, UserMixin):
       "id": self.id,
       "email": self.email,
       "type": "Reader",
+      "advisor": advisor.id,
       "created": self.created_at,
       "updated": self.updated_at
     }

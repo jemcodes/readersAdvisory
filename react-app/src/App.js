@@ -17,6 +17,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
 import ShowOrders from "./components/ShowOrders";
+import ShowProducts from "./components/ShowProducts";
 import Home from "./components/Home";
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
         </Route>
         <Route path="/orders/new" exact={true}>
           <CreateOrder />
+        </Route>
+        <Route path="/products" exact={true}>
+          <ShowProducts />
         </Route>
         <Route path="/advisor-login" exact={true}>
           <AdvisorLoginForm />

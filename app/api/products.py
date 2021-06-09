@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import Advisor
+from app.models import Product
 
-advisor_routes = Blueprint('advisors', __name__)
+advisor_routes = Blueprint('products', __name__)
 
 
 def validation_errors_to_error_messages(validation_errors):

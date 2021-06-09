@@ -65,14 +65,14 @@ export const updateOrder = (editedOrder) => async (dispatch) => {
 }
 
 export const deleteSubscription = (orderPayload) => async (dispatch) => {
-    const { reader_id } = subscriptionPayload
+    const { advisor_id, order_id } = orderPayload
     const response = await fetch(`/api/advisors/${advisor_id}/orders/${order_id}`, {
         method: "DELETE"
     });
 
     if (response.ok) {
         dispatch(removeOrder(orderPayload));
-        return subscriptionPayload;
+        return orderPayload;
     }
 }
 

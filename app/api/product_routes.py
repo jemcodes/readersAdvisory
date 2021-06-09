@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify
 from flask_login import login_required
 from app.models import Product
 
-advisor_routes = Blueprint('products', __name__)
+product_routes = Blueprint('products', __name__)
 
 
 def validation_errors_to_error_messages(validation_errors):
@@ -16,13 +16,13 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
-"""---------- Access Advisors ----------"""
+"""---------- Access Products ----------"""
 
 @product_routes.route('/', methods=['GET'])
 @login_required
-def advisors():
-    """Get all advisors"""
-    advisors = Advisor.query.all()
-    return {"advisors": [advisor.to_dict() for advisor in advisors]}
+def products():
+    """Get all products"""
+    products = Product.query.all()
+    return {"products": [product.to_dict() for product in products]}
 
 

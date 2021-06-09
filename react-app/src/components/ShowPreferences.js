@@ -9,7 +9,7 @@ import './styles/show-preferences.css';
 const ShowPreferences = () => {
     const dispatch = useDispatch();
     const { reader_id } = useParams()
-    const reader = useSelector(state => state.session.reader);
+    // const reader = useSelector(state => state.session.reader);
     const preferences = useSelector(state => state.reader.preferences);
     // let authors;
     

@@ -98,7 +98,6 @@ const CreatePreferences = () => {
                                 name="genre_choices"
                                 onChange={updateGenreChoices}
                                 value={genre}
-                                required={true}
                             ></input>
                         <label htmlFor={genre}>{genre}</label>
                         </>

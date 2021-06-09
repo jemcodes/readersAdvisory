@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { useParams, NavLink } from 'react-router-dom';
 import { showSubscription } from '../store/subscription';
@@ -9,8 +9,8 @@ import './styles/show-subscription.css';
 const ShowPreferences = () => {
     const dispatch = useDispatch();
     const { reader_id } = useParams()
-    const reader = useSelector(state => state.session.reader);
-    let authors;
+    // const reader = useSelector(state => state.session.reader);
+    // let authors;
     
     useEffect(() => {
         dispatch(showSubscription(reader_id))

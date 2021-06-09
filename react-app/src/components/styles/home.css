@@ -16,6 +16,7 @@ body {
 }
 
 #home-page-greeting {
+    position: static;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     line-height: -2;
@@ -23,4 +24,23 @@ body {
     font-size: 55px;
     font-weight: bold;
     filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.3));
+}
+
+.home-page-button {
+    margin: 0 40rem 0 40rem;
+    border-radius: 28px;
+    border: 1px solid #6f1a6f;
+    background-color: #fff;
+    color: #6f1a6f;
+    width: 30rem;
+    height: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.home-page-button:hover {
+    border: 2px solid #8B478B;
+    background-color: #8B478B;
+    color: white;
 }

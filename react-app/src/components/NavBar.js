@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import DemoUser from './auth/DemoUser';
 import './styles/navbar.css';
+import DemoAdvisor from './auth/DemoAdvisor';
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -36,6 +37,7 @@ const NavBar = () => {
               </div>
             <div className="nav-links-right" style={{backgroundColor: "white"}}>
                 <DemoUser />
+                <DemoAdvisor />
                 <LogoutButton />
             </div>
       </div>

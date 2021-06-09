@@ -1,17 +1,23 @@
 // constants
-const SET_USER = "session/SET_USER";
+const SET_READER = "session/SET_READER";
+const SET_ADVISOR = "session/SET_ADVISOR";
 const REMOVE_USER = "session/REMOVE_USER";
 
-const setUser = (user) => ({
-    type: SET_USER,
-    payload: user
+const setReader = (reader) => ({
+    type: SET_READER,
+    payload: reader
 });
+
+const setAdvisor = (advisor) => ({
+    type: SET_ADVISOR,
+    payload: advisor
+})
 
 const removeUser = () => ({
     type: REMOVE_USER,
 })
 
-const initialState = { reader: null };
+const initialState = { reader: null, advisor: null };
 
 export const authenticate = () => async (dispatch) => {
     const response = await fetch('/api/auth/',{
@@ -23,8 +29,12 @@ export const authenticate = () => async (dispatch) => {
     if (data.errors) {
         return;
     }
-    
-    dispatch(setUser(data))
+    // TODO: account for advisor
+    if (data.type === "Reader") {
+      dispatch(setReader(data))
+    } else if (data.type === "Advisor") {
+      dispatch(setAdvisor(data))
+    }
   }
   
   export const login = (email, password) => async (dispatch)  => {
@@ -43,7 +53,7 @@ export const authenticate = () => async (dispatch) => {
         return data;
     }
     
-    dispatch(setUser(data))
+    dispatch(setReader(data))
     return {};
   }
 
@@ -63,7 +73,7 @@ export const advisorLogin = (email, password) => async (dispatch) => {
     return data;
   }
 
-  dispatch(setUser(data))
+  dispatch(setAdvisor(data))
   return {};
 }
   
@@ -95,16 +105,26 @@ export const advisorLogin = (email, password) => async (dispatch) => {
         return data;
     }
     
-    dispatch(setUser(data))
+    dispatch(setReader(data))
     return {};
   }
 
 export default function reducer(state=initialState, action) {
     switch (action.type) {
-        case SET_USER:
-            return {reader: action.payload}
+        case SET_READER:
+            return {
+              ...state,
+              reader: action.payload
+            }
+        case SET_ADVISOR:
+            return {
+              ...state,
+              advisor: action.payload
+            }
         case REMOVE_USER:
-            return {reader: null}
+            return {
+              ...initialState
+            }
         default:
             return state;
     }

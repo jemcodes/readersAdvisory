@@ -39,6 +39,7 @@ class Advisor(db.Model, UserMixin):
       "last_name": self.last_name,
       "email": self.email,
       "reader_id": self.reader_id,
+      "type": "Advisor",
       "created": self.created_at,
       "updated": self.updated_at
     }

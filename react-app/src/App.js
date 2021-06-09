@@ -15,6 +15,7 @@ import CreateSubscription from "./components/CreateSubscription";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
+import AdvisorOnly from "./components/AdvisorOnly";
 
 function App() {
   // const reader = useSelector(state => state.session.reader)
@@ -41,6 +42,9 @@ function App() {
         </Route>
         <Route path="/advisor-login" exact={true}>
           <AdvisorLoginForm />
+        </Route>
+        <Route path="/advisor-only" exact={true}>
+          <AdvisorOnly />
         </Route>
         <Route path="/sign-up" exact={true}>
           <SignUpForm />

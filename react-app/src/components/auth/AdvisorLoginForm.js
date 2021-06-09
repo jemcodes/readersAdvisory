@@ -70,7 +70,7 @@ const AdvisorLoginForm = () => {
                     onChange={updatePassword}
                 />
                 <button type="submit">Login</button>
-                <NavLink to="/" onClick={toggleReaderMenu} exact={true} activeClassName="active">
+                <NavLink to="/" onClick={toggleAdvisorMenu} exact={true} activeClassName="active">
                     Cancel
             </NavLink>
             </div>

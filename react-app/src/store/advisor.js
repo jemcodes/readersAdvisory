@@ -87,14 +87,12 @@ export default function advisor(state = initialState, action) {
     switch (action.type) {
         case GET_ORDERS:
             nextState = {
-                orders: {
                     cover_options: action.payload.cover_options,
                     genre_options: action.payload.genre_options,
                     author_options: action.payload.author_options,
                     reader_id: action.payload.reader_id,
                     advisor_id: action.payload.advisor_id,
                     product_id: action.payload.product_id
-                }
             }
 
             return {
@@ -103,6 +101,22 @@ export default function advisor(state = initialState, action) {
             }
         case CREATE_ORDERS:
             return { ...state, ...action.payload}
+        case EDIT_ORDERS:
+            nextState = {
+                cover_options: action.payload.cover_options,
+                genre_options: action.payload.genre_options,
+                author_options: action.payload.author_options,
+                reader_id: action.payload.reader_id,
+                advisor_id: action.payload.advisor_id,
+                product_id: action.payload.product_id
+            }
+
+            return {
+                ...state,
+                ...nextState
+            };
+        case DELETE_ORDERS:
+            return {...initialState}
         default:
             return state;
     }

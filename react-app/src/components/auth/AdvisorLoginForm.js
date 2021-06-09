@@ -40,7 +40,7 @@ const AdvisorLoginForm = () => {
     };
 
     if (advisor) {
-        return <Redirect to="/" />;
+        return <Redirect to="/my-readers" />;
     }
 
     return (

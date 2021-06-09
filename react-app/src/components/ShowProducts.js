@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams, NavLink, Redirect } from 'react-router-dom';
 import { showAllProducts } from '../store/product';
 
 const ShowProducts = () => {
     const dispatch = useDispatch();
     const reader = useSelector(state => state.session.reader);
+    const advisor = useSelector(state => state.session.advisor);
     const product = useSelector(state => state.product)
     let authors;
 
     useEffect(() => {
         dispatch(showAllProducts())
     }, [dispatch])
+
+
+    if (!advisor) {
+        return <Redirect to='/advisor-login' />;
+    }
 
     return (
         <div id="product-container">

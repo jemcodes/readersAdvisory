@@ -1,6 +1,6 @@
 import React, { useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams, NavLink, Redirect } from 'react-router-dom';
 import { showSubscription } from '../store/subscription';
 import Footer from '../components/Footer';
 import './styles/show-subscription.css';
@@ -9,7 +9,7 @@ import './styles/show-subscription.css';
 const ShowPreferences = () => {
     const dispatch = useDispatch();
     const { reader_id } = useParams()
-    // const reader = useSelector(state => state.session.reader);
+    const reader = useSelector(state => state.session.reader);
     // let authors;
     
     useEffect(() => {
@@ -22,6 +22,10 @@ const ShowPreferences = () => {
     // const hiddenPayment = (subscription) => {
     //     return subscription.payment_method.slice(-5)
     // }
+
+    if (!reader) {
+        return <Redirect to='/reader-login' />;
+    }
 
     return (
         <div id="subscription-container">

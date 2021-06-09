@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { useParams, NavLink } from 'react-router-dom';
+import { Redirect, useParams, NavLink } from 'react-router-dom';
 import Footer from './Footer';
 import { showPreferences } from '../store/reader';
 import './styles/show-preferences.css';
@@ -9,13 +9,17 @@ import './styles/show-preferences.css';
 const ShowPreferences = () => {
     const dispatch = useDispatch();
     const { reader_id } = useParams()
-    // const reader = useSelector(state => state.session.reader);
+    const reader = useSelector(state => state.session.reader);
     const preferences = useSelector(state => state.reader.preferences);
     // let authors;
     
     useEffect(() => {
         dispatch(showPreferences(reader_id))
     }, [dispatch, reader_id])
+
+    if (!reader) {
+        return <Redirect to='/reader-login' />;
+    }
 
     return (
         <>

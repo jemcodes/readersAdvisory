@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { useHistory, NavLink } from 'react-router-dom';
+import { useHistory, NavLink, Redirect } from 'react-router-dom';
 import { captureSubscription } from '../store/subscription';
 import './styles/create-subscription.css';
 
@@ -36,9 +36,9 @@ const CreateSubscription = () => {
         setPaymentMethod(e.target.value);
     };
 
-    // if (reader) {
-    //     return <Redirect to="/reader-quiz" />;
-    // }
+    if (!reader) {
+        return <Redirect to='/reader-login' />;
+    }
 
     return (
         <div id="create-subscription-container">

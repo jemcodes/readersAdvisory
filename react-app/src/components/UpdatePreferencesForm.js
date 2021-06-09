@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { NavLink, useHistory, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams, Redirect } from 'react-router-dom';
 import { showPreferences, updatePreferences, deletePreferences, deleteAccount } from '../store/reader';
 import './styles/update-preferences.css';
 
@@ -52,6 +52,7 @@ const UpdatePreferencesForm = () => {
         }
     }, [preferences])
 
+    
 
     const onEditCompletion = async (e) => {
         e.preventDefault();
@@ -81,6 +82,11 @@ const UpdatePreferencesForm = () => {
     //         history.push("/sign-up")
     //     }
     // }
+
+    if (!reader) {
+        return <Redirect to='/reader-login' />;
+    }
+
 
     return (
         <div id="update-preferences-container">

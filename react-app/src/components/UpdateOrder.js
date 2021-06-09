@@ -64,6 +64,10 @@ const UpdateOrderForm = () => {
         }
     }
 
+    if (!advisor) {
+        return <Redirect to='/advisor-login' />;
+    }
+
    return (
         <div id="update-orders-container">
             <form id="update-orders-contents" onSubmit={handlSubmit}>

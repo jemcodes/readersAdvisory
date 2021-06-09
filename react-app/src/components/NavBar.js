@@ -18,8 +18,10 @@ const NavBar = () => {
                 <NavLink id="site-title" to="/" exact={true} activeClassName="active">
                   Readers' Advisory
                 </NavLink>
-          <a href="#" onClick={() => setShowReaderMenu(!showReaderMenu)}>READERS</a>
-          <a href="#" onClick={() => setShowAdvisorMenu(!showAdvisorMenu)}>ADVISORS</a>
+          <div className="menu-links-div">
+            <a href="#" className="menu-links" onClick={() => setShowReaderMenu(!showReaderMenu)}>READERS</a>
+            <a href="#" className="menu-links" onClick={() => setShowAdvisorMenu(!showAdvisorMenu)}>ADVISORS</a>
+          </div>
               {/* </div>   */}
         </div>
       </nav>
@@ -34,25 +36,21 @@ const NavBar = () => {
                 <NavLink className="nav-links" to="/login" exact={true} activeClassName="active">
                   <button className="nav-bar-buttons">Sign In</button>
                 </NavLink>
-              </div>  
-            <div className="nav-links-right" style={{backgroundColor: "white"}}>
                 <DemoUser />
                 <LogoutButton />
-            </div>
+              </div>  
       </div>
         )}
       {showAdvisorMenu && (
         <div className="menu-container">
           <div className="nav-links-right">
-            <NavLink className="nav-links" to="/login" exact={true} activeClassName="active">
+            <NavLink className="nav-links" to="/advisor-login" exact={true} activeClassName="active">
               <button className="nav-bar-buttons">Sign In</button>
             </NavLink>
-          </div>
-          <div className="nav-links-right" style={{ backgroundColor: "white" }}>
             <DemoAdvisor />
             <LogoutButton />
           </div>
-        </div>
+          </div>
       )}
     </>
   );

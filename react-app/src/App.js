@@ -41,11 +41,11 @@ function App() {
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
-        <Route path="/advisor-login" exact={true}>
-          <AdvisorLoginForm />
-        </Route>
         <Route path="/my-readers" exact={true}>
           <ShowAdvisees />
+        </Route>
+        <Route path="/advisor-login" exact={true}>
+          <AdvisorLoginForm />
         </Route>
         <Route path="/sign-up" exact={true}>
           <SignUpForm />

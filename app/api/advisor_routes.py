@@ -23,10 +23,21 @@ def advisor(advisor_id):
     return advisor.to_dict()
 
 
-"""---------- Advisor-Reader Interactions ----------"""
+"""---------- Advisor-Reader Views ----------"""
 @advisor_routes.route('/<int:advisor_id>/advisees', methods=['GET'])
 @login_required
 def get_assigned_readers(advisor_id):
     """Get a list of readers assigned to a single advisor"""
-    readers = Advisor.query.filter(Advisor.id == advisor_id).join(Reader, Reader.id == Advisor.reader_id).all()
+    readers = Reader.query.filter(Reader.advisor_id == advisor_id).all()
     return readers.to_dict()
+
+
+@advisor_routes.route('/<int:advisor_id>/advisees/<int:reader_id>/preferences', methods=['GET'])
+@login_required
+def get_reader_preferences(advisor_id, reader_id):
+    """Get a list of a single reader's preferences"""
+    readers = Reader.query.filter(Reader.id == reader_id).first()
+    return readers.to_dict()
+
+"""---------- Advisor-Order Interactions ----------"""
+

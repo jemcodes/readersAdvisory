@@ -5,7 +5,7 @@ from app.models import db, Reader
 def seed_readers():
 
     demo = Reader(email='demo@aa.io',
-                password='password')
+                password='password',)
     
     bookworm = Reader(email='bookworm@aa.io',
                 password='password')

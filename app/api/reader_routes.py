@@ -110,7 +110,6 @@ def subscription_status(reader_id):
 def add_subscription(reader_id):
     """Add a subscription for a single reader"""
     form = SubscriptionForm()
-    print('******************', form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_subscription = ReaderSubscription(

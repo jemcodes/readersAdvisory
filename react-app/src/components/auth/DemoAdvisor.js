@@ -11,7 +11,7 @@ export default function DemoAdvisor() {
     const onAdvisorLogin = async (e) => {
         e.preventDefault();
         await dispatch(advisorLogin('demo_ad@aa.io', 'password'));
-        history.push('/advisor-only')
+        history.push('/my-readers')
     }
 
     return <form onSubmit={onAdvisorLogin}>

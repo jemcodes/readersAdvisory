@@ -3,11 +3,15 @@ import thunk from "redux-thunk";
 import session from "./session"
 import reader from './reader'
 import subscription from './subscription';
+import advisor from './advisor';
+import product from './product';
 
 const rootReducer = combineReducers({
     session,
     reader,
-    subscription
+    subscription,
+    advisor,
+    product
 });
 
 

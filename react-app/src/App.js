@@ -12,10 +12,12 @@ import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import CreatePreferences from "./components/CreatePreferences";
 import CreateSubscription from "./components/CreateSubscription";
+import CreateOrder from "./components/CreateOrder";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
-import AdvisorOnly from "./components/AdvisorOnly";
+import ShowOrders from "./components/ShowOrders";
+import ShowProducts from "./components/ShowProducts";
 import Home from "./components/Home";
 
 function App() {
@@ -41,11 +43,17 @@ function App() {
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
+        <Route path="/my-readers" exact={true}>
+          <ShowOrders />
+        </Route>
+        <Route path="/orders/new" exact={true}>
+          <CreateOrder />
+        </Route>
+        <Route path="/products" exact={true}>
+          <ShowProducts />
+        </Route>
         <Route path="/advisor-login" exact={true}>
           <AdvisorLoginForm />
-        </Route>
-        <Route path="/advisor-only" exact={true}>
-          <AdvisorOnly />
         </Route>
         <Route path="/sign-up" exact={true}>
           <SignUpForm />

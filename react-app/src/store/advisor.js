@@ -25,7 +25,7 @@ const initialState = {
 export default function advisor(state = initialState, action) {
     let nextState = {}
     switch (action.type) {
-        case GET_PREFERENCES:
+        case GET_ADVISEES:
             nextState = {
                 advisees: {
                     user_name: action.payload.user_name,

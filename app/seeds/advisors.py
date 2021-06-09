@@ -7,8 +7,7 @@ def seed_advisors():
     demo_advisor = Advisor(first_name='Teaghyn', 
                 last_name='Luper',
                 email='demo_ad@aa.io',
-                password='password',
-                reader_id=2)
+                password='password')
  
     db.session.add(demo_advisor)
 

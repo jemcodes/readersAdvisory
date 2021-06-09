@@ -9,6 +9,7 @@ class Reader(db.Model, UserMixin):
   id = db.Column(db.Integer, primary_key = True)
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable = False)
+  advisor_id = db.Column(db.Integer, db.ForeignKey("advisors.id"))
   created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
   updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
   reader_profile = db.relationship('ReaderPreference', back_populates="reader")
@@ -35,8 +36,8 @@ class Reader(db.Model, UserMixin):
     return {
       "id": self.id,
       "email": self.email,
+      "advisor_id": 1,
       "type": "Reader",
-      "advisor": advisor.id,
       "created": self.created_at,
       "updated": self.updated_at
     }

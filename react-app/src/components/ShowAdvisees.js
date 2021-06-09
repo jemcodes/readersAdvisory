@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 
-export default function AdvisorOnly() {
+export default function ShowAdvisees() {
     const advisor = useSelector(state => state.session.advisor);
 
     if (!advisor) {

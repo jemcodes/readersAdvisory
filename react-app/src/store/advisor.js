@@ -10,9 +10,9 @@ const createOrder = (orderPayload) => ({
     payload: orderPayload
 })
 
-const getOrders = (advisor_id) => ({
+const getOrders = (orderList) => ({
     type: GET_ORDERS,
-    payload: advisor_id
+    payload: orderList
 })
 
 const editOrder = (editedOrder) => ({
@@ -86,18 +86,9 @@ export default function advisor(state = initialState, action) {
     let nextState = {}
     switch (action.type) {
         case GET_ORDERS:
-            nextState = {
-                    cover_options: action.payload.cover_options,
-                    genre_options: action.payload.genre_options,
-                    author_options: action.payload.author_options,
-                    reader_id: action.payload.reader_id,
-                    advisor_id: action.payload.advisor_id,
-                    product_id: action.payload.product_id
-            }
-
             return {
                 ...state,
-                ...nextState
+                ...action.payload
             }
         case CREATE_ORDERS:
             return { ...state, ...action.payload}

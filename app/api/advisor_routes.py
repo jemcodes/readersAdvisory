@@ -57,7 +57,7 @@ def advisor(advisor_id):
 def get_assigned_orders(advisor_id):
     """Get a list of orders assigned to a single advisor"""
     orders = Order.query.filter(Order.advisor_id == advisor_id).all()
-    return orders.to_dict()
+    return {"orders": [order.to_dict() for order in orders]}
 
 @advisor_routes.route('/<int:advisor_id>/orders', methods=['POST'])
 @login_required

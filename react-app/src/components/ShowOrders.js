@@ -7,6 +7,7 @@ import { showOrders } from '../store/advisor';
 export default function ShowOrders() {
     const dispatch = useDispatch();
     const advisor = useSelector(state => state.session.advisor);
+    const orders = useSelector(state => state.advisor.orders);
     
     useEffect(() => {
         dispatch(showOrders(advisor.id))
@@ -17,6 +18,12 @@ export default function ShowOrders() {
     }
 
     return (
-        <h1>Welcome advisor!!</h1>
+        <div>
+            <ul>
+                {orders.map((order) => (
+                    <li>{order.author_options}</li>
+                ))}
+            </ul>
+        </div>
     )
 }

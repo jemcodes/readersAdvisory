@@ -37,12 +37,10 @@ const NavBar = () => {
       </nav>
         {showReaderMenu && ( 
             <div className="menu-container">
-          <div className="nav-links-left">
+            <div className="nav-links-right">
             <NavLink className="nav-links" to="/sign-up" onClick={toggleReaderMenu} exact={true} activeClassName="active">
               <button className="nav-bar-buttons">Get Started</button>
             </NavLink>
-          </div>
-            <div className="nav-links-right">
             <NavLink className="nav-links" to="/login" onClick={toggleReaderMenu} exact={true} activeClassName="active">
                   <button className="nav-bar-buttons">Sign In</button>
                 </NavLink>

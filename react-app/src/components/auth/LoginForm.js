@@ -74,8 +74,8 @@ const LoginForm = () => {
               onChange={updatePassword}
             />
             <button id="login-button" type="submit">Reader Login</button>
-            <NavLink to="/" onClick={toggleReaderMenu} exact={true} activeClassName="active">
-              Cancel
+            <NavLink to="/sign-up" onClick={toggleReaderMenu} exact={true} activeClassName="active">
+              Don't have an account? Get started!
             </NavLink>
           </div>
         </div>

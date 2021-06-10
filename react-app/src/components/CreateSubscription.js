@@ -22,10 +22,9 @@ const CreateSubscription = () => {
             payment_method,
             reader_id
         }
-        console.log(subscriptionPayload)
         await dispatch(captureSubscription(subscriptionPayload))
+        window.alert("Great! Your advisor will start working on your next box when it's time!")
         history.push(`/readers/${reader_id}/subscription`)
-
     };
 
     const updateSubscriptionType = (e) => {

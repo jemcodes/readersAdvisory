@@ -2,7 +2,6 @@ import React, { useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { useParams, NavLink, Redirect } from 'react-router-dom';
 import { showSubscription } from '../store/subscription';
-import Footer from '../components/Footer';
 import './styles/show-subscription.css';
 // import UpdatePreferencesForm from './UpdatePreferencesForm';
 
@@ -56,9 +55,6 @@ const ShowPreferences = () => {
                 <NavLink to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
                     Cancel
                 </NavLink>
-            <div>
-                <Footer />
-            </div>
             </div>
         </div>
     );

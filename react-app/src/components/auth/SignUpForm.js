@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
-import Footer from '../Footer';
 import '../styles/signup-form.css';
 
 const SignUpForm = () => {
@@ -91,9 +90,6 @@ const SignUpForm = () => {
       </form>
       <div id="signup-page-greeting">
         <h1>Discover a new reading <br></br>experience</h1>
-      </div>
-      <div>
-        <Footer />
       </div>
       </div>
   );

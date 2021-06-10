@@ -86,23 +86,35 @@ const NavBar = () => {
             <h1 id="reader-su-heading">New Around Here?</h1>
             <div id="reader-su-container">
               <div id="reader-su-btn">
-                <NavLink className="nav-links" to="/login" onClick={toggleReaderMenu} exact={true} activeClassName="active">
-                  <button className="reader-signup-button">Sign In</button>
+                <NavLink className="nav-links" to="/sign-up" onClick={toggleReaderMenu} exact={true} activeClassName="active">
+                  <button className="reader-signup-button">Get Started</button>
                 </NavLink>
               </div>
               {/* <div className="menu-divider"><h1></h1></div> */}
             </div>
           </div>
-
+          <div className="li-nav-links">
+            <h1 id="reader-li-heading">Readers' Advisory Membership</h1>
+            <div id="reader-li-container">
+              <div id="reader-li-btn">
             <NavLink className="nav-links" to="/login" onClick={toggleReaderMenu} exact={true} activeClassName="active">
                   <button className="nav-bar-buttons">Sign In</button>
                 </NavLink>
                 <DemoUser />
               </div>
+            </div>
+              </div>
+          </div>
         )}
       {showAdvisorMenu && (
-        <div className="menu-container">
-          <div className="nav-links-right">
+        <div className="advisor-menu-container">
+          <div id="advisor-info-block">
+            {/* <h1 id="ra-heading">Readers' Advisory</h1> */}
+            <h2 id="ra-definition-heading">read·ers' ad·​vi·​so·​ry (noun)</h2>
+            <p id="ra-definition">Readers’ advisory is the process of matching readers with books and books to readers.</p>
+          </div>
+          <div className="advisor-nav-links">
+          <h1 id="reader-li-heading">Welcome, Trusted Readers' Advisor!</h1>
             <NavLink className="nav-links" to="/advisor-login" exact={true} activeClassName="active">
               <button className="nav-bar-buttons">Sign In</button>
             </NavLink>

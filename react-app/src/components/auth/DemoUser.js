@@ -2,6 +2,7 @@ import React from 'react';
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
+import '../styles/navbar.css';
 
 
 export default function DemoUser() {
@@ -17,7 +18,7 @@ export default function DemoUser() {
 
     return (
         <form onSubmit={onLogin}>
-            <button className="nav-bar-buttons" type="submit">DemoReader</button>
+            <button id="demo-reader-btn" type="submit">DemoReader</button>
         </form>
     );
 }

@@ -58,9 +58,9 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
-        <Route path="/reader-quiz" exact={true} >
+        <ProtectedRoute path="/reader-quiz" exact={true} >
           <CreatePreferences />
-        </Route>
+        </ProtectedRoute>
         <ProtectedRoute path="/readers/:reader_id/subscription/new" exact={true} >
           <CreateSubscription />
         </ProtectedRoute>

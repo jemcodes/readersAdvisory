@@ -43,6 +43,7 @@ def login():
         # Add the reader to the session, we are logged in!
         reader = Reader.query.filter(Reader.email == form.data['email']).first()
         login_user(reader)
+        session["role"] = "reader"
         return reader.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
@@ -60,6 +61,7 @@ def advisor_login():
         # Add the reader to the session, we are logged in!
         advisor = Advisor.query.filter(Advisor.email == form.data['email']).first()
         login_user(advisor)
+        session["role"] = "advisor"
         return advisor.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
@@ -70,6 +72,7 @@ def logout():
     Logs a user out
     """
     logout_user()
+    session.pop("role", None)
     return {'message': 'User logged out'}
 
 

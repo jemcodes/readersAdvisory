@@ -5,12 +5,12 @@ import { showOrders } from '../store/advisor';
 
 
 export default function ShowOrders() {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const advisor = useSelector(state => state.session.advisor);
     
-    // useEffect(() => {
-    //     dispatch(showOrders(advisor.id))
-    // }, [dispatch, advisor.id])
+    useEffect(() => {
+        dispatch(showOrders(advisor.id))
+    }, [dispatch, advisor.id])
 
     if (!advisor) {
         return <Redirect to='/advisor-login' />;

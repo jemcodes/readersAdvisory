@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import Advisor
+from app.models import Advisor, Order
 
 advisor_routes = Blueprint('advisors', __name__)
 
@@ -54,7 +54,7 @@ def advisor(advisor_id):
 """---------- Advisor-Order Interactions ----------"""
 @advisor_routes.route('/<int:advisor_id>/orders', methods=['GET'])
 @login_required
-def get_assigned_readers(advisor_id):
+def get_assigned_orders(advisor_id):
     """Get a list of orders assigned to a single advisor"""
     orders = Order.query.filter(Order.advisor_id == advisor_id).all()
     return orders.to_dict()

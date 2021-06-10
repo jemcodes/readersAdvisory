@@ -79,7 +79,7 @@ export const deleteSubscription = (orderPayload) => async (dispatch) => {
 // REDUCERS 
 
 const initialState = {
-    orders: undefined
+    orders: []
 };
 
 export default function advisor(state = initialState, action) {

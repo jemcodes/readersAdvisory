@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { Redirect, useHistory, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams, Redirect } from 'react-router-dom';
 import { showSubscription, updateSubscription, deleteSubscription } from '../store/subscription';
 import './styles/update-subscription.css'
 
@@ -44,6 +44,7 @@ const UpdateSubscriptionForm = () => {
             reader_id
         }
         await dispatch(updateSubscription(editedSubscription))
+        window.alert("Great! Your advisor will start working on your next box when it's time!")
         history.push(`/readers/${reader_id}/subscription`)
     };
 
@@ -54,6 +55,9 @@ const UpdateSubscriptionForm = () => {
         }
     }
 
+    if (!reader) {
+        return <Redirect to='/reader-login' />;
+    }
 
     return (
         <div id="update-subscription-container">
@@ -76,6 +80,8 @@ const UpdateSubscriptionForm = () => {
                 </div>
                 <div className="update-subscription-div">
                     <label className="update-subscription-items">Please update your payment method</label>
+                    <h2>Surprise! You've got trial credit!</h2>
+                    <h3>Use read-good-books-now as your payment method to use your credit now!</h3>
                     <input className="update-subscription-inputs"
                         type="password"
                         name="payment"
@@ -89,6 +95,9 @@ const UpdateSubscriptionForm = () => {
                     <button id="update-subscription-btn" type="submit">Update my subscription!</button>
                 </div>
                 <button id="delete-subscription-btn" type="button" onClick={onDelete}>Delete This Subscription</button>
+                <NavLink to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
+                    Cancel
+                </NavLink>
             </form>
         </div>
     );

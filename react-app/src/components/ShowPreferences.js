@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { useParams, NavLink } from 'react-router-dom';
-import Footer from './Footer';
+import { Redirect, useParams, NavLink } from 'react-router-dom';
 import { showPreferences } from '../store/reader';
 import './styles/show-preferences.css';
 // import UpdatePreferencesForm from './UpdatePreferencesForm';
@@ -16,6 +15,10 @@ const ShowPreferences = () => {
     useEffect(() => {
         dispatch(showPreferences(reader_id))
     }, [dispatch, reader_id])
+
+    if (!reader) {
+        return <Redirect to='/reader-login' />;
+    }
 
     return (
         <>
@@ -34,9 +37,6 @@ const ShowPreferences = () => {
                                 <li className="preference-list-items">Genres: {preferences.genre_choices.split(', ').map(choice => (<p className="preference-list-contents">{choice}</p>))}</li>
                             </div>
                             <div>
-        <div>
-            <Footer />
-        </div>
                                 <li className="preference-list-items">Authors: {preferences.author_choices.split(', ').map(choice => (<p className="preference-list-contents">{choice}</p>))}</li>
                             </div>
                             <div>

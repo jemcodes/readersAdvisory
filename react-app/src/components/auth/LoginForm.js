@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
 import { login } from "../../store/session";
-import Footer from "../Footer";
 import '../styles/login-form.css';
 
 
@@ -75,17 +74,14 @@ const LoginForm = () => {
               onChange={updatePassword}
             />
             <button id="login-button" type="submit">Reader Login</button>
-            <NavLink to="/" onClick={toggleReaderMenu} exact={true} activeClassName="active">
-              Cancel
+            <NavLink to="/sign-up" onClick={toggleReaderMenu} exact={true} activeClassName="active">
+              Don't have an account? Get started!
             </NavLink>
           </div>
         </div>
       </form>
       <div id="login-page-greeting">
         <h1>Welcome back, <br></br>reader friend!</h1>
-      </div>
-      <div>
-        <Footer />
       </div>
       </div>
   );

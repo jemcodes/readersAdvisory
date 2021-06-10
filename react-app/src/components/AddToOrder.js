@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import { addToOrder } from '../store/product';
 
 export default function AddToOrder() {
     const dispatch = useDispatch();
     products = useSelector(state => state.product)
+    advisor = useSelector(state => state.session.advisor)
     reader = useSelector(state => state.session.reader)
     const product_id = products.id
     const reader_id = reader.id
@@ -29,6 +30,10 @@ export default function AddToOrder() {
         }
         dispatch(removeFromOrder(orderPayload))
         history.push('/orders')
+    }
+
+    if (!advisor) {
+        return <Redirect to='/advisor-login' />;
     }
 
     return (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink, Redirect } from 'react-router-dom';
 import { captureSubscription } from '../store/subscription';
 import './styles/create-subscription.css';
 
@@ -10,6 +10,7 @@ const CreateSubscription = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const reader = useSelector(state => state.session.reader);
+    const reader_id = reader.id
     // const reader_id = reader.id
     // const reader = useSelector(state => state.session.reader);
 
@@ -21,10 +22,9 @@ const CreateSubscription = () => {
             payment_method,
             reader_id
         }
-        console.log(subscriptionPayload)
         await dispatch(captureSubscription(subscriptionPayload))
+        window.alert("Great! Your advisor will start working on your next box when it's time!")
         history.push(`/readers/${reader_id}/subscription`)
-
     };
 
     const updateSubscriptionType = (e) => {
@@ -35,9 +35,9 @@ const CreateSubscription = () => {
         setPaymentMethod(e.target.value);
     };
 
-    // if (reader) {
-    //     return <Redirect to="/reader-quiz" />;
-    // }
+    if (!reader) {
+        return <Redirect to='/reader-login' />;
+    }
 
     return (
         <div id="create-subscription-container">
@@ -58,6 +58,8 @@ const CreateSubscription = () => {
                 </div>
                 <div className="create-subscription-div">
                     <label className="create-subscription-items">Please enter a payment method</label>
+                    <h2>Surprise! You've got trial credit!</h2>
+                    <h3>Use read-good-books-now as your payment method to use your credit now!</h3>
                     <input className="create-subscription-inputs"
                         type="password"
                         name="payment"
@@ -68,6 +70,9 @@ const CreateSubscription = () => {
                     ></input>
                 </div>
                 <button id="create-subscription-btn" type="submit">Start my subscription!</button>
+                <NavLink to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
+                    Cancel
+                </NavLink>
             </form>
         </div>
     );

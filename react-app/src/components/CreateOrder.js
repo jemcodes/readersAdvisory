@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { useHistory } from 'react-router-dom';
-// import { Redirect } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { captureOrder } from '../store/advisor';
 
 const CreateOrder = () => {
@@ -46,9 +45,9 @@ const CreateOrder = () => {
         setAuthorOptions(e.target.value);
     };
 
-    // if (reader) {
-    //     return <Redirect to="/reader-quiz" />;
-    // }
+    if (!advisor) {
+        return <Redirect to='/advisor-login' />;
+    }
 
     return (
         <div id="create-order-container">

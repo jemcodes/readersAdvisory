@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import DemoUser from './auth/DemoUser';
@@ -8,6 +9,8 @@ import DemoAdvisor from './auth/DemoAdvisor';
 const NavBar = () => {
   const [showReaderMenu, setShowReaderMenu] = useState(false);
   const [showAdvisorMenu, setShowAdvisorMenu] = useState(false);
+  const reader = useSelector(state => state.session.reader)
+  const advisor = useSelector(state => state.session.advisor)
 
   const toggleReaderMenu = () => {
     setShowReaderMenu(!showReaderMenu)
@@ -31,23 +34,25 @@ const NavBar = () => {
           <div className="menu-links-div">
             <a href="#" className="menu-links" onClick={toggleReaderMenu}>READERS</a>
             <a href="#" className="menu-links" onClick={toggleAdvisorMenu}>ADVISORS</a>
+            {reader && 
+              <LogoutButton />
+            }
+            {advisor && 
+            <LogoutButton />}
           </div>
               {/* </div>   */}
         </div>
       </nav>
         {showReaderMenu && ( 
             <div className="menu-container">
-          <div className="nav-links-left">
+            <div className="nav-links-right">
             <NavLink className="nav-links" to="/sign-up" onClick={toggleReaderMenu} exact={true} activeClassName="active">
               <button className="nav-bar-buttons">Get Started</button>
             </NavLink>
-          </div>
-            <div className="nav-links-right">
             <NavLink className="nav-links" to="/login" onClick={toggleReaderMenu} exact={true} activeClassName="active">
                   <button className="nav-bar-buttons">Sign In</button>
                 </NavLink>
                 <DemoUser />
-                <LogoutButton />
               </div>  
       </div>
         )}
@@ -58,7 +63,6 @@ const NavBar = () => {
               <button className="nav-bar-buttons">Sign In</button>
             </NavLink>
             <DemoAdvisor />
-            <LogoutButton />
           </div>
           </div>
       )}

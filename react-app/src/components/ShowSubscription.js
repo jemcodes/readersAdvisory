@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams, NavLink, Redirect } from 'react-router-dom';
 import { showSubscription } from '../store/subscription';
-import Footer from '../components/Footer';
 import './styles/show-subscription.css';
 // import UpdatePreferencesForm from './UpdatePreferencesForm';
 
@@ -10,7 +9,7 @@ const ShowPreferences = () => {
     const dispatch = useDispatch();
     const { reader_id } = useParams()
     const reader = useSelector(state => state.session.reader);
-    let authors;
+    // let authors;
     
     useEffect(() => {
         dispatch(showSubscription(reader_id))
@@ -22,6 +21,10 @@ const ShowPreferences = () => {
     // const hiddenPayment = (subscription) => {
     //     return subscription.payment_method.slice(-5)
     // }
+
+    if (!reader) {
+        return <Redirect to='/reader-login' />;
+    }
 
     return (
         <div id="subscription-container">
@@ -49,9 +52,9 @@ const ShowPreferences = () => {
                     </NavLink>
                 </div>
             )}
-            <div>
-                <Footer />
-            </div>
+                <NavLink to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
+                    Cancel
+                </NavLink>
             </div>
         </div>
     );

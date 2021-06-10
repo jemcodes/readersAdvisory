@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from 'react-router-dom';
 // import { Redirect } from 'react-router-dom';
 import { capturePreferences } from '../store/reader';
-import Footer from './Footer';
 import './styles/create-preferences.css';
 
 const CreatePreferences = () => {
@@ -98,7 +97,6 @@ const CreatePreferences = () => {
                                 name="genre_choices"
                                 onChange={updateGenreChoices}
                                 value={genre}
-                                required={true}
                             ></input>
                         <label htmlFor={genre}>{genre}</label>
                         </>
@@ -127,9 +125,6 @@ const CreatePreferences = () => {
                     />
                 </div>
                 <button id="create-preferences-btn" type="submit">Submit my preferences!</button>
-                <div>
-                    <Footer />
-                </div>
             </form>
         </div>
     );

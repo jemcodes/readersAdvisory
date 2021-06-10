@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { Redirect, useHistory, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams, Redirect } from 'react-router-dom';
 import { showPreferences, updatePreferences, deletePreferences, deleteAccount } from '../store/reader';
 import './styles/update-preferences.css';
 
@@ -52,6 +52,7 @@ const UpdatePreferencesForm = () => {
         }
     }, [preferences])
 
+    
 
     const onEditCompletion = async (e) => {
         e.preventDefault();
@@ -81,6 +82,11 @@ const UpdatePreferencesForm = () => {
     //         history.push("/sign-up")
     //     }
     // }
+
+    if (!reader) {
+        return <Redirect to='/reader-login' />;
+    }
+
 
     return (
         <div id="update-preferences-container">
@@ -121,7 +127,6 @@ const UpdatePreferencesForm = () => {
                                 name="genre_choices"
                                 onChange={updateGenreChoices}
                                 value={genre}
-                                required={true}
                             ></input>
                             <label htmlFor={genre}>{genre}</label>
                         </>
@@ -149,6 +154,9 @@ const UpdatePreferencesForm = () => {
                 <div id="update-preferences-btns">
                 <button id="update-preferences-btn" type="submit">Update my preferences!</button>
                     <button id="delete-preferences-btn" type="button" onClick={onDeletePreferences}>Delete These Preferences</button>
+                    <NavLink to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
+                        Cancel
+                </NavLink>
                 {/* <button type="button" onClick={onDeleteAccount}>Delete This Account</button> */}
                 </div>
             </form>

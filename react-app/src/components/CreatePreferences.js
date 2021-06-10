@@ -60,11 +60,11 @@ const CreatePreferences = () => {
 
     return (
         <div id="create-preferences-container">
-            <form id="create-preferences-contents" onSubmit={onQuizCompletion}>
-                <h3 id="create-preferences-header">Create Preferences</h3>
-                <div className="create-preference-list-div">
-                    <label className="create-preference-list-items">Please choose a username</label>
-                    <input className="create-preference-inputs"
+            <form id="create-preferences-form" onSubmit={onQuizCompletion}>
+                <h3 id="create-preferences-title">Create Preferences</h3>
+                <div id="create-preferences-username-div">
+                    <label id="create-preferences-username-label">Please choose a username</label>
+                    <input id="create-preferences-username-input"
                         type="text"
                         name="user_name"
                         onChange={updateUsername}
@@ -72,11 +72,11 @@ const CreatePreferences = () => {
                         required={true}
                     ></input>
                 </div>
-                <div className="create-preference-list-div">
-                    <label className="create-preference-list-items">Please select which cover type you prefer</label>
+                <div>
+                    <label>Please select which cover type you prefer:</label>
                     {['Hardcover', 'Paperback', 'No Preference'].map((choice) => (
                         <>
-                            <input className="create-preference-inputs"
+                            <input
                                 id={choice}
                                 type="radio"
                                 name="cover_choices"
@@ -88,11 +88,11 @@ const CreatePreferences = () => {
                         </>
                     ))}
                 </div>
-                <div className="create-preference-list-div">
-                    <label className="create-preference-list-items">Please select which genres you enjoy</label>
+                    <label>Please select which genres you enjoy:</label>
+                <div>
                     {['Biography', 'Classic Literature', 'Contemporary Literature', 'Crime', 'Fantasy', 'Graphic Novels & Comics', 'LGBTQ+ Fiction', 'Historical Fiction', 'Horror', 'Humor & Comedy', 'Memoir', 'Mystery', 'Nonfiction', 'Paranormal', 'Philosophical', 'Poetry', 'Pulp Fiction', 'Romance', 'Science Fiction', 'Speculative Fiction', 'Suspense', 'Thriller', 'Young Adult'].map((genre) => (
                        <>
-                            <input className="create-preference-text"
+                            <input
                                 type="checkbox"
                                 name="genre_choices"
                                 onChange={updateGenreChoices}
@@ -102,9 +102,9 @@ const CreatePreferences = () => {
                         </>
                     ))}
                 </div>
-                <div className="create-preference-list-div">
-                    <label className="create-preference-list-items">Please list some authors you like, separated by commas</label>
-                    <textarea className="create-preference-text"
+                <div>
+                    <label>Please list some authors you like, separated by commas</label>
+                    <textarea
                         // type="text"
                         name="author_choices"
                         onChange={updateAuthorChoices}
@@ -113,9 +113,9 @@ const CreatePreferences = () => {
                         required={true}
                     />
                 </div>
-                <div className="create-preference-list-div">
-                    <label className="create-preference-list-items">Please provide any additional information that might help your advisor</label>
-                    <textarea className="create-preference-text"
+                <div>
+                    <label>Please provide any additional information that might help your advisor</label>
+                    <textarea
                         type="text"
                         name="other_choices"
                         onChange={updateOtherChoices}

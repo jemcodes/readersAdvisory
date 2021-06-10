@@ -66,24 +66,34 @@ const NavBar = () => {
                     <br></br>
                     <a target="_blank" rel="noreferrer" href="https://jemartinbooks.com/">J. E. Martin</a>
                   </div>
-              <div className="menu-divider"></div>
+                  {/* <div className="menu-divider"><h1></h1></div> */}
               </div>
             </div>
           <div className="about-nav-links">
-            <h1 id="about-heading">About the Developer</h1>
+            <h1 id="about-heading">About The Developer</h1>
             <div id="about-container">
               <div id="left-about">
+                <h2 className="about-titles">Hiya! I'm jane 👋 Find me here 👇</h2>
                 <a target="_blank" rel="noreferrer" href="https://github.com/jemcodes/">GitHub</a>
-              </div>
-              <div id="right-about">
                 <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/jemcodes/">LinkedIn</a>
+                <br></br>
+                {/* <p>🍸 cheers & happy reading! 📚</p> */}
               </div>
-              <div className="menu-divider"></div>
+              {/* <div className="menu-divider"><h1></h1></div> */}
             </div>
           </div>
-            <NavLink className="nav-links" to="/sign-up" onClick={toggleReaderMenu} exact={true} activeClassName="active">
-              <button className="nav-bar-buttons">Get Started</button>
-            </NavLink>
+          <div className="su-nav-links">
+            <h1 id="reader-su-heading">New Around Here?</h1>
+            <div id="reader-su-container">
+              <div id="reader-su-btn">
+                <NavLink className="nav-links" to="/login" onClick={toggleReaderMenu} exact={true} activeClassName="active">
+                  <button className="reader-signup-button">Sign In</button>
+                </NavLink>
+              </div>
+              {/* <div className="menu-divider"><h1></h1></div> */}
+            </div>
+          </div>
+
             <NavLink className="nav-links" to="/login" onClick={toggleReaderMenu} exact={true} activeClassName="active">
                   <button className="nav-bar-buttons">Sign In</button>
                 </NavLink>

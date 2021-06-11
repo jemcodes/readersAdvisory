@@ -15,7 +15,7 @@ body {
     justify-content: center;
 }
 
-#login-container {
+#advisor-login-container {
     /* border: 2px solid red; */
     margin-top: -15px;
     display: flex;
@@ -24,17 +24,12 @@ body {
     width: 505;
 }
 
-#login-email {
+#advisor-login-email {
     padding: .5rem;
     font-family: 'Montserrat', sans-serif;
 }
 
-#login-password {
-    padding: .5rem;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.login-input {
+.advisor-login-input {
     margin: .5rem 1rem .5rem .5rem;
     padding: 1rem;
     border-radius: 4px;
@@ -42,12 +37,17 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.login-input:focus {
+.advisor-login-input:focus {
     outline: none;
     box-shadow: 0 0 0 1pt #8B478B;
 }
 
-#login-button {
+#advisor-login-password {
+    padding: .5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#advisor-login-button {
     margin: 0 .5rem 0 .5rem;
     border-radius: 28px;
     border: 2px solid #6f1a6f;
@@ -60,18 +60,9 @@ body {
     cursor: pointer;
 }
 
-#login-button:hover {
+#advisor-login-button:hover {
     border: 2px solid #8B478B;
     background-color: #8B478B;
-}
-
-#login-page-greeting {
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    color: white;
-    font-size: 54px;
-    font-weight: bold;
-    filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.3));
 }
 
 .nav-switch {

@@ -82,7 +82,7 @@ const SignUpForm = () => {
             required={true}
           ></input>
         <button id="signup-button" type="submit">Sign Up</button>
-            <NavLink to="/login" onClick={toggleReaderMenu} exact={true} activeClassName="active">
+            <NavLink className="nav-switch" to="/login" onClick={toggleReaderMenu} exact={true} activeClassName="active">
               I already have an account
             </NavLink>
         </div>

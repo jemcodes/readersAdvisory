@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { Redirect, useParams, NavLink } from 'react-router-dom';
 import { showPreferences, updatePreferences } from '../store/reader';
-// import UpdateSubscriptionForm from './UpdateSubscriptionForm';
+import ShowSubscription from './ShowSubscription';
 import './styles/show-preferences.css';
 // import UpdatePreferencesForm from './UpdatePreferencesForm';
 import bookBubble from '../images/book-bubble.png';
@@ -58,6 +58,7 @@ const ShowPreferences = () => {
                                 View My Subscription
                             </button>
                         </NavLink>
+                        {/* <ShowSubscription /> */}
                     </div>
                 </div>
             </div>

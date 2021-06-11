@@ -13,6 +13,8 @@ font-family: 'Sofia', cursive; */
     align-items: center;
     width: 100vw;
     position: fixed;
+    margin-top: 19px;
+    /* padding-bottom: 1rem; */
 }
 
 .oh-hai-it-me {

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useHistory, NavLink, Redirect } from 'react-router-dom';
 import { captureSubscription } from '../store/subscription';
 import './styles/create-subscription.css';
+import bookBubble from '../images/book-bubble.png';
 
 const CreateSubscription = () => {
     const [subscription_type, setSubscriptionType] = useState("");

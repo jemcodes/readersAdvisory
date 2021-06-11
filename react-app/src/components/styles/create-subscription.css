@@ -4,7 +4,6 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Sofia', cursive; */
 
 #create-subscription-container {
-    border: 2px solid red;
     height: 100vh;
     margin-top: -5rem;
     margin-bottom: -1rem;

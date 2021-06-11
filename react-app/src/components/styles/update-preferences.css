@@ -109,11 +109,20 @@ font-family: 'Sofia', cursive; */
 } */
 
 #update-preferences-container {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     background-color: #F6F1F6;
-    margin-top: -180px;
+    margin-top: -400px;
     margin-bottom: -20px;
     padding: 25rem 25rem 2rem 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.update-pref-book-bubble {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    width: 25%;
 }
 
 #update-preferences-form {

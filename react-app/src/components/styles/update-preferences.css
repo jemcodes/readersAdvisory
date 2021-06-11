@@ -268,7 +268,7 @@ font-family: 'Sofia', cursive; */
 }
 
 #update-preferences-btn {
-    margin: 1rem .5rem 1rem .5rem;
+    margin: 1rem .5rem 1rem 1rem;
     border-radius: 28px;
     border: 2px solid #6f1a6f;
     background-color: #6f1a6f;
@@ -277,8 +277,6 @@ font-family: 'Sofia', cursive; */
     height: 3rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    margin-top: 0.5rem;
-    margin-left: 2rem;
     cursor: pointer;
 }
 

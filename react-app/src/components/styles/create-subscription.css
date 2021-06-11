@@ -25,6 +25,7 @@ font-family: 'Sofia', cursive; */
 
 #create-subscription-form {
     border: 2px solid #C4A3C4;
+    background-color: #FFF;
     border-radius: 4px;
     /* padding-top: 30%; */
     margin-bottom: 15px;
@@ -61,7 +62,7 @@ font-family: 'Sofia', cursive; */
 }
 
 .create-subscription-credit {
-    background-color: #ADDCE0;
+    background-color: #C5A3C5;
     list-style: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -76,6 +77,7 @@ font-family: 'Sofia', cursive; */
 
 .create-subscription-inputs {
     margin: .75rem 1rem 1rem .5rem;
+    background-color: #F6F1F6;
     width: 60%;
     padding: 1rem;
     border-radius: 4px;

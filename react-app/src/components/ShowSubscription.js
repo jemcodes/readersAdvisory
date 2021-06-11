@@ -31,7 +31,7 @@ const ShowPreferences = () => {
         <div id="subscription-container">
             <img className="show-sub-book-bubble" src={bookBubble} />
             <div id="subscription-contents">
-            <h2 id="subscription-header">Subscription</h2>
+            <h2 id="subscription-header">Your Subscription</h2>
             {subscription.subscription_type ? (
                 <div className="subscription-list-div">
                     <ul>
@@ -48,8 +48,8 @@ const ShowPreferences = () => {
                 </NavLink>
                 </div>
             ) : (
-            <div className="subscription-list-div">
-                    <h1>Start a new subscription!</h1>
+            <div className="new-subscription-list-div">
+                <h1 id="state-subscription-title">Oh no! You don't have a subscription yet!</h1>
                     <NavLink to={`/readers/${reader_id}/subscription/new`}>
                                 <button id="start-subscription-btn" type="button">
                             Start New Subscription

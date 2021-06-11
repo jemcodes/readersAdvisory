@@ -49,6 +49,24 @@ font-family: 'Sofia', cursive; */
     padding: 1rem 0 1rem 0;
 }
 
+.new-subscription-list-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     /* border: 2px solid green; */
+    /* margin-left: 2%; */
+    padding: 1rem 0 .6rem 0;
+}
+
+#state-subscription-title {
+    /* border: 2px solid yellow; */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    margin-left: 2%;
+    margin-bottom: 1.8rem;
+}
+
 .subscription-list-label {
     list-style: none;
     font-family: 'Montserrat', sans-serif;
@@ -97,7 +115,7 @@ font-family: 'Sofia', cursive; */
     border: 2px solid #6f1a6f;
     background-color: #6f1a6f;
     color: white;
-    width: 10rem;
+    width: 20rem;
     height: 3rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;

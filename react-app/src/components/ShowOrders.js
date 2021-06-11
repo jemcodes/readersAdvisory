@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { showOrders } from '../store/advisor';
+import './styles/show-orders.css';
+import bookBubble from '../images/book-bubble.png';
 
 
 export default function ShowOrders() {
@@ -18,12 +20,18 @@ export default function ShowOrders() {
     }
 
     return (
-        <div>
-            <ul>
+        <div id="orders-container">
+            <img className="show-order-book-bubble" src={bookBubble} />
+            <div id="orders-contents">
+                <h3 id="orders-header">Reader Preferences</h3>
+            <ul id="show-orders-ul">
+                    <div className="orders-list-div">
                 {orders.map((order) => (
-                    <li>{order.author_options}</li>
+                    <li className="preference-list-items">Authors: {order.author_options}</li>
                 ))}
+                </div>
             </ul>
+            </div>
         </div>
     )
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
 import { advisorLogin } from "../../store/session";
+import Footer from '../Footer';
 import '../styles/advisor-login-form.css'
 
 const AdvisorLoginForm = () => {
@@ -54,7 +55,7 @@ const AdvisorLoginForm = () => {
                 </div>
                 <div id="advisor-login-container">
                     <div id="advisor-login-email">
-                    <label htmlFor="email">Email</label>
+                    <label className="input-labels" htmlFor="email">Email</label>
                     <input className="advisor-login-input"
                         name="email"
                         type="text"
@@ -79,6 +80,9 @@ const AdvisorLoginForm = () => {
                     </div>
                 </div>
             </form>
+            <div>
+                <Footer />
+            </div>
         </div>
     );
 };

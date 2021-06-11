@@ -41,6 +41,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.input-labels {
+    margin-left: 1rem;
+}
+
 .signup-input {
     margin: .5rem 1rem .5rem .5rem;
     padding: 1rem;

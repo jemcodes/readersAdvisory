@@ -38,8 +38,13 @@ footer {
     font-size: 14pt;
     color: #FFF;
 }
+
 .footer-links a {
     color: #FFF;
+}
+
+.footer-links a:hover {
+    color: #70C2C9;
 }
 
 .fa-github {

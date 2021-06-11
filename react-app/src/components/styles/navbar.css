@@ -319,12 +319,28 @@ font-family: 'Sofia', cursive; */
     width: 110%;
 }
 
+.left-about a {
+    color: #6f1a6f;
+}
+
+#left-about a:hover {
+    color: #33A9B3;
+}
+
 #left-authors {
     /* margin: .5% 2% 1% 10%; */
     /* padding: 0 2rem 0 2rem; */
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     line-height: 1.75;
+}
+
+#left-authors a {
+    color: #6f1a6f;
+}
+
+#left-authors a:hover {
+    color: #33A9B3;
 }
 
 #left-about {
@@ -374,6 +390,14 @@ font-family: 'Sofia', cursive; */
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     line-height: 1.75;
+}
+
+#right-authors a {
+    color: #6f1a6f;
+}
+
+#right-authors a:hover {
+    color: #33A9B3;
 }
 
 

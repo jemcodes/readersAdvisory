@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import DemoUser from './auth/DemoUser';
-import './styles/navbar.css';
 import DemoAdvisor from './auth/DemoAdvisor';
+import './styles/navbar.css';
+import bookBubble from '../images/book-bubble.png';
 
 const NavBar = () => {
   const [showReaderMenu, setShowReaderMenu] = useState(false);
@@ -109,6 +110,7 @@ const NavBar = () => {
       {showAdvisorMenu && (
         <div className="advisor-menu-container">
           <div id="advisor-info-block">
+            <img className="advisor-book-bubble" src={bookBubble} />
             {/* <h1 id="ra-heading">Readers' Advisory</h1> */}
             <h2 id="ra-definition-heading">read·ers' ad·​vi·​so·​ry (noun)</h2>
             <p id="ra-definition">Readers’ advisory is the process of matching readers with books and books to readers.</p>

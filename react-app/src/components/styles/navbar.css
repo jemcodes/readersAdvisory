@@ -227,6 +227,14 @@ font-family: 'Sofia', cursive; */
     margin-left: 30%
 } */
 
+.advisor-book-bubble {
+    /* border: 2px solid red; */
+    height: 80%;
+    position: absolute;
+    margin-top: .75rem;
+    margin-left: -15rem;
+}
+
 #ra-definition-heading {
     /* border: 2px solid green; */
     font-size: 20px;
@@ -394,6 +402,8 @@ font-family: 'Sofia', cursive; */
     /* margin-left: 5rem; */
     width: 44%;
     height: 110%;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-bar-buttons {

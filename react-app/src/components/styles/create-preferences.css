@@ -111,16 +111,27 @@ font-family: 'Sofia', cursive; */
 #create-preferences-container {
     /* border: 2px solid red; */
     background-color: #fff;
-    margin-top: -180px;
+    margin-top: -400px;
     margin-bottom: -20px;
     padding: 25rem 25rem 2rem 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.create-pref-book-bubble {
+    /* border: 2px solid red; */
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    width: 25%;
 }
 
 #create-preferences-form {
     border: 2px solid #C4A3C4;
     border-radius: 4px;
     /* padding-top: 30%; */
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 #create-preferences-title {

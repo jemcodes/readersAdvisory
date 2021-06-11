@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 // import { Redirect } from 'react-router-dom';
 import { capturePreferences } from '../store/reader';
 import './styles/create-preferences.css';
+import bookBubble from '../images/book-bubble.png';
 
 const CreatePreferences = () => {
     const [user_name, setUsername] = useState("");
@@ -60,6 +61,7 @@ const CreatePreferences = () => {
 
     return (
         <div id="create-preferences-container">
+            <img className="create-pref-book-bubble" src={bookBubble} />
             <form id="create-preferences-form" onSubmit={onQuizCompletion}>
                 <h3 id="create-preferences-title">Create Preferences</h3>
                 <div id="create-preferences-username-div">

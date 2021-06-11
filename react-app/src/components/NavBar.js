@@ -59,13 +59,13 @@ const NavBar = () => {
                       <a target="_blank" rel="noreferrer" href="https://autumnjoneslake.com/">Autumn Jones Lake</a>
                   </div>
                   <div id="right-authors">
+                    <a target="_blank" rel="noreferrer" href="https://jemartinbooks.com/">J. E. Martin</a>
+                    <br></br>
                     <a target="_blank" rel="noreferrer" href="https://www.dannikadark.net/">Dannika Dark</a>
                     <br></br>
                     <a target="_blank" rel="noreferrer" href="https://www.aljacksonauthor.com/">A. L. Jackson</a>
                     <br></br>
                     <a target="_blank" rel="noreferrer" href="https://www.cariancolewrites.com/">Carian Cole</a>
-                    <br></br>
-                    <a target="_blank" rel="noreferrer" href="https://jemartinbooks.com/">J. E. Martin</a>
                   </div>
                   {/* <div className="menu-divider"><h1></h1></div> */}
               </div>

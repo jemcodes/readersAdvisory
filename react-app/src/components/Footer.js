@@ -3,9 +3,9 @@ import "./styles/footer.css"
 
 function Footer() {
     return (
-        <footer id="footer-bar">
+        <footer>
             <ul className="oh-hai-it-me">
-                <li>written with joy by jane martin &copy; 2021  &zwnj; 📚happy reading!📚</li>
+                <li>penned with joy by jane martin &copy; 2021  &zwnj; 🍸 cheers & happy reading! 📚</li>
             </ul>
             <ul className={"footer-links"}>
 

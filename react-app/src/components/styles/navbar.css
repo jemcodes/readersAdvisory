@@ -5,6 +5,7 @@ font-family: 'Sofia', cursive; */
 
 #nav-bar {
     /* border: 2px solid green; */
+    position: relative;
     display: flex;
     justify-content: center;
     position: relative;
@@ -14,6 +15,7 @@ font-family: 'Sofia', cursive; */
 
 #nav-container{
     /* border: 2px solid blue; */
+    position: relative;
     display: flex;
     height: 60px;
     justify-content: flex-start;

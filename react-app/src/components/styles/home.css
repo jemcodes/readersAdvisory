@@ -21,6 +21,17 @@ body {
     flex-direction: column;
 } */
 
+/* video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+} */
+
 #home-page-greeting {
     position: relative;
     font-family: 'Montserrat', sans-serif;
@@ -33,6 +44,7 @@ body {
 }
 
 .home-page-button {
+    position: absolute;
     margin: 17% 0 4% 78%;
     border-radius: 28px;
     border: 1px solid #6f1a6f;

@@ -281,8 +281,8 @@ font-family: 'Sofia', cursive; */
 #delete-preferences-btn {
     margin: 1rem .5rem 1rem .5rem;
     border-radius: 28px;
-    border: 2px solid #6f1a6f;
-    background-color: #6f1a6f;
+    border: 2px solid #420F42;
+    background-color: #420F42;
     color: white;
     width: 20rem;
     height: 3rem;
@@ -296,4 +296,18 @@ font-family: 'Sofia', cursive; */
 #delete-preferences-btn:hover {
     border: 2px solid #8B478B;
     background-color: #8B478B;
+}
+
+.update-cancel-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #6f1a6f;
+    margin-left: 2rem;
+}
+
+.update-cancel-link:hover {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #33A9B3;
+    margin-left: 2rem;
 }

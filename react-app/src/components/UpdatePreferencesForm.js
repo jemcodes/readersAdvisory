@@ -103,7 +103,7 @@ const UpdatePreferencesForm = () => {
                     ></input>
                 </div>
                 <div id="update-preferences-cover-div">
-                    <label className="update-preferences-cover-label">Please select which cover type you prefer</label>
+                    <label className="update-preferences-cover-label">Please select which cover type you prefer:</label>
                     {['Hardcover', 'Paperback', 'No Preference'].map((choice) => (
                         <>
                             <input className="update-preferences-cover-input"
@@ -119,7 +119,8 @@ const UpdatePreferencesForm = () => {
                     ))}
                 </div>
                 <div id="update-preferences-genre-div">
-                    <label className="update-preferences-genre-label">Please select which genres you enjoy</label>
+                    <label className="update-preferences-genre-label">Please select which genres you enjoy:</label>
+                    <div id="update-preferences-genre-block">
                     {['Biography', 'Classic Literature', 'Contemporary Literature', 'Crime', 'Fantasy', 'Graphic Novels & Comics', 'LGBTQ+ Fiction', 'Historical Fiction', 'Horror', 'Humor & Comedy', 'Memoir', 'Mystery', 'Nonfiction', 'Paranormal', 'Philosophical', 'Poetry', 'Pulp Fiction', 'Romance', 'Science Fiction', 'Speculative Fiction', 'Suspense', 'Thriller', 'Young Adult'].map((genre) => (
                         <>
                             <input className="update-preferences-genre-input"
@@ -131,6 +132,7 @@ const UpdatePreferencesForm = () => {
                             <label className="update-preferences-genre-label" htmlFor={genre}>{genre}</label>
                         </>
                     ))}
+                    </div>
                 </div>
                 <div id="update-preferences-authors-div">
                     <label className="update-preferences-author-label">Please list some authors you like, separated by commas</label>
@@ -154,7 +156,7 @@ const UpdatePreferencesForm = () => {
                 <div id="update-preferences-btns">
                 <button id="update-preferences-btn" type="submit">Update my preferences!</button>
                     <button id="delete-preferences-btn" type="button" onClick={onDeletePreferences}>Delete These Preferences</button>
-                    <NavLink to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
+                    <NavLink className="update-cancel-link" to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
                         Cancel
                 </NavLink>
                 {/* <button type="button" onClick={onDeleteAccount}>Delete This Account</button> */}

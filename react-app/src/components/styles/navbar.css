@@ -348,6 +348,7 @@ font-family: 'Sofia', cursive; */
     margin-left: 0;
     height: 80%;
     width: 100%;
+    /* cursor: pointer; */
 }
 
 #left-about a {

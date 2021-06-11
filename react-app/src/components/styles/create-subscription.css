@@ -62,6 +62,7 @@ font-family: 'Sofia', cursive; */
     font-size: 16px;
     margin-top: .5rem;
     margin-left: 2rem;
+    cursor: pointer;
 }
 
 #create-subscription-btn:hover {

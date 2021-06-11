@@ -64,6 +64,7 @@ body {
     height: 3rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
+    cursor: pointer;
 }
 
 #signup-button:hover {

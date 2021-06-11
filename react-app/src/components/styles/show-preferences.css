@@ -62,6 +62,7 @@ font-family: 'Sofia', cursive; */
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     margin-bottom: 1rem;
+    cursor: pointer;
 }
 
 #show-preferences-update-btn:hover {
@@ -79,6 +80,7 @@ font-family: 'Sofia', cursive; */
     height: 3rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
+    cursor: pointer;
 }
 
 #show-preferences-subscription-btn:hover {

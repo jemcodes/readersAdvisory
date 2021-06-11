@@ -43,6 +43,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 22px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .home-page-button:hover {

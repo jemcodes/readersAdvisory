@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useHistory, NavLink, Redirect } from 'react-router-dom';
 import { captureSubscription } from '../store/subscription';
 import './styles/create-subscription.css';
-import bookBubble from '../images/book-bubble.png';
+import bookMagic from '../images/book-magic.png';
 
 const CreateSubscription = () => {
     const [subscription_type, setSubscriptionType] = useState("");
@@ -41,7 +41,7 @@ const CreateSubscription = () => {
 
     return (
         <div id="create-subscription-container">
-            <img className="create-sub-book-bubble" src={bookBubble} />
+            <img className="create-sub-book-magic" src={bookMagic} />
             <form id="create-subscription-form" onSubmit={handleSubmit}>
                 <h3 id="create-subscription-title">Build Your Subscription</h3>
                 <div className="create-subscription-div">

@@ -4,7 +4,7 @@ import { NavLink, useHistory, useParams, Redirect } from 'react-router-dom';
 import { showPreferences, updatePreferences, deletePreferences, removePreferences } from '../store/reader';
 // import { deleteAccount } from '../store/session';
 import './styles/update-preferences.css';
-import bookBubble from '../images/book-bubble.png';
+import bookFlame from '../images/book-flame.png';
 
 const UpdatePreferencesForm = () => {
     const { reader_id } = useParams();
@@ -101,7 +101,7 @@ const UpdatePreferencesForm = () => {
 
     return (
         <div id="update-preferences-container">
-            <img className="update-pref-book-bubble" src={bookBubble} />
+            <img className="update-pref-book-flame" src={bookFlame} />
             <form id="update-preferences-form" onSubmit={onEditCompletion}>
                 <h3 id="update-preferences-title">Update Preferences</h3>
                 <div id="update-preferences-username-div">

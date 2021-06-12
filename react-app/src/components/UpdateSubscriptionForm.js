@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { NavLink, useHistory, useParams, Redirect } from 'react-router-dom';
 import { showSubscription, updateSubscription, deleteSubscription } from '../store/subscription';
 import './styles/update-subscription.css';
-import bookBubble from '../images/book-bubble.png';
+import bookFlame from '../images/book-flame.png';
 
 const UpdateSubscriptionForm = () => {
     const { reader_id } = useParams();
@@ -62,7 +62,7 @@ const UpdateSubscriptionForm = () => {
 
     return (
         <div id="update-subscription-container">
-            <img className="update-sub-book-bubble" src={bookBubble} />
+            <img className="update-sub-book-flame" src={bookFlame} />
             <form id="update-subscription-form" onSubmit={handleSubmit}>
                 <h3 id="update-subscription-title">Update Your Subscription</h3>
                 <div className="update-subscription-div">

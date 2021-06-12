@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import DemoUser from './auth/DemoUser';
 import DemoAdvisor from './auth/DemoAdvisor';
@@ -22,6 +22,9 @@ const NavBar = () => {
     setShowAdvisorMenu(!showAdvisorMenu)
     setShowReaderMenu(false)
   }
+
+  useEffect(() => {
+  })
 
   return (
     <>
@@ -101,7 +104,7 @@ const NavBar = () => {
             <NavLink className="nav-links" to="/login" onClick={toggleReaderMenu} exact={true} activeClassName="active">
                   <button className="nav-bar-buttons">Sign In</button>
                 </NavLink>
-                <DemoUser />
+                <DemoUser onClick={toggleReaderMenu} />
               </div>
             </div>
               </div>
@@ -118,9 +121,9 @@ const NavBar = () => {
           <div className="advisor-nav-links">
           <h1 id="reader-li-heading">Welcome, Trusted Readers' Advisor!</h1>
             <NavLink className="nav-links" to="/advisor-login" exact={true} activeClassName="active">
-              <button className="nav-bar-buttons">Sign In</button>
+              <button onClick={toggleAdvisorMenu} className="nav-bar-buttons">Sign In</button>
             </NavLink>
-            <DemoAdvisor />
+            <DemoAdvisor onClick={toggleAdvisorMenu} />
           </div>
           </div>
       )}
@@ -128,4 +131,4 @@ const NavBar = () => {
   );
 }
 
-export default NavBar;
+export default withRouter(NavBar);

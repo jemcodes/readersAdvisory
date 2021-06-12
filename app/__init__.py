@@ -32,12 +32,10 @@ login.login_view = 'auth.unauthorized'
 @login.user_loader
 def load_current_user(id):
     login_role = session.get('role')
-    if login_role == 'reader':
-        return Reader.query.get(int(id))
-    elif login_role == 'advisor':
+    if login_role == 'advisor':
         return Advisor.query.get(int(id))
     else:
-        return None
+        return Reader.query.get(int(id))
 
 
 # Tell flask about our seed commands

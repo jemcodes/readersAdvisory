@@ -36,7 +36,7 @@ class Reader(db.Model, UserMixin):
     return {
       "id": self.id,
       "email": self.email,
-      "advisor_id": 1,
+      "advisor_id": self.advisor_id,
       "type": "Reader",
       "created": self.created_at,
       "updated": self.updated_at

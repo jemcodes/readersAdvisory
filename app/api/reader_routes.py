@@ -50,6 +50,7 @@ def get_reader_preferences(reader_id):
 @login_required
 def add_reader_preferences(reader_id):
     """Post a new reader's quiz to create an account"""
+    print('$$$$$$$$$$$$$$THIS IS A ROUTE!!!!!!!!!!$$$$$$$$$$$$$$$$$$$')
     form = ReaderPreferenceForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -102,7 +103,10 @@ def delete_reader_preferences(reader_id):
 def subscription_status(reader_id):
     """See a single reader's subscription status"""
     subscription = ReaderSubscription.query.filter(ReaderSubscription.reader_id == reader_id).first()
-    return subscription.to_dict()
+    if subscription:
+        return subscription.to_dict()
+    else:
+        return {}
 
 
 @reader_routes.route('/<int:reader_id>/subscriptions', methods=['POST'])

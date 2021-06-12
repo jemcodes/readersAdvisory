@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import Advisor, Order
+from app.models import Advisor, Order, Reader
 
 advisor_routes = Blueprint('advisors', __name__)
 
@@ -35,12 +35,12 @@ def advisor(advisor_id):
 
 
 """---------- Advisor-Reader Views ----------"""
-# @advisor_routes.route('/<int:advisor_id>/readers', methods=['GET'])
-# @login_required
-# def get_assigned_readers(advisor_id):
-#     """Get a list of readers assigned to a single advisor"""
-#     readers = Reader.query.filter(Reader.advisor_id == advisor_id).all()
-#     return readers.to_dict()
+@advisor_routes.route('/<int:advisor_id>/readers', methods=['GET'])
+@login_required
+def get_assigned_readers(advisor_id):
+    """Get a list of readers assigned to a single advisor"""
+    readers = Reader.query.filter(Reader.advisor_id == advisor_id).all()
+    return {"readers": [reader.to_dict() for reader in readers]}
 
 
 # @advisor_routes.route('/<int:advisor_id>/readers/<int:reader_id>/preferences', methods=['GET'])
@@ -59,52 +59,52 @@ def get_assigned_orders(advisor_id):
     orders = Order.query.filter(Order.advisor_id == advisor_id).all()
     return {"orders": [order.to_dict() for order in orders]}
 
-@advisor_routes.route('/<int:advisor_id>/orders', methods=['POST'])
-@login_required
-def add_new_order(advisor_id):
-    """Post a new order"""
-    form = OrderForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        new_reader_order = Order(
-            cover_options=form.data['cover_options'],
-            genre_options=form.data['genre_options'],
-            author_options=form.data['author_options'],
-            reader_id=form.data['reader_id'],
-            advisor_id=form.data['advisor_id'],
-            product_id=form.data['product_id'])
-        db.session.add(new_reader_order)
-        db.session.commit()
-        return new_reader_order .to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+# @advisor_routes.route('/<int:advisor_id>/orders', methods=['POST'])
+# @login_required
+# def add_new_order(advisor_id):
+#     """Post a new order"""
+#     form = OrderForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     if form.validate_on_submit():
+#         new_reader_order = Order(
+#             cover_options=form.data['cover_options'],
+#             genre_options=form.data['genre_options'],
+#             author_options=form.data['author_options'],
+#             reader_id=form.data['reader_id'],
+#             advisor_id=form.data['advisor_id'],
+#             product_id=form.data['product_id'])
+#         db.session.add(new_reader_order)
+#         db.session.commit()
+#         return new_reader_order .to_dict()
+#     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@advisor_routes.route('/<int:advisor_id>/orders/<int:order_id>', methods=['PUT'])
-@login_required
-def edit_order(advisor_id, order_id):
-    """Update single order"""
-    form = OrderForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        updated_order = Order.query.filter(Order.id == order_id).first()
-        updated_order.cover_options = form.data['cover_options']
-        updated_order.genre_options = form.data['genre_options']
-        updated_order.author_options = form.data['author_options']
-        updated_order.reader_id = form.data['reader_id']
-        updated_order.advisor_id = form.data['advisor_id']
-        updated_order.product_id = form.data['product_id']
-        db.session.add(updated_order)
-        db.session.commit()
-        return updated_order.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+# @advisor_routes.route('/<int:advisor_id>/orders/<int:order_id>', methods=['PUT'])
+# @login_required
+# def edit_order(advisor_id, order_id):
+#     """Update single order"""
+#     form = OrderForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     if form.validate_on_submit():
+#         updated_order = Order.query.filter(Order.id == order_id).first()
+#         updated_order.cover_options = form.data['cover_options']
+#         updated_order.genre_options = form.data['genre_options']
+#         updated_order.author_options = form.data['author_options']
+#         updated_order.reader_id = form.data['reader_id']
+#         updated_order.advisor_id = form.data['advisor_id']
+#         updated_order.product_id = form.data['product_id']
+#         db.session.add(updated_order)
+#         db.session.commit()
+#         return updated_order.to_dict()
+#     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@advisor_routes.route('/<int:advisor_id>/orders/<int:order_id>', methods=['DELETE'])
-@login_required
-def delete_reader_preferences(advisor_id, order_id):
-    """Delete single order"""
-    order_to_delete = Order.query.filter(Order.id == order_id).first()
-    db.session.delete(order_to_delete)
-    db.session.commit()
-    return "all good!"
+# @advisor_routes.route('/<int:advisor_id>/orders/<int:order_id>', methods=['DELETE'])
+# @login_required
+# def delete_reader_preferences(advisor_id, order_id):
+#     """Delete single order"""
+#     order_to_delete = Order.query.filter(Order.id == order_id).first()
+#     db.session.delete(order_to_delete)
+#     db.session.commit()
+#     return "all good!"
 
 

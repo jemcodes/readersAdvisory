@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { showOrders } from '../store/advisor';
+import { showReaders } from '../store/advisor';
 import './styles/show-orders.css';
 import bookBubble from '../images/book-bubble.png';
 
@@ -13,7 +13,7 @@ export default function ShowOrders() {
     const orders = useSelector(state => state.advisor.orders)
     
     useEffect(() => {
-        dispatch(showOrders(advisor.id))
+        dispatch(showReaders(advisor.id))
     }, [dispatch, advisor.id])
 
     if (!advisor) {
@@ -24,11 +24,11 @@ export default function ShowOrders() {
         <div id="orders-container">
             <img className="show-order-book-bubble" src={bookBubble} />
             <div id="orders-contents">
-                <h3 id="orders-header">Reader Preferences</h3>
+                <h3 id="orders-header">My Readers</h3>
             <ul id="show-orders-ul">
                     <div className="orders-list-div">
                 {orders.map((order) => (
-                    <li className="preference-list-items">Authors: {order.author_options}</li>
+                    <li className="preference-list-items">Readers: {advisor.readers[0].id}</li>
                 ))}
                 </div>
             </ul>

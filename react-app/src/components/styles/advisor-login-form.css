@@ -67,4 +67,11 @@ body {
 
 .nav-switch {
     margin-left: 1.5rem;
+    color: #6f1a6f;
 }
+
+.nav-switch:hover {
+    margin-left: 1.5rem;
+    color: #33A9B3;
+}
+

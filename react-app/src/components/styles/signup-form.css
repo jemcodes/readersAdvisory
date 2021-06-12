@@ -88,4 +88,9 @@ body {
 
 .nav-switch {
     margin-left: 1.5rem;
+    color: #6f1a6f; 
+}
+
+.nav-switch:hover {
+    color: #33A9B3; 
 }

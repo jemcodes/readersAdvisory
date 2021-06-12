@@ -2,6 +2,7 @@ import React from 'react';
 import { advisorLogin } from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import '../styles/navbar.css';
 
 
 export default function DemoAdvisor() {
@@ -15,6 +16,6 @@ export default function DemoAdvisor() {
     }
 
     return <form onSubmit={onAdvisorLogin}>
-        <button className="nav-bar-buttons" type="submit">DemoAdvisor</button>
+        <button id="demo-advisor-btn" type="submit">DemoAdvisor</button>
     </form>
 }

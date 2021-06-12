@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 // import { Redirect } from 'react-router-dom';
 import { capturePreferences } from '../store/reader';
 import './styles/create-preferences.css';
+import bookBubble from '../images/book-bubble.png';
 
 const CreatePreferences = () => {
     const [user_name, setUsername] = useState("");
@@ -60,11 +61,12 @@ const CreatePreferences = () => {
 
     return (
         <div id="create-preferences-container">
-            <form id="create-preferences-contents" onSubmit={onQuizCompletion}>
-                <h3 id="create-preferences-header">Create Preferences</h3>
-                <div className="create-preference-list-div">
-                    <label className="create-preference-list-items">Please choose a username</label>
-                    <input className="create-preference-inputs"
+            <img className="create-pref-book-bubble" src={bookBubble} />
+            <form id="create-preferences-form" onSubmit={onQuizCompletion}>
+                <h3 id="create-preferences-title">Create Preferences</h3>
+                <div id="create-preferences-username-div">
+                    <label id="create-preferences-username-label">Please choose a username</label>
+                    <input id="create-preferences-username-input"
                         type="text"
                         name="user_name"
                         onChange={updateUsername}
@@ -72,11 +74,11 @@ const CreatePreferences = () => {
                         required={true}
                     ></input>
                 </div>
-                <div className="create-preference-list-div">
-                    <label className="create-preference-list-items">Please select which cover type you prefer</label>
+                <div id="create-preferences-cover-div">
+                    <label className="create-preferences-cover-label">Please select which cover type you prefer:</label>
                     {['Hardcover', 'Paperback', 'No Preference'].map((choice) => (
                         <>
-                            <input className="create-preference-inputs"
+                            <input className="create-preferences-cover-input"
                                 id={choice}
                                 type="radio"
                                 name="cover_choices"
@@ -84,27 +86,29 @@ const CreatePreferences = () => {
                                 value={choice}
                                 required={true}
                             ></input>
-                            <label htmlFor={choice}>{choice}</label>
+                            <label className="create-preferences-cover-label" htmlFor={choice}>{choice}</label>
                         </>
                     ))}
                 </div>
-                <div className="create-preference-list-div">
-                    <label className="create-preference-list-items">Please select which genres you enjoy</label>
-                    {['Biography', 'Classic Literature', 'Contemporary Literature', 'Crime', 'Fantasy', 'Graphic Novels & Comics', 'LGBTQ+ Fiction', 'Historical Fiction', 'Horror', 'Humor & Comedy', 'Memoir', 'Mystery', 'Nonfiction', 'Paranormal', 'Philosophical', 'Poetry', 'Pulp Fiction', 'Romance', 'Science Fiction', 'Speculative Fiction', 'Suspense', 'Thriller', 'Young Adult'].map((genre) => (
-                       <>
-                            <input className="create-preference-text"
-                                type="checkbox"
-                                name="genre_choices"
-                                onChange={updateGenreChoices}
-                                value={genre}
-                            ></input>
-                        <label htmlFor={genre}>{genre}</label>
-                        </>
-                    ))}
+                <div id="create-preferences-genre-div">
+                    <label className="create-preferences-genre-label">Please select which genres you enjoy:</label>
+                    <div id="create-preferences-genre-block">
+                        {['Biography', 'Classic Literature', 'Contemporary Literature', 'Crime', 'Fantasy', 'Graphic Novels & Comics', 'LGBTQ+ Fiction', 'Historical Fiction', 'Horror', 'Humor & Comedy', 'Memoir', 'Mystery', 'Nonfiction', 'Paranormal', 'Philosophical', 'Poetry', 'Pulp Fiction', 'Romance', 'Science Fiction', 'Speculative Fiction', 'Suspense', 'Thriller', 'Young Adult'].map((genre) => (
+                        <>
+                                <input className="create-preferences-genre-input"
+                                    type="checkbox"
+                                    name="genre_choices"
+                                    onChange={updateGenreChoices}
+                                    value={genre}
+                                ></input>
+                                <label className="create-preferences-genre-label" htmlFor={genre}>{genre}</label>
+                            </>
+                        ))}
+                    </div>
                 </div>
-                <div className="create-preference-list-div">
-                    <label className="create-preference-list-items">Please list some authors you like, separated by commas</label>
-                    <textarea className="create-preference-text"
+                <div id="create-preferences-authors-div">
+                    <label className="create-preferences-author-label">Please list some authors you like, separated by commas</label>
+                    <textarea className="create-preferences-author-input"
                         // type="text"
                         name="author_choices"
                         onChange={updateAuthorChoices}
@@ -113,9 +117,9 @@ const CreatePreferences = () => {
                         required={true}
                     />
                 </div>
-                <div className="create-preference-list-div">
-                    <label className="create-preference-list-items">Please provide any additional information that might help your advisor</label>
-                    <textarea className="create-preference-text"
+                <div id="create-preferences-notes-div">
+                    <label className="create-preferences-notes-label">Please provide any additional information that might help your advisor</label>
+                    <textarea className="create-preferences-notes-input"
                         type="text"
                         name="other_choices"
                         onChange={updateOtherChoices}

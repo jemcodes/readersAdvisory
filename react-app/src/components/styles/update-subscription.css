@@ -4,27 +4,38 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Sofia', cursive; */
 
 #update-subscription-container {
-    border: 2px solid red;
-    height: 100vh;
-    margin-top: -5rem;
-    margin-bottom: -1rem;
-    padding-bottom: 5rem;
+    /* border: 2px solid red; */
     background-color: #F6F1F6;
+    margin-top: -400px;
+    margin-bottom: -600px;
+    padding: 25rem 25rem 25rem 25rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    /* align-items: center; */
 }
 
-#update-subscription-contents {
-    border: 2px solid blue;
-    margin: 250px 0 0 0;
-    width: 50%;
+.update-sub-book-bubble {
+    /* border: 2px solid red; */
+    margin: 0 auto;
+    padding-top: 2rem;
+    margin-bottom: 1rem;
+    width: 25%;
 }
 
-#update-subscription-header {
+#update-subscription-form {
+    border: 2px solid #C4A3C4;
+    border-radius: 4px;
+    /* padding-top: 30%; */
+    margin-bottom: 15px;
+}
+
+#update-subscription-title {
+    /* border: 2px solid yellow; */
     font-family: 'Libre Baskerville', serif;
     font-size: 24px;
-    font-weight: 700;
-    margin-left: 2.5rem;
+    margin-left: 2%;
+    margin-bottom: 0;
 }
 
 .update-subscription-div {
@@ -32,36 +43,79 @@ font-family: 'Sofia', cursive; */
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+     /* border: 2px solid green; */
+    /* margin-left: 2%; */
+    padding: 1rem 0 0 0;
 }
 
-.update-subscription-items {
+.update-subscription-label {
     list-style: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 16px;
-    margin-top: 0.75rem;
-    padding: 0 2rem 0 2rem;
+    margin-top: 1rem;
+    padding: 0 2rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .update-subscription-inputs {
+    margin: .75rem 1rem 1rem .5rem;
+    width: 60%;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #4C4C4C;
     font-family: 'Montserrat', sans-serif;
-    margin: 0.5rem 0 0.5rem 2rem;
-    width: 75%;
-    padding: .5rem;
+}
+
+.update-subscription-inputs:focus {
+    outline: none;
+    box-shadow: 0 0 0 1pt #8B478B;
+}
+
+.update-subscription-credit {
+    background-color: #C5A3C5;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin: -.5rem 1rem 1rem .5rem;
+    border-radius: 4px;
+    font-size: 20px;
+    padding: 1rem 2rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    animation: create-subscription-credit 2s ease infinite;
+}
+
+@keyframes update-subscription-credit {
+    70% { transform:translateY(0%); }
+    80% { transform:translateY(-15%); }
+    90% { transform:translateY(0%); }
+    95% { transform:translateY(-7%); }
+    97% { transform:translateY(0%); }
+    99% { transform:translateY(-3%); }
+    100% { transform:translateY(0); }
+}
+
+#update-subscription-btns {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 #update-subscription-btn {
-    margin: 0 .5rem 0 .5rem;
+    margin: 1rem .5rem 1rem .5rem;
     border-radius: 28px;
     border: 2px solid #6f1a6f;
     background-color: #6f1a6f;
     color: white;
-    width: 10rem;
+    width: 20rem;
     height: 3rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    margin-top: .5rem;
-    margin-left: 2rem;
+    cursor: pointer;
 }
 
 #update-subscription-btn:hover {
@@ -70,20 +124,33 @@ font-family: 'Sofia', cursive; */
 }
 
 #delete-subscription-btn {
-    margin: 0 .5rem 0 .5rem;
+    margin: 1rem .5rem 1rem .5rem;
     border-radius: 28px;
-    border: 2px solid #6f1a6f;
-    background-color: #6f1a6f;
+    border: 2px solid #420F42;
+    background-color: #420F42;
     color: white;
-    width: 10rem;
+    width: 20rem;
     height: 3rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    margin-top: .5rem;
+    cursor: pointer;
+}
+
+#delete-subscription-btn:hover {
+    border: 2px solid #8B478B;
+    background-color: #8B478B;
+}
+
+.update-sub-cancel-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #6f1a6f;
     margin-left: 2rem;
 }
 
-#udelete-subscription-btn:hover {
-    border: 2px solid #8B478B;
-    background-color: #8B478B;
+.update-sub-cancel-link:hover {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #33A9B3;
+    margin-left: 2rem;
 }

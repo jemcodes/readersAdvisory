@@ -3,12 +3,12 @@
 font-family: 'Montserrat', sans-serif;
 font-family: 'Sofia', cursive; */
 
-#create-preferences-container {
+/* #create-preferences-container {
     border: 2px solid red;
     height: 100vh;
     margin-top: -5rem;
-    margin-bottom: -1rem;
-    padding-bottom: 5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 20rem;
     background-color: #F6F1F6;
     display: flex;
     justify-content: center;
@@ -16,6 +16,8 @@ font-family: 'Sofia', cursive; */
 
 #create-preferences-contents {
     border: 2px solid blue;
+    height: 90vh;
+    width: 80%;
     margin: 250px 0 0 0;
 }
 
@@ -33,6 +35,26 @@ font-family: 'Sofia', cursive; */
     align-items: flex-start;
 }
 
+.create-preference-cover-div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.create-preference-genre-div {
+    border: 2px solid red;
+    padding: 1rem;
+    margin-top: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 .create-preference-list-items {
     list-style: none;
     font-family: 'Montserrat', sans-serif;
@@ -42,32 +64,224 @@ font-family: 'Sofia', cursive; */
     padding: 0 2rem 0 2rem;
 }
 
+.create-genre-items {
+    border: 2px solid black;
+    height: 2rem;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 2rem;
+    padding: 0 1.2rem 0 1.8rem;
+}
+
 .create-preference-inputs {
+    border: 2px solid green;
     font-family: 'Montserrat', sans-serif;
     margin: 0.5rem 0 0.5rem 2rem;
-    width: 75%;
+    width: 40%;
     padding: .5rem;
 }
 
+.create-preference-radio {
+    border: 2px solid red;
+}
+
+.create-preference-checkbox {
+    border: 2px solid green;
+    margin: .5rem;
+    padding: 1rem;
+}
+
 .create-preference-text {
+    border: 2px solid blue;
     font-family: 'Montserrat', sans-serif;
     margin: 0.5rem 0 0.5rem 2rem;
     width: 77%;
     height: 5rem;
 }
 
+.cover-labels {
+    border: 2px solid pink;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0.5rem 0 0.5rem 2rem;
+    width: 10%;
+} */
+
+#create-preferences-container {
+    /* border: 2px solid red; */
+    background-color: #F6F1F6;
+    margin-top: -400px;
+    margin-bottom: -20px;
+    padding: 25rem 25rem 2rem 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.create-pref-book-bubble {
+    /* border: 2px solid red; */
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    width: 25%;
+}
+
+#create-preferences-form {
+    border: 2px solid #C4A3C4;
+    border-radius: 4px;
+    /* padding-top: 30%; */
+    margin-bottom: 15px;
+}
+
+#create-preferences-title {
+    /* border: 2px solid yellow; */
+    font-family: 'Libre Baskerville', serif;
+    font-size: 24px;
+    margin-left: 2%;
+}
+
+#create-preferences-username-div {
+    /* border: 2px solid green; */
+    margin-left: 2%;
+    padding: 1rem 0;
+}
+
+#create-preferences-cover-div {
+    /* border: 2px solid green; */
+    margin-left: 2%;
+    padding: 1rem 0;
+}
+
+#create-preferences-genre-div {
+    /* border: 2px solid green; */
+    margin-left: 2%;
+    padding: 1rem 0;
+}
+
+#create-preferences-authors-div {
+    /* border: 2px solid green; */
+    margin-left: 2%;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#create-preferences-notes-div {
+    /* border: 2px solid green; */
+    margin-left: 2%;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#create-preferences-username-label {
+    padding: .5rem;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.create-preferences-cover-label {
+    padding: .5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-preferences-genre-label {
+    padding: .2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-preferences-author-label {
+    margin-right: 1rem;
+    padding: .2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-preferences-notes-label {
+    margin-right: 1rem;
+    padding: .2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#create-preferences-genre-block {
+    /* border: 2px solid blue; */
+    margin: 1rem 3rem 0 3rem;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#create-preferences-username-input {
+    /* margin: .5rem 1rem .5rem .5rem; */
+    width: 60%;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #4C4C4C;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#create-preferences-username-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 1pt #8B478B;
+}
+
+.create-preferences-cover-input {
+    padding: .5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-preferences-genre-input {
+    margin: .55rem;
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-preferences-author-input {
+    /* margin: .5rem 1rem .5rem .5rem; */
+    width: 60%;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #4C4C4C;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-preferences-author-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 1pt #8B478B;
+}
+
+.create-preferences-notes-input {
+    /* margin: .5rem 1rem .5rem .5rem; */
+    width: 60%;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #4C4C4C;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-preferences-notes-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 1pt #8B478B;
+}
+
 #create-preferences-btn {
-    margin: 0 .5rem 0 .5rem;
+    margin: 1rem .5rem 1rem .5rem;
     border-radius: 28px;
     border: 2px solid #6f1a6f;
     background-color: #6f1a6f;
     color: white;
-    width: 10rem;
+    width: 20rem;
     height: 3rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     margin-top: 0.5rem;
     margin-left: 2rem;
+    cursor: pointer;
 }
 
 #create-preferences-btn:hover {

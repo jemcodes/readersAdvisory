@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
 import { advisorLogin } from "../../store/session";
+import Footer from '../Footer';
+import '../styles/advisor-login-form.css'
 
 const AdvisorLoginForm = () => {
     const [errors, setErrors] = useState([]);
@@ -44,37 +46,44 @@ const AdvisorLoginForm = () => {
     }
 
     return (
-        <form onSubmit={onLogin}>
+        <div>
+            <form onSubmit={onLogin}>
+                <div>
+                    {errors.map((error) => (
+                        <div>{error}</div>
+                    ))}
+                </div>
+                <div id="advisor-login-container">
+                    <div id="advisor-login-email">
+                    <label className="input-labels" htmlFor="email">Email</label>
+                    <input className="advisor-login-input"
+                        name="email"
+                        type="text"
+                        placeholder="Email"
+                        value={email}
+                        onChange={updateEmail}
+                    />
+                    </div>
+                <div id="advisor-login-password">
+                    <label htmlFor="password">Password</label>
+                    <input className="advisor-login-input"
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={updatePassword}
+                    />
+                    <button id="advisor-login-button" type="submit">Login</button>
+                    <NavLink className="nav-switch" to="/login" onClick={toggleAdvisorMenu} exact={true} activeClassName="active">
+                        Not an advisor? Sign in as a reader!
+                </NavLink>
+                    </div>
+                </div>
+            </form>
             <div>
-                {errors.map((error) => (
-                    <div>{error}</div>
-                ))}
+                <Footer />
             </div>
-            <div>
-                <label htmlFor="email">Email</label>
-                <input
-                    name="email"
-                    type="text"
-                    placeholder="Email"
-                    value={email}
-                    onChange={updateEmail}
-                />
-            </div>
-            <div>
-                <label htmlFor="password">Password</label>
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={updatePassword}
-                />
-                <button type="submit">Login</button>
-                <NavLink to="/" onClick={toggleAdvisorMenu} exact={true} activeClassName="active">
-                    Cancel
-            </NavLink>
-            </div>
-        </form>
+        </div>
     );
 };
 

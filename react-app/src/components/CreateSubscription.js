@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useHistory, NavLink, Redirect } from 'react-router-dom';
 import { captureSubscription } from '../store/subscription';
 import './styles/create-subscription.css';
+import bookBubble from '../images/book-bubble.png';
 
 const CreateSubscription = () => {
     const [subscription_type, setSubscriptionType] = useState("");
@@ -41,10 +42,11 @@ const CreateSubscription = () => {
 
     return (
         <div id="create-subscription-container">
-            <form id="create-subscription-contents" onSubmit={handleSubmit}>
-                <h3 id="create-subscription-header">Build Your Subscription</h3>
+            <img className="create-sub-book-bubble" src={bookBubble} />
+            <form id="create-subscription-form" onSubmit={handleSubmit}>
+                <h3 id="create-subscription-title">Build Your Subscription</h3>
                 <div className="create-subscription-div">
-                    <label className="create-subscription-items">Please enter a subscription type</label>
+                    <label className="create-subscription-label">Please enter a subscription type</label>
                         <select className="create-subscription-inputs"
                             type="text"
                             name="subscription"
@@ -57,20 +59,21 @@ const CreateSubscription = () => {
                         </select>
                 </div>
                 <div className="create-subscription-div">
-                    <label className="create-subscription-items">Please enter a payment method</label>
-                    <h2>Surprise! You've got trial credit!</h2>
-                    <h3>Use read-good-books-now as your payment method to use your credit now!</h3>
+                    <h2 className="create-subscription-credit">Surprise! You've got trial credit!
+                    <br></br>
+                    Use read-good-books-now as your payment method to use your credit now!</h2>
+                    <label className="create-subscription-label">Please enter a payment method</label>
                     <input className="create-subscription-inputs"
                         type="password"
                         name="payment"
                         onChange={updatePayment}
                         value={payment_method}
-                        placeholder="xxxx-xxxx-xxxx-xxxx"
+                        placeholder="xxxx-xxxx-xxxxx-xxx"
                         // required={true}
                     ></input>
                 </div>
                 <button id="create-subscription-btn" type="submit">Start my subscription!</button>
-                <NavLink to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
+                <NavLink className="create-sub-cancel-link" to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
                     Cancel
                 </NavLink>
             </form>

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { NavLink, useHistory, useParams, Redirect } from 'react-router-dom';
 import { showSubscription, updateSubscription, deleteSubscription } from '../store/subscription';
-import './styles/update-subscription.css'
+import './styles/update-subscription.css';
+import bookBubble from '../images/book-bubble.png';
 
 const UpdateSubscriptionForm = () => {
     const { reader_id } = useParams();
@@ -61,10 +62,11 @@ const UpdateSubscriptionForm = () => {
 
     return (
         <div id="update-subscription-container">
-            <form id="update-subscription-contents" onSubmit={handleSubmit}>
-                <h3 id="update-subscription-header">Update Your Subscription</h3>
+            <img className="update-sub-book-bubble" src={bookBubble} />
+            <form id="update-subscription-form" onSubmit={handleSubmit}>
+                <h3 id="update-subscription-title">Update Your Subscription</h3>
                 <div className="update-subscription-div">
-                    <label className="update-subscription-items">Please update your subscription type</label>
+                    <label className="update-subscription-label">Please update your subscription type</label>
                     <>
                         <select className="update-subscription-inputs"
                             type="text"
@@ -79,9 +81,10 @@ const UpdateSubscriptionForm = () => {
                     </>
                 </div>
                 <div className="update-subscription-div">
-                    <label className="update-subscription-items">Please update your payment method</label>
-                    <h2>Surprise! You've got trial credit!</h2>
-                    <h3>Use read-good-books-now as your payment method to use your credit now!</h3>
+                    <h2 className="update-subscription-credit">Surprise! You've got trial credit!
+                    <br></br>
+                    Use read-good-books-now as your payment method to use your credit now!</h2>
+                    <label className="update-subscription-label">Please update your payment method</label>
                     <input className="update-subscription-inputs"
                         type="password"
                         name="payment"
@@ -91,13 +94,13 @@ const UpdateSubscriptionForm = () => {
                         // required={true}
                     ></input>
                 </div>
-                <div>
-                    <button id="update-subscription-btn" type="submit">Update my subscription!</button>
-                </div>
+                <div id="update-subscription-btns">
+                <button id="update-subscription-btn" type="submit">Update my subscription!</button>
                 <button id="delete-subscription-btn" type="button" onClick={onDelete}>Delete This Subscription</button>
-                <NavLink to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
+                <NavLink className="update-sub-cancel-link" to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
                     Cancel
                 </NavLink>
+                </div>
             </form>
         </div>
     );

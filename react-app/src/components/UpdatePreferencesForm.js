@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { NavLink, useHistory, useParams, Redirect } from 'react-router-dom';
 import { showPreferences, updatePreferences, deletePreferences, deleteAccount } from '../store/reader';
 import './styles/update-preferences.css';
+import bookBubble from '../images/book-bubble.png';
 
 const UpdatePreferencesForm = () => {
     const { reader_id } = useParams();
@@ -90,11 +91,12 @@ const UpdatePreferencesForm = () => {
 
     return (
         <div id="update-preferences-container">
-            <form id="update-preferences-contents" onSubmit={onEditCompletion}>
-                <h3 id="update-preferences-header">Update Preferences</h3>
-                <div className="update-preference-list-div">
-                    <label className="update-preference-list-items">Please choose a username</label>
-                    <input className="update-preference-inputs"
+            <img className="update-pref-book-bubble" src={bookBubble} />
+            <form id="update-preferences-form" onSubmit={onEditCompletion}>
+                <h3 id="update-preferences-title">Update Preferences</h3>
+                <div id="update-preferences-username-div">
+                    <label id="update-preferences-username-label">Please choose a username</label>
+                    <input id="update-preferences-username-input"
                         type="text"
                         name="user_name"
                         onChange={updateUsername}
@@ -102,11 +104,11 @@ const UpdatePreferencesForm = () => {
                         required={true}
                     ></input>
                 </div>
-                <div className="update-preference-list-div">
-                    <label className="update-preference-list-items">Please select which cover type you prefer</label>
+                <div id="update-preferences-cover-div">
+                    <label className="update-preferences-cover-label">Please select which cover type you prefer:</label>
                     {['Hardcover', 'Paperback', 'No Preference'].map((choice) => (
                         <>
-                            <input className="update-preference-inputs"
+                            <input className="update-preferences-cover-input"
                                 id={choice}
                                 type="radio"
                                 name="cover_choices"
@@ -114,27 +116,29 @@ const UpdatePreferencesForm = () => {
                                 value={choice}
                                 required={true}
                             ></input>
-                            <label htmlFor={choice}>{choice}</label>
+                            <label className="update-preferences-cover-label" htmlFor={choice}>{choice}</label>
                         </>
                     ))}
                 </div>
-                <div className="update-preference-list-div">
-                    <label className="update-preference-list-items">Please select which genres you enjoy</label>
+                <div id="update-preferences-genre-div">
+                    <label className="update-preferences-genre-label">Please select which genres you enjoy:</label>
+                    <div id="update-preferences-genre-block">
                     {['Biography', 'Classic Literature', 'Contemporary Literature', 'Crime', 'Fantasy', 'Graphic Novels & Comics', 'LGBTQ+ Fiction', 'Historical Fiction', 'Horror', 'Humor & Comedy', 'Memoir', 'Mystery', 'Nonfiction', 'Paranormal', 'Philosophical', 'Poetry', 'Pulp Fiction', 'Romance', 'Science Fiction', 'Speculative Fiction', 'Suspense', 'Thriller', 'Young Adult'].map((genre) => (
                         <>
-                            <input className="update-preference-text"
+                            <input className="update-preferences-genre-input"
                                 type="checkbox"
                                 name="genre_choices"
                                 onChange={updateGenreChoices}
                                 value={genre}
                             ></input>
-                            <label htmlFor={genre}>{genre}</label>
+                            <label className="update-preferences-genre-label" htmlFor={genre}>{genre}</label>
                         </>
                     ))}
+                    </div>
                 </div>
-                <div className="update-preference-list-div">
-                    <label className="update-preference-list-items">Please list some authors you like, separated by commas</label>
-                    <textarea className="update-preference-text"
+                <div id="update-preferences-authors-div">
+                    <label className="update-preferences-author-label">Please list some authors you like, separated by commas</label>
+                    <textarea className="update-preferences-author-input"
                         // type="text"
                         name="author_choices"
                         onChange={updateAuthorChoices}
@@ -142,9 +146,9 @@ const UpdatePreferencesForm = () => {
                         required={true}
                     />
                 </div>
-                <div className="update-preference-list-div">
-                    <label className="update-preference-list-items">Please provide any additional information that might help your advisor</label>
-                    <textarea className="update-preference-text"
+                <div id="update-preferences-notes-div">
+                    <label className="update-preferences-notes-label">Please provide any additional information that might help your advisor</label>
+                    <textarea className="update-preferences-notes-input"
                         name="other_choices"
                         onChange={updateOtherChoices}
                         value={other_choices}
@@ -154,7 +158,7 @@ const UpdatePreferencesForm = () => {
                 <div id="update-preferences-btns">
                 <button id="update-preferences-btn" type="submit">Update my preferences!</button>
                     <button id="delete-preferences-btn" type="button" onClick={onDeletePreferences}>Delete These Preferences</button>
-                    <NavLink to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
+                    <NavLink className="update-cancel-link" to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
                         Cancel
                 </NavLink>
                 {/* <button type="button" onClick={onDeleteAccount}>Delete This Account</button> */}

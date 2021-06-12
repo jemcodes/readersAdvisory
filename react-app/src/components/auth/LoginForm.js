@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
 import { login } from "../../store/session";
+import Footer from '../Footer';
 import '../styles/login-form.css';
 
 
@@ -55,7 +56,7 @@ const LoginForm = () => {
         </div>
         <div id="login-container">
           <div id="login-email">
-            <label htmlFor="email"></label>
+            <label className="input-labels" htmlFor="email">Email</label>
             <input className="login-input"
               name="email"
               type="text"
@@ -65,7 +66,7 @@ const LoginForm = () => {
             />
           </div>
           <div id="login-password">
-            <label htmlFor="password"></label>
+            <label htmlFor="password">Password</label>
             <input className="login-input"
               name="password"
               type="password"
@@ -74,7 +75,7 @@ const LoginForm = () => {
               onChange={updatePassword}
             />
             <button id="login-button" type="submit">Reader Login</button>
-            <NavLink to="/sign-up" onClick={toggleReaderMenu} exact={true} activeClassName="active">
+            <NavLink className="nav-switch" to="/sign-up" onClick={toggleReaderMenu} exact={true} activeClassName="active">
               Don't have an account? Get started!
             </NavLink>
           </div>
@@ -82,6 +83,9 @@ const LoginForm = () => {
       </form>
       <div id="login-page-greeting">
         <h1>Welcome back, <br></br>reader friend!</h1>
+      </div>
+      <div>
+        <Footer />
       </div>
       </div>
   );

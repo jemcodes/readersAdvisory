@@ -2,6 +2,7 @@
 const SET_READER = "session/SET_READER";
 const SET_ADVISOR = "session/SET_ADVISOR";
 const REMOVE_USER = "session/REMOVE_USER";
+const DELETE_ACCOUNT = "session/DELETE_ACCOUNT";
 
 const setReader = (reader) => ({
     type: SET_READER,
@@ -15,6 +16,11 @@ const setAdvisor = (advisor) => ({
 
 const removeUser = () => ({
     type: REMOVE_USER,
+})
+
+const removeAccount = (readerPayload) => ({
+  type: DELETE_ACCOUNT,
+  payload: readerPayload
 })
 
 const initialState = { reader: null, advisor: null };
@@ -109,6 +115,18 @@ export const advisorLogin = (email, password) => async (dispatch) => {
     return {};
   }
 
+export const deleteAccount = (readerPayload) => async (dispatch) => {
+  const { id } = readerPayload
+  const response = await fetch(`/api/readers/${id}`, {
+    method: "DELETE"
+  });
+
+  if (response.ok) {
+    dispatch(removeAccount(id));
+    return id;
+  }
+}
+
 export default function reducer(state=initialState, action) {
     switch (action.type) {
         case SET_READER:
@@ -125,6 +143,9 @@ export default function reducer(state=initialState, action) {
             return {
               ...initialState
             }
+      case DELETE_ACCOUNT:
+        return { ...initialState }
+
         default:
             return state;
     }

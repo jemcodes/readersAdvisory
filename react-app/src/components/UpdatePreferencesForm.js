@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { NavLink, useHistory, useParams, Redirect } from 'react-router-dom';
-import { showPreferences, updatePreferences, deletePreferences, deleteAccount } from '../store/reader';
+import { showPreferences, updatePreferences, deletePreferences, removePreferences } from '../store/reader';
+import { deleteAccount } from '../store/session';
 import './styles/update-preferences.css';
 import bookBubble from '../images/book-bubble.png';
 
@@ -85,12 +86,13 @@ const UpdatePreferencesForm = () => {
         }
     }
 
-    // const onDeleteAccount = async () => {
-    //     const accountDeleted = await dispatch(deleteAccount(reader))
-    //     if (accountDeleted) {
-    //         history.push("/sign-up")
-    //     }
-    // }
+    const onDeleteAccount = async () => {
+        const accountDeleted = await dispatch(deleteAccount(reader))
+        await dispatch(removePreferences(reader_id))
+        if (accountDeleted) {
+            history.push("/sign-up")
+        }
+    }
 
     if (!reader) {
         return <Redirect to='/login' />;
@@ -172,7 +174,7 @@ const UpdatePreferencesForm = () => {
                     <NavLink className="update-cancel-link" to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
                         Cancel
                 </NavLink>
-                {/* <button type="button" onClick={onDeleteAccount}>Delete This Account</button> */}
+                <button type="button" onClick={onDeleteAccount}>Delete This Account</button>
                 </div>
             </form>
         </div>

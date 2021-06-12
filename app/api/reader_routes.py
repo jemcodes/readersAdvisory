@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, Reader, ReaderPreference, ReaderSubscription
+from app.models import db, Advisor, Message, OrderProduct, Order, Product, ReaderPreference, ReaderSubscription, Reader
 from app.forms.preference_form import ReaderPreferenceForm
 from app.forms.subscription_form import SubscriptionForm
 
@@ -43,7 +43,10 @@ def reader(reader_id):
 def get_reader_preferences(reader_id):
     """Get single reader's preferences"""
     preferences = ReaderPreference.query.filter(ReaderPreference.reader_id == reader_id).first()
-    return preferences.to_dict()
+    if preferences:
+        return preferences.to_dict()
+    else: 
+        return {}
 
 
 @reader_routes.route('/<int:reader_id>/preferences', methods=['POST'])
@@ -155,11 +158,29 @@ def delete_from_cart(reader_id):
 
 """---------- Reader Account Deletion ----------"""
 
-# @reader_routes.route('/<int:reader_id>', methods=['DELETE'])
-# @login_required
-# def delete_reader_account(reader_id):
-#     """Delete single reader's account"""
-#     account_to_delete = Reader.query.filter(Reader.id == reader_id).first()
-#     db.session.delete(account_to_delete)
-#     db.session.commit()
-#     return "all gone!"
+@reader_routes.route('/<int:reader_id>', methods=['DELETE'])
+@login_required
+def delete_reader_account(reader_id):
+    """Delete single reader's account"""
+    sub_to_delete = ReaderSubscription.__table__.delete().where(Reader.id == reader_id)
+    db.session.execute(sub_to_delete)
+    db.session.commit()
+    pref_to_delete = ReaderPreference.__table__.delete().where(Reader.id == reader_id)
+    db.session.execute(pref_to_delete)
+    db.session.commit()
+    order_product_to_delete = OrderProduct.__table__.delete().where(Reader.id == reader_id)
+    db.session.execute(order_product_to_delete)
+    db.session.commit()
+    order_to_delete = Order.__table__.delete().where(Reader.id == reader_id)
+    db.session.execute(order_to_delete)
+    db.session.commit()
+    product = Product.__table__.delete().where(Reader.id == reader_id)
+    db.session.execute(product)
+    db.session.commit()
+    message_to_delete = Message.__table__.delete().where(Reader.id == reader_id)
+    db.session.execute(message_to_delete)
+    db.session.commit()
+    account_to_delete = Reader.query.filter(Reader.id == reader_id).first()
+    db.session.delete(account_to_delete)
+    db.session.commit()
+    return "all gone!"

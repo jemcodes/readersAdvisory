@@ -174,7 +174,9 @@ const UpdatePreferencesForm = () => {
                     <NavLink className="update-cancel-link" to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
                         Cancel
                 </NavLink>
-                <button type="button" onClick={onDeleteAccount}>Delete This Account</button>
+                {!(reader.email === 'demo@aa.io') && (
+                    <button type="button" onClick={onDeleteAccount}>Delete This Account</button>
+                )}
                 </div>
             </form>
         </div>

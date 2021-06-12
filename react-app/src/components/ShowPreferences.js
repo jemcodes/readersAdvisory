@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { Redirect, useParams, NavLink } from 'react-router-dom';
-import { showPreferences, updatePreferences } from '../store/reader';
+import { Redirect, useHistory, NavLink } from 'react-router-dom';
+import { showPreferences, removePreferences } from '../store/reader';
+import { deleteAccount } from '../store/session';
 import ShowSubscription from './ShowSubscription';
 import './styles/show-preferences.css';
 // import UpdatePreferencesForm from './UpdatePreferencesForm';
@@ -9,6 +10,7 @@ import bookBubble from '../images/book-bubble.png';
 
 const ShowPreferences = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const reader = useSelector(state => state.session.reader);
     const preferences = useSelector(state => state.reader.preferences);
     // let authors;
@@ -18,6 +20,14 @@ const ShowPreferences = () => {
     useEffect(() => {
         dispatch(showPreferences(reader_id))
     }, [dispatch, reader_id])
+
+    const onDeleteAccount = async () => {
+        const accountDeleted = await dispatch(deleteAccount(reader))
+        await dispatch(removePreferences(reader_id))
+        if (accountDeleted) {
+            history.push("/sign-up")
+        }
+    }
 
     if (!reader) {
         return <Redirect to='/login' />;
@@ -60,6 +70,9 @@ const ShowPreferences = () => {
                             </button>
                         </NavLink>
                         {/* <ShowSubscription /> */}
+                        {!(reader.email === 'demo@aa.io') && (
+                            <button id="delete-account-btn" type="button" onClick={onDeleteAccount}>Delete This Account</button>
+                        )}
                     </div>
                 </div>
             </div>

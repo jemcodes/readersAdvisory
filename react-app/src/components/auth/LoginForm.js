@@ -63,6 +63,7 @@ const LoginForm = () => {
               placeholder="Email"
               value={email}
               onChange={updateEmail}
+              required={true}
             />
           </div>
           <div id="login-password">
@@ -73,6 +74,7 @@ const LoginForm = () => {
               placeholder="Password"
               value={password}
               onChange={updatePassword}
+              required={true}
             />
             <button id="login-button" type="submit">Reader Login</button>
             <NavLink className="nav-switch" to="/sign-up" onClick={toggleReaderMenu} exact={true} activeClassName="active">

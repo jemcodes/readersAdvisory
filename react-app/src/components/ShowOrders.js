@@ -8,6 +8,7 @@ import bookBubble from '../images/book-bubble.png';
 
 export default function ShowOrders() {
     const dispatch = useDispatch();
+    const reader = useSelector(state => state.session.reader);
     const advisor = useSelector(state => state.session.advisor);
     const orders = useSelector(state => state.advisor.orders)
     

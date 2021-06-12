@@ -60,6 +60,7 @@ const SignUpForm = () => {
               name="email"
               onChange={updateEmail}
               value={email}
+              required={true}
             ></input>
           </div>
         <div id="signup-password">
@@ -70,6 +71,7 @@ const SignUpForm = () => {
             name="password"
             onChange={updatePassword}
             value={password}
+              required={true}
           ></input>
         </div>
           <div id="signup-repeat-password">

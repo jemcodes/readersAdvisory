@@ -24,7 +24,6 @@ const CreateSubscription = () => {
             reader_id
         }
         await dispatch(captureSubscription(subscriptionPayload))
-        window.alert("Great! Your advisor will start working on your next box when it's time!")
         history.push(`/readers/${reader_id}/subscription`)
     };
 

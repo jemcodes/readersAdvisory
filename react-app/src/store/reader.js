@@ -124,7 +124,7 @@ export default function reader(state = initialState, action) {
                 ...nextState
             }
         case SET_PREFERENCES:
-            return { ...state, ...action.payload };
+            return { ...state, preferences: action.payload};
 
         case EDIT_PREFERENCES:
             return { ...state, ...action.payload };

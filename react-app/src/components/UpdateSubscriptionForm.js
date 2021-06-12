@@ -57,7 +57,7 @@ const UpdateSubscriptionForm = () => {
     }
 
     if (!reader) {
-        return <Redirect to='/reader-login' />;
+        return <Redirect to='/login' />;
     }
 
     return (

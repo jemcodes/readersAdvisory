@@ -24,7 +24,7 @@ const ShowPreferences = () => {
     // }
 
     if (!reader) {
-        return <Redirect to='/reader-login' />;
+        return <Redirect to='/login' />;
     }
 
     return (

@@ -19,7 +19,7 @@ const ShowPreferences = () => {
     }, [dispatch, reader_id])
 
     if (!reader) {
-        return <Redirect to='/reader-login' />;
+        return <Redirect to='/login' />;
     }
 
     return (

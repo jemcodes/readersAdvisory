@@ -93,7 +93,7 @@ const UpdatePreferencesForm = () => {
     // }
 
     if (!reader) {
-        return <Redirect to='/reader-login' />;
+        return <Redirect to='/login' />;
     }
 
 

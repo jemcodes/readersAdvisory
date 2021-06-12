@@ -47,7 +47,7 @@ def get_reader_preferences(reader_id):
 
 
 @reader_routes.route('/<int:reader_id>/preferences', methods=['POST'])
-# @login_required
+@login_required
 def add_reader_preferences(reader_id):
     """Post a new reader's quiz to create an account"""
     form = ReaderPreferenceForm()

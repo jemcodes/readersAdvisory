@@ -9,10 +9,11 @@ import bookBubble from '../images/book-bubble.png';
 
 const ShowPreferences = () => {
     const dispatch = useDispatch();
-    const { reader_id } = useParams()
     const reader = useSelector(state => state.session.reader);
     const preferences = useSelector(state => state.reader.preferences);
     // let authors;
+    const reader_id = reader.id
+    console.log('THIS IS THE READER ID', reader_id)
     
     useEffect(() => {
         dispatch(showPreferences(reader_id))

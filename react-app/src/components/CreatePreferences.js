@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 // import { Redirect } from 'react-router-dom';
 import { capturePreferences } from '../store/reader';
 import './styles/create-preferences.css';
@@ -9,7 +9,7 @@ import bookBubble from '../images/book-bubble.png';
 const CreatePreferences = () => {
     const [user_name, setUsername] = useState("");
     const [cover_choices, setCoverChoices] = useState("");
-    const [genre_choices, setGenreChoices] = useState("");
+    const [genre_choices, setGenreChoices] = useState([]);
     const [author_choices, setAuthorChoices] = useState("");
     const [other_choices, setOtherChoices] = useState("");
     const dispatch = useDispatch();
@@ -18,23 +18,6 @@ const CreatePreferences = () => {
     // const reader_id = reader.id
     // const reader = useSelector(state => state.session.reader);
     
-    const onQuizCompletion = async (e) => {
-        e.preventDefault();
-        const reader_id=reader.id
-        const preferencePayload = {
-            user_name,
-            cover_choices,
-            genre_choices,
-            author_choices,
-            other_choices,
-            reader_id
-        }
-        // console.log('&&&&&&&&&&&&&&&&&', reader.id)
-        await dispatch(capturePreferences(preferencePayload))
-        history.push(`/readers/${reader_id}/preferences`)
-
-    };
-
     const updateUsername = (e) => {
         setUsername(e.target.value);
     };
@@ -44,7 +27,15 @@ const CreatePreferences = () => {
     };
 
     const updateGenreChoices = (e) => {
-        setGenreChoices(e.target.value);
+        let genre_collection = genre_choices.slice();
+        if (genre_collection.includes(e.target.value)) {
+            let genreIndex = genre_collection.indexOf(e.target.value)
+            genre_collection.splice(genreIndex, 1)
+        } else {
+            genre_collection.push(e.target.value);
+        }
+        // console.log(genre_collection)
+        setGenreChoices(genre_collection);
     };
 
     const updateAuthorChoices = (e) => {
@@ -55,9 +46,27 @@ const CreatePreferences = () => {
         setOtherChoices(e.target.value);
     };
 
-    // if (reader) {
-    //     return <Redirect to="/reader-quiz" />;
-    // }
+
+    const onQuizCompletion = async (e) => {
+        e.preventDefault();
+        const reader_id = reader.id
+        const preferencePayload = {
+            user_name,
+            cover_choices,
+            genre_choices: genre_choices.join(', '),
+            author_choices,
+            other_choices,
+            reader_id
+        }
+        // console.log('&&&&&&&&&&&&&&&&&', reader.id)
+        await dispatch(capturePreferences(preferencePayload))
+        history.push(`/readers/${reader_id}/preferences`)
+
+    };
+
+    if (!reader) {
+        return <Redirect to="/login" />;
+    }
 
     return (
         <div id="create-preferences-container">
@@ -97,6 +106,7 @@ const CreatePreferences = () => {
                         <>
                                 <input className="create-preferences-genre-input"
                                     type="checkbox"
+                                    key={genre}
                                     name="genre_choices"
                                     onChange={updateGenreChoices}
                                     value={genre}

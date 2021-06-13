@@ -108,6 +108,10 @@ font-family: 'Sofia', cursive; */
     width: 10%;
 } */
 
+body {
+    background-color: #F6F1F6;
+}
+
 #create-preferences-container {
     /* border: 2px solid red; */
     background-color: #F6F1F6;

@@ -3,6 +3,10 @@
 font-family: 'Montserrat', sans-serif;
 font-family: 'Sofia', cursive; */
 
+body {
+    background-color: #F6F1F6;
+}
+
 #subscription-container {
     /* border: 2px solid red; */
     background-color: #F6F1F6;

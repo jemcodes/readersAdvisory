@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { showReaders } from '../store/advisor';
-import './styles/show-orders.css';
+import './styles/show-readers.css';
 import bookSpeak from '../images/book-speak.png';
 
 
-export default function ShowOrders() {
+export default function ShowReaders() {
     const dispatch = useDispatch();
     const reader = useSelector(state => state.session.reader);
     const advisor = useSelector(state => state.session.advisor);
@@ -21,14 +21,14 @@ export default function ShowOrders() {
     }
 
     return (
-        <div id="orders-container">
-            <img className="show-order-book-speak" src={bookSpeak} />
-            <div id="orders-contents">
-                <h3 id="orders-header">My Readers</h3>
-            <ul id="show-orders-ul">
-                    <div className="orders-list-div">
+        <div id="readers-container">
+            <img className="show-reader-book-speak" src={bookSpeak} />
+            <div id="readers-contents">
+                <h3 id="readers-header">My Advisees</h3>
+            <ul id="show-readers-ul">
+                    <div className="readers-list-div">
                 {readers.map((reader) => (
-                    <li className="preference-list-items">{reader.user_name}</li>
+                    <li className="readers-list-items">{reader.user_name}</li>
                 ))}
                 </div>
             </ul>

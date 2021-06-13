@@ -61,7 +61,7 @@ const LoginForm = () => {
               required={true}
             />
             {errors.email && (
-              <small>{errors.email}</small>
+              <small className="error-messages">{errors.email}</small>
             )}
           </div>
           <div id="login-password">
@@ -75,7 +75,7 @@ const LoginForm = () => {
               required={true}
             />
             {errors.password && (
-              <small>{errors.password}</small>
+              <small className="error-messages">{errors.password}</small>
             )}
             <button id="login-button" type="submit">Reader Login</button>
             <NavLink className="nav-switch" to="/sign-up" onClick={toggleReaderMenu} exact={true} activeClassName="active">

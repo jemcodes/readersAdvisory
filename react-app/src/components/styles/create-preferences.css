@@ -157,6 +157,36 @@ font-family: 'Sofia', cursive; */
     /* border: 2px solid green; */
     margin-left: 2%;
     padding: 1rem 0;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+#create-preferences-genre-block-1 {
+    display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+}
+#create-preferences-genre-block-2 span{
+    white-space: nowrap;
+}
+
+#create-preferences-genre-block-2 {
+    display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+}
+
+#create-preferences-genre-block-2 span{
+    white-space: nowrap;
+}
+
+#create-preferences-genre-block-3 {
+    display: flex;
+    flex-direction: column;
+}
+
+#create-preferences-genre-block-3 span{
+    white-space: nowrap;
 }
 
 #create-preferences-authors-div {
@@ -186,12 +216,12 @@ font-family: 'Sofia', cursive; */
 }
 
 .create-preferences-cover-label {
-    padding: .5rem;
+    padding: .2rem 1rem .2rem .2rem;
     font-family: 'Montserrat', sans-serif;
 }
 
 .create-preferences-genre-label {
-    padding: .2rem;
+    padding: .2rem 2rem .2rem .2rem;
     font-family: 'Montserrat', sans-serif;
 }
 

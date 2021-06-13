@@ -108,12 +108,16 @@ font-family: 'Sofia', cursive; */
     width: 10%;
 } */
 
+body {
+    background-color: #F6F1F6;
+}
+
 #update-preferences-container {
     /* border: 2px solid red; */
     background-color: #F6F1F6;
     margin-top: -400px;
     margin-bottom: -20px;
-    padding: 25rem 25rem 2rem 25rem;
+    padding: 25rem 25rem 43rem 25rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

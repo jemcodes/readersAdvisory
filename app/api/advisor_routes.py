@@ -35,10 +35,11 @@ def advisor(advisor_id):
 
 
 """---------- Advisor-Reader Views ----------"""
+
 @advisor_routes.route('/<int:advisor_id>/readers', methods=['GET'])
 @login_required
 def get_assigned_readers(advisor_id):
-    """Get a list of readers assigned to a single advisor"""
+    """For a single advisor, get their assigned readers and a list of each reader's preferences"""
     readers = Reader.query.filter(Reader.advisor_id == advisor_id).join(ReaderPreference).all()
     reader_collection = []
     for reader in readers:

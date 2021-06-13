@@ -158,6 +158,9 @@ You can find me right here on [Github](https://github.com/jemcodes) or over on [
 
 ## Future Fixes
 
+**Responsive Design**
+* I haven't put much emphasis on responsive design at this point, so I'd like to make site-wide improvements to better accommodate a variety of screen sizes.
+
 **Additional Protections**
 * Amplify security measures, particularly backend considerations
 * Improve subscription/checkout process with success notifications

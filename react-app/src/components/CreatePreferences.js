@@ -70,7 +70,7 @@ const CreatePreferences = () => {
 
     return (
         <div id="create-preferences-container">
-            <img className="create-pref-book-magic" src={bookMagic} />
+            <img className="create-pref-book-magic" src={bookMagic} alt="Book with magic stars over it"/>
             <form id="create-preferences-form" onSubmit={onQuizCompletion}>
                 <h3 id="create-preferences-title">Create Preferences</h3>
                 <div id="create-preferences-username-div">

@@ -8,7 +8,7 @@ import bookSpeak from '../images/book-speak.png';
 
 export default function ShowReaders() {
     const dispatch = useDispatch();
-    const reader = useSelector(state => state.session.reader);
+    // const reader = useSelector(state => state.session.reader);
     const advisor = useSelector(state => state.session.advisor);
     const readers = useSelector(state => state.advisor.readers)
     
@@ -22,7 +22,7 @@ export default function ShowReaders() {
 
     return (
         <div id="readers-container">
-            <img className="show-reader-book-speak" src={bookSpeak} />
+            <img className="show-reader-book-speak" src={bookSpeak} alt="Book as a text balloon" />
             <div id="readers-contents">
                 <h3 id="readers-header">My Advisees</h3>
             <ul id="show-readers-ul">

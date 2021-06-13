@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { Redirect, useHistory, NavLink, useParams} from 'react-router-dom';
 import { showPreferences, removePreferences } from '../store/reader';
 import { deleteAccount } from '../store/session';
-import ShowSubscription from './ShowSubscription';
+// import ShowSubscription from './ShowSubscription';
 import './styles/show-preferences.css';
 // import UpdatePreferencesForm from './UpdatePreferencesForm';
 import bookBubble from '../images/book-bubble.png';
@@ -41,7 +41,7 @@ const ShowPreferences = () => {
     return (
         <>
         <div id="preferences-container">
-            <img className="show-pref-book-bubble" src={bookBubble} />
+            <img className="show-pref-book-bubble" src={bookBubble} alt="Book with a smiling word bubble over it"/>
             <div id="preferences-contents">
                 <h3 id="preferences-header">Reader Preferences</h3>
                     {preferences && (

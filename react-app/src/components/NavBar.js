@@ -53,22 +53,22 @@ const NavBar = () => {
               <h1 id="author-heading">A Few Of Our Authors</h1>
               <div id="author-container">
                   <div id="left-authors">
-                      <a target="_blank" rel="noreferrer" href="https://akrscott.com/">A.K.R. Scott</a>
+                      <a target="_blank" rel="noopener noreferrer" href="https://akrscott.com/">A.K.R. Scott</a>
                       <br></br>
-                      <a target="_blank" rel="noreferrer" href="https://tamaralush.com/">Tamara Lush</a>
+                      <a target="_blank" rel="noopener noreferrer" href="https://tamaralush.com/">Tamara Lush</a>
                       <br></br>
-                      <a target="_blank" rel="noreferrer" href="https://www.joannemachin.com/">Joanne Machin</a>
+                      <a target="_blank" rel="noopener noreferrer" href="https://www.joannemachin.com/">Joanne Machin</a>
                       <br></br>
-                      <a target="_blank" rel="noreferrer" href="https://autumnjoneslake.com/">Autumn Jones Lake</a>
+                      <a target="_blank" rel="noopener noreferrer" href="https://autumnjoneslake.com/">Autumn Jones Lake</a>
                   </div>
                   <div id="right-authors">
-                    <a target="_blank" rel="noreferrer" href="https://jemartinbooks.com/">J. E. Martin</a>
+                      <a target="_blank" rel="noopener noreferrer" href="https://jemartinbooks.com/">J. E. Martin</a>
                     <br></br>
-                    <a target="_blank" rel="noreferrer" href="https://www.dannikadark.net/">Dannika Dark</a>
+                      <a target="_blank" rel="noopener noreferrer" href="https://www.dannikadark.net/">Dannika Dark</a>
                     <br></br>
-                    <a target="_blank" rel="noreferrer" href="https://www.aljacksonauthor.com/">A. L. Jackson</a>
+                      <a target="_blank" rel="noopener noreferrer" href="https://www.aljacksonauthor.com/">A. L. Jackson</a>
                     <br></br>
-                    <a target="_blank" rel="noreferrer" href="https://www.cariancolewrites.com/">Carian Cole</a>
+                      <a target="_blank" rel="noopener noreferrer" href="https://www.cariancolewrites.com/">Carian Cole</a>
                   </div>
                   {/* <div className="menu-divider"><h1></h1></div> */}
               </div>
@@ -78,8 +78,8 @@ const NavBar = () => {
             <div id="about-container">
               <div id="left-about">
                 <h2 className="about-titles">Hiya! I'm jane 👋 Find me here 👇</h2>
-                <a target="_blank" rel="noreferrer" href="https://github.com/jemcodes/">GitHub</a>
-                <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/jemcodes/">LinkedIn</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/jemcodes/">GitHub</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jemcodes/">LinkedIn</a>
                 <br></br>
                 {/* <p>🍸 cheers & happy reading! 📚</p> */}
               </div>
@@ -113,7 +113,7 @@ const NavBar = () => {
       {showAdvisorMenu && (
         <div className="advisor-menu-container">
           <div id="advisor-info-block">
-            <img className="advisor-book-speak" src={bookSpeak} />
+            <img className="advisor-book-speak" src={bookSpeak} alt="Book as a text balloon" />
             {/* <h1 id="ra-heading">Readers' Advisory</h1> */}
             <h2 id="ra-definition-heading">read·ers' ad·​vi·​so·​ry (noun)</h2>
             <p id="ra-definition">Readers’ advisory is the process of matching readers with books and books to readers.</p>

@@ -41,7 +41,7 @@ const CreateSubscription = () => {
 
     return (
         <div id="create-subscription-container">
-            <img className="create-sub-book-magic" src={bookMagic} />
+            <img className="create-sub-book-magic" src={bookMagic} alt="Book with magic stars over it" />
             <form id="create-subscription-form" onSubmit={handleSubmit}>
                 <h3 id="create-subscription-title">Build Your Subscription</h3>
                 <div className="create-subscription-div">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { NavLink, useHistory, useParams, Redirect } from 'react-router-dom';
-import { showPreferences, updatePreferences, deletePreferences, removePreferences } from '../store/reader';
+import { showPreferences, updatePreferences, deletePreferences } from '../store/reader';
 // import { deleteAccount } from '../store/session';
 import './styles/update-preferences.css';
 import bookFlame from '../images/book-flame.png';
@@ -101,7 +101,7 @@ const UpdatePreferencesForm = () => {
 
     return (
         <div id="update-preferences-container">
-            <img className="update-pref-book-flame" src={bookFlame} />
+            <img className="update-pref-book-flame" src={bookFlame} alt="Book with a flame over it" />
             <form id="update-preferences-form" onSubmit={onEditCompletion}>
                 <h3 id="update-preferences-title">Update Preferences</h3>
                 <div id="update-preferences-username-div">
@@ -124,7 +124,7 @@ const UpdatePreferencesForm = () => {
                                 name="cover_choices"
                                 onChange={updateCoverChoices}
                                 value={choice}
-                                checked={choice == cover_choices}
+                                checked={choice === cover_choices}
                                 required={true}
                             ></input>
                             <label className="update-preferences-cover-label" htmlFor={choice}>{choice}</label>

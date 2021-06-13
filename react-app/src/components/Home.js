@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 // import NavBar from './NavBar';
 import Footer from './Footer';
 // import reading from '../images/reading.mp4';

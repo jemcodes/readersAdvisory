@@ -67,7 +67,7 @@ const SignUpForm = () => {
               required={true}
             ></input>
             {errors.email && (
-              <small>{errors.email}</small>
+              <small className="error-messages">{errors.email}</small>
             )}
           </div>
         <div id="signup-password">
@@ -81,7 +81,7 @@ const SignUpForm = () => {
               required={true}
           ></input>
             {errors.password && (
-              <small>{errors.password}</small>
+              <small className="error-messages">{errors.password}</small>
             )}
         </div>
           <div id="signup-repeat-password">

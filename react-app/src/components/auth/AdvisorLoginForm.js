@@ -59,7 +59,7 @@ const AdvisorLoginForm = () => {
                         onChange={updateEmail}
                     />
                         {errors.email && (
-                            <small>{errors.email}</small>
+                            <small className="error-messages">{errors.email}</small>
                         )}
                     </div>
                 <div id="advisor-login-password">
@@ -72,7 +72,7 @@ const AdvisorLoginForm = () => {
                         onChange={updatePassword}
                     />
                         {errors.password && (
-                            <small>{errors.password}</small>
+                            <small className="error-messages">{errors.password}</small>
                         )}
                     <button id="advisor-login-button" type="submit">Login</button>
                     <NavLink className="nav-switch" to="/login" onClick={toggleAdvisorMenu} exact={true} activeClassName="active">

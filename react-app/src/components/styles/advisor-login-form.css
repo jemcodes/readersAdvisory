@@ -24,6 +24,10 @@ body {
     width: 505;
 }
 
+.error-messages {
+    color: red;
+}
+
 #advisor-login-email {
     padding: .5rem;
     font-family: 'Montserrat', sans-serif;

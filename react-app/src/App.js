@@ -16,7 +16,7 @@ import CreateOrder from "./components/CreateOrder";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
-import ShowOrders from "./components/ShowOrders";
+import ShowReaders from "./components/ShowReaders";
 import ShowProducts from "./components/ShowProducts";
 import Home from "./components/Home";
 
@@ -44,7 +44,7 @@ function App() {
           <LoginForm />
         </Route>
         <ProtectedRoute path="/my-readers" exact={true}>
-          <ShowOrders />
+          <ShowReaders />
         </ProtectedRoute>
         <ProtectedRoute path="/orders/new" exact={true}>
           <CreateOrder />

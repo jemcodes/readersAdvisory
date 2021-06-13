@@ -5,14 +5,15 @@ import { Redirect, useHistory } from 'react-router-dom';
 import '../styles/navbar.css';
 
 
-export default function DemoUser() {
-    const reader = useSelector(state => state.session.reader);
+export default function DemoUser({onClick}) {
     const dispatch = useDispatch();
-    const history = useHistory()
+    const history = useHistory();
+    
 
     const onLogin = async (e) => {
         e.preventDefault();
         await dispatch(login("demo@aa.io", "password"));
+        onClick();
         history.push("/login")
     }
 

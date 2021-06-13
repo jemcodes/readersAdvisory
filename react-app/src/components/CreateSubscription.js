@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useHistory, NavLink, Redirect } from 'react-router-dom';
 import { captureSubscription } from '../store/subscription';
 import './styles/create-subscription.css';
-import bookBubble from '../images/book-bubble.png';
+import bookMagic from '../images/book-magic.png';
 
 const CreateSubscription = () => {
     const [subscription_type, setSubscriptionType] = useState("");
@@ -24,7 +24,6 @@ const CreateSubscription = () => {
             reader_id
         }
         await dispatch(captureSubscription(subscriptionPayload))
-        window.alert("Great! Your advisor will start working on your next box when it's time!")
         history.push(`/readers/${reader_id}/subscription`)
     };
 
@@ -37,12 +36,12 @@ const CreateSubscription = () => {
     };
 
     if (!reader) {
-        return <Redirect to='/reader-login' />;
+        return <Redirect to='/login' />;
     }
 
     return (
         <div id="create-subscription-container">
-            <img className="create-sub-book-bubble" src={bookBubble} />
+            <img className="create-sub-book-magic" src={bookMagic} />
             <form id="create-subscription-form" onSubmit={handleSubmit}>
                 <h3 id="create-subscription-title">Build Your Subscription</h3>
                 <div className="create-subscription-div">

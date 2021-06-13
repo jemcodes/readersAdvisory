@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, Reader, ReaderPreference, ReaderSubscription
+from app.models import db, Advisor, Message, OrderProduct, Order, Product, ReaderPreference, ReaderSubscription, Reader
 from app.forms.preference_form import ReaderPreferenceForm
 from app.forms.subscription_form import SubscriptionForm
 
@@ -43,13 +43,17 @@ def reader(reader_id):
 def get_reader_preferences(reader_id):
     """Get single reader's preferences"""
     preferences = ReaderPreference.query.filter(ReaderPreference.reader_id == reader_id).first()
-    return preferences.to_dict()
+    if preferences:
+        return preferences.to_dict()
+    else: 
+        return {}
 
 
 @reader_routes.route('/<int:reader_id>/preferences', methods=['POST'])
 @login_required
 def add_reader_preferences(reader_id):
     """Post a new reader's quiz to create an account"""
+    print('$$$$$$$$$$$$$$THIS IS A ROUTE!!!!!!!!!!$$$$$$$$$$$$$$$$$$$')
     form = ReaderPreferenceForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -102,7 +106,10 @@ def delete_reader_preferences(reader_id):
 def subscription_status(reader_id):
     """See a single reader's subscription status"""
     subscription = ReaderSubscription.query.filter(ReaderSubscription.reader_id == reader_id).first()
-    return subscription.to_dict()
+    if subscription:
+        return subscription.to_dict()
+    else:
+        return {}
 
 
 @reader_routes.route('/<int:reader_id>/subscriptions', methods=['POST'])
@@ -151,11 +158,17 @@ def delete_from_cart(reader_id):
 
 """---------- Reader Account Deletion ----------"""
 
-# @reader_routes.route('/<int:reader_id>', methods=['DELETE'])
-# @login_required
-# def delete_reader_account(reader_id):
-#     """Delete single reader's account"""
-#     account_to_delete = Reader.query.filter(Reader.id == reader_id).first()
-#     db.session.delete(account_to_delete)
-#     db.session.commit()
-#     return "all gone!"
+@reader_routes.route('/<int:reader_id>', methods=['DELETE'])
+@login_required
+def delete_reader_account(reader_id):
+    """Delete single reader's account"""
+    sub_to_delete = ReaderSubscription.__table__.delete().where(ReaderSubscription.reader_id == reader_id)
+    db.session.execute(sub_to_delete)
+    db.session.commit()
+    pref_to_delete = ReaderPreference.__table__.delete().where(ReaderPreference.reader_id == reader_id)
+    db.session.execute(pref_to_delete)
+    db.session.commit()
+    account_to_delete = Reader.query.filter(Reader.id == reader_id).first()
+    db.session.delete(account_to_delete)
+    db.session.commit()
+    return "all gone!"

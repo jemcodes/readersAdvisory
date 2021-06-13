@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { NavLink, useHistory, useParams, Redirect } from 'react-router-dom';
-import { showPreferences, updatePreferences, deletePreferences, deleteAccount } from '../store/reader';
+import { showPreferences, updatePreferences, deletePreferences, removePreferences } from '../store/reader';
+// import { deleteAccount } from '../store/session';
 import './styles/update-preferences.css';
-import bookBubble from '../images/book-bubble.png';
+import bookFlame from '../images/book-flame.png';
 
 const UpdatePreferencesForm = () => {
     const { reader_id } = useParams();
@@ -13,7 +14,7 @@ const UpdatePreferencesForm = () => {
 
     const [user_name, setUsername] = useState('');
     const [cover_choices, setCoverChoices] = useState('');
-    const [genre_choices, setGenreChoices] = useState('');
+    const [genre_choices, setGenreChoices] = useState([]);
     const [author_choices, setAuthorChoices] = useState('');
     const [other_choices, setOtherChoices] = useState('');
     const dispatch = useDispatch();
@@ -28,7 +29,15 @@ const UpdatePreferencesForm = () => {
     };
 
     const updateGenreChoices = (e) => {
-        setGenreChoices(e.target.value);
+        let genre_collection = genre_choices.slice();
+        if (genre_collection.includes(e.target.value)) {
+            let genreIndex = genre_collection.indexOf(e.target.value)
+            genre_collection.splice(genreIndex, 1)
+        } else {
+            genre_collection.push(e.target.value);
+        }
+        // console.log(genre_collection)
+        setGenreChoices(genre_collection);
     };
 
     const updateAuthorChoices = (e) => {
@@ -47,7 +56,7 @@ const UpdatePreferencesForm = () => {
         if (preferences) {
             setUsername(preferences.user_name)
             setCoverChoices(preferences.cover_choices)
-            setGenreChoices(preferences.genre_choices)
+            setGenreChoices(preferences.genre_choices.split(', '))
             setAuthorChoices(preferences.author_choices)
             setOtherChoices(preferences.other_choices)
         }
@@ -61,7 +70,7 @@ const UpdatePreferencesForm = () => {
         const editedPayload = {
             user_name,
             cover_choices,
-            genre_choices,
+            genre_choices: genre_choices.join(', '),
             author_choices,
             other_choices,
             reader_id
@@ -79,19 +88,20 @@ const UpdatePreferencesForm = () => {
 
     // const onDeleteAccount = async () => {
     //     const accountDeleted = await dispatch(deleteAccount(reader))
+    //     await dispatch(removePreferences(reader_id))
     //     if (accountDeleted) {
     //         history.push("/sign-up")
     //     }
     // }
 
     if (!reader) {
-        return <Redirect to='/reader-login' />;
+        return <Redirect to='/login' />;
     }
 
 
     return (
         <div id="update-preferences-container">
-            <img className="update-pref-book-bubble" src={bookBubble} />
+            <img className="update-pref-book-flame" src={bookFlame} />
             <form id="update-preferences-form" onSubmit={onEditCompletion}>
                 <h3 id="update-preferences-title">Update Preferences</h3>
                 <div id="update-preferences-username-div">
@@ -114,6 +124,7 @@ const UpdatePreferencesForm = () => {
                                 name="cover_choices"
                                 onChange={updateCoverChoices}
                                 value={choice}
+                                checked={choice == cover_choices}
                                 required={true}
                             ></input>
                             <label className="update-preferences-cover-label" htmlFor={choice}>{choice}</label>
@@ -127,10 +138,12 @@ const UpdatePreferencesForm = () => {
                         <>
                             <input className="update-preferences-genre-input"
                                 type="checkbox"
+                                key={genre}
                                 name="genre_choices"
                                 onChange={updateGenreChoices}
                                 value={genre}
-                            ></input>
+                                checked={genre_choices.includes(genre)}
+                            />
                             <label className="update-preferences-genre-label" htmlFor={genre}>{genre}</label>
                         </>
                     ))}
@@ -161,7 +174,9 @@ const UpdatePreferencesForm = () => {
                     <NavLink className="update-cancel-link" to={`/readers/${reader_id}/preferences`} exact={true} activeClassName="active">
                         Cancel
                 </NavLink>
-                {/* <button type="button" onClick={onDeleteAccount}>Delete This Account</button> */}
+                {/* {!(reader.email === 'demo@aa.io') && (
+                    <button type="button" onClick={onDeleteAccount}>Delete This Account</button>
+                )} */}
                 </div>
             </form>
         </div>

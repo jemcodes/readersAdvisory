@@ -48,11 +48,6 @@ const AdvisorLoginForm = () => {
     return (
         <div>
             <form onSubmit={onLogin}>
-                <div>
-                    {errors.map((error) => (
-                        <div>{error}</div>
-                    ))}
-                </div>
                 <div id="advisor-login-container">
                     <div id="advisor-login-email">
                     <label className="input-labels" htmlFor="email">Email</label>
@@ -63,6 +58,9 @@ const AdvisorLoginForm = () => {
                         value={email}
                         onChange={updateEmail}
                     />
+                        {errors.email && (
+                            <small>{errors.email}</small>
+                        )}
                     </div>
                 <div id="advisor-login-password">
                     <label htmlFor="password">Password</label>
@@ -73,6 +71,9 @@ const AdvisorLoginForm = () => {
                         value={password}
                         onChange={updatePassword}
                     />
+                        {errors.password && (
+                            <small>{errors.password}</small>
+                        )}
                     <button id="advisor-login-button" type="submit">Login</button>
                     <NavLink className="nav-switch" to="/login" onClick={toggleAdvisorMenu} exact={true} activeClassName="active">
                         Not an advisor? Sign in as a reader!

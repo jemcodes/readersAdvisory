@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import DemoUser from './auth/DemoUser';
 import DemoAdvisor from './auth/DemoAdvisor';
 import './styles/navbar.css';
-import bookBubble from '../images/book-bubble.png';
+import bookSpeak from '../images/book-speak.png';
 
 const NavBar = () => {
   const [showReaderMenu, setShowReaderMenu] = useState(false);
@@ -22,6 +22,9 @@ const NavBar = () => {
     setShowAdvisorMenu(!showAdvisorMenu)
     setShowReaderMenu(false)
   }
+
+  useEffect(() => {
+  })
 
   return (
     <>
@@ -101,7 +104,7 @@ const NavBar = () => {
             <NavLink className="nav-links" to="/login" onClick={toggleReaderMenu} exact={true} activeClassName="active">
                   <button className="nav-bar-buttons">Sign In</button>
                 </NavLink>
-                <DemoUser />
+                <DemoUser onClick={toggleReaderMenu} />
               </div>
             </div>
               </div>
@@ -110,7 +113,7 @@ const NavBar = () => {
       {showAdvisorMenu && (
         <div className="advisor-menu-container">
           <div id="advisor-info-block">
-            <img className="advisor-book-bubble" src={bookBubble} />
+            <img className="advisor-book-speak" src={bookSpeak} />
             {/* <h1 id="ra-heading">Readers' Advisory</h1> */}
             <h2 id="ra-definition-heading">read·ers' ad·​vi·​so·​ry (noun)</h2>
             <p id="ra-definition">Readers’ advisory is the process of matching readers with books and books to readers.</p>
@@ -118,9 +121,9 @@ const NavBar = () => {
           <div className="advisor-nav-links">
           <h1 id="reader-li-heading">Welcome, Trusted Readers' Advisor!</h1>
             <NavLink className="nav-links" to="/advisor-login" exact={true} activeClassName="active">
-              <button className="nav-bar-buttons">Sign In</button>
+              <button onClick={toggleAdvisorMenu} className="nav-bar-buttons">Sign In</button>
             </NavLink>
-            <DemoAdvisor />
+            <DemoAdvisor onClick={toggleAdvisorMenu} />
           </div>
           </div>
       )}
@@ -128,4 +131,4 @@ const NavBar = () => {
   );
 }
 
-export default NavBar;
+export default withRouter(NavBar);

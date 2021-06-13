@@ -24,7 +24,11 @@ const ShowPreferences = () => {
     // }
 
     if (!reader) {
-        return <Redirect to='/reader-login' />;
+        return <Redirect to='/login' />;
+    }
+
+    if (reader.id !== parseInt(reader_id)) {
+        return <Redirect to={`/readers/${reader.id}/subscription`} />;
     }
 
     return (

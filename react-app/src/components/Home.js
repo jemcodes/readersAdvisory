@@ -16,9 +16,9 @@ const Home = () => {
             <div id="home-page-greeting">
                 <h1>Discover a new reading <br></br>experience</h1>
             </div>
-            <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
+            {/* <NavLink className="nav-links" to="/sign-up" exact={true} activeClassName="active">
                 <button className="home-page-button">Take Your Reading Quiz</button>
-            </NavLink>
+            </NavLink> */}
             <div>
                 <Footer />
             </div>

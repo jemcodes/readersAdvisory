@@ -43,15 +43,15 @@ function App() {
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
-        <Route path="/my-readers" exact={true}>
+        <ProtectedRoute path="/my-readers" exact={true}>
           <ShowOrders />
-        </Route>
-        <Route path="/orders/new" exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path="/orders/new" exact={true}>
           <CreateOrder />
-        </Route>
-        <Route path="/products" exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path="/products" exact={true}>
           <ShowProducts />
-        </Route>
+        </ProtectedRoute>
         <Route path="/advisor-login" exact={true}>
           <AdvisorLoginForm />
         </Route>

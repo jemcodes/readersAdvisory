@@ -5,13 +5,14 @@ import { useHistory } from 'react-router-dom';
 import '../styles/navbar.css';
 
 
-export default function DemoAdvisor() {
+export default function DemoAdvisor({onClick}) {
     const dispatch = useDispatch();
     const history = useHistory();
 
     const onAdvisorLogin = async (e) => {
         e.preventDefault();
         await dispatch(advisorLogin('demo_ad@aa.io', 'password'));
+        onClick();
         history.push('/my-readers')
     }
 

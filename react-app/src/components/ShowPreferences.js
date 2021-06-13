@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { Redirect, useParams, NavLink } from 'react-router-dom';
-import { showPreferences, updatePreferences } from '../store/reader';
+import { Redirect, useHistory, NavLink, useParams} from 'react-router-dom';
+import { showPreferences, removePreferences } from '../store/reader';
+import { deleteAccount } from '../store/session';
 import ShowSubscription from './ShowSubscription';
 import './styles/show-preferences.css';
 // import UpdatePreferencesForm from './UpdatePreferencesForm';
@@ -9,17 +10,32 @@ import bookBubble from '../images/book-bubble.png';
 
 const ShowPreferences = () => {
     const dispatch = useDispatch();
-    const { reader_id } = useParams()
+    const history = useHistory();
+    const { reader_id } = useParams();
     const reader = useSelector(state => state.session.reader);
     const preferences = useSelector(state => state.reader.preferences);
     // let authors;
+    // const reader_id = reader.id
+    // console.log('THIS IS THE READER ID', reader_id)
     
     useEffect(() => {
         dispatch(showPreferences(reader_id))
     }, [dispatch, reader_id])
 
+    const onDeleteAccount = async () => {
+        const accountDeleted = await dispatch(deleteAccount(reader))
+        await dispatch(removePreferences(reader_id))
+        if (accountDeleted) {
+            history.push("/sign-up")
+        }
+    }
+
     if (!reader) {
-        return <Redirect to='/reader-login' />;
+        return <Redirect to='/login' />;
+    }
+
+    if (reader.id !== parseInt(reader_id)) {
+        return <Redirect to={`/readers/${reader.id}/preferences`} />;
     }
 
     return (
@@ -59,6 +75,9 @@ const ShowPreferences = () => {
                             </button>
                         </NavLink>
                         {/* <ShowSubscription /> */}
+                        {!(reader.email === 'demo@aa.io') && (
+                            <button id="delete-account-btn" type="button" onClick={onDeleteAccount}>Delete This Account</button>
+                        )}
                     </div>
                 </div>
             </div>

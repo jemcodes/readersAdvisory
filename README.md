@@ -1,5 +1,5 @@
 # Welcome to Readers' Advisory
-<!-- ![gin & tonnies Logo](frontend/public/images/gandtthin2.png) -->
+![Book Magic](react-app/src/images/book-magic.png)
 
 ## Greetings, fellow book enthusiasts!
 
@@ -65,13 +65,16 @@
 
 ### Key Features
 
-**Reader Preferences**
+**Reader Account Management**
 * View reader preferences generated through reader quiz
 * Dynamically create, update, and delete reader's preferences
-
-**Reader Subscription**
 * View reader's subscription
 * Dynamically create, update, and delete reader's subscription
+* Dynamically delete reader's account
+
+**Secondary Login Auth Path**
+* Advisors login separately
+* View readers assigned to an advisor
 
 ### Project Details
 >“We read books to find out who we are. What other people, real or imaginary, do and think and feel... is an essential guide to our understanding of what we ourselves are and may become.”

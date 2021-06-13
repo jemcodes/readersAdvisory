@@ -133,9 +133,9 @@ const UpdatePreferencesForm = () => {
                 </div>
                 <div id="update-preferences-genre-div">
                     <label className="update-preferences-genre-label">Please select which genres you enjoy:</label>
-                    <div id="update-preferences-genre-block">
-                    {['Biography', 'Classic Literature', 'Contemporary Literature', 'Crime', 'Fantasy', 'Graphic Novels & Comics', 'LGBTQ+ Fiction', 'Historical Fiction', 'Horror', 'Humor & Comedy', 'Memoir', 'Mystery', 'Nonfiction', 'Paranormal', 'Philosophical', 'Poetry', 'Pulp Fiction', 'Romance', 'Science Fiction', 'Speculative Fiction', 'Suspense', 'Thriller', 'Young Adult'].map((genre) => (
-                        <>
+                    <div id="update-preferences-genre-block-1">
+                        {['Biography', 'Classic Literature', 'Contemporary Literature', 'Crime', 'Fantasy', 'Graphic Novels & Comics', 'LGBTQ+ Fiction', 'Historical Fiction'].map((genre) => (
+                        <span>
                             <input className="update-preferences-genre-input"
                                 type="checkbox"
                                 key={genre}
@@ -145,8 +145,38 @@ const UpdatePreferencesForm = () => {
                                 checked={genre_choices.includes(genre)}
                             />
                             <label className="update-preferences-genre-label" htmlFor={genre}>{genre}</label>
-                        </>
+                        </span>
                     ))}
+                    </div>
+                    <div id="update-preferences-genre-block-2">
+                        {['Horror', 'Humor & Comedy', 'Memoir', 'Mystery', 'Nonfiction', 'Paranormal', 'Philosophical', 'Poetry'].map((genre) => (
+                            <span>
+                                <input className="update-preferences-genre-input"
+                                    type="checkbox"
+                                    key={genre}
+                                    name="genre_choices"
+                                    onChange={updateGenreChoices}
+                                    value={genre}
+                                    checked={genre_choices.includes(genre)}
+                                />
+                                <label className="update-preferences-genre-label" htmlFor={genre}>{genre}</label>
+                            </span>
+                        ))}
+                    </div>
+                    <div id="update-preferences-genre-block-3">
+                        {['Pulp Fiction', 'Romance', 'Science Fiction', 'Speculative Fiction', 'Suspense', 'Thriller', 'Young Adult'].map((genre) => (
+                            <span>
+                                <input className="update-preferences-genre-input"
+                                    type="checkbox"
+                                    key={genre}
+                                    name="genre_choices"
+                                    onChange={updateGenreChoices}
+                                    value={genre}
+                                    checked={genre_choices.includes(genre)}
+                                />
+                                <label className="update-preferences-genre-label" htmlFor={genre}>{genre}</label>
+                            </span>
+                        ))}
                     </div>
                 </div>
                 <div id="update-preferences-authors-div">

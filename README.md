@@ -1,9 +1,9 @@
 # Welcome to Readers' Advisory
-![Book Magic](react-app/src/images/book-magic.png)
+![Book Magic](react-app/src/images/RAStatic.png)
 
 ## Greetings, fellow book enthusiasts!
 
-### [Visit Readers' Advisory!](https://readersadvisory.herokuapp.com/)
+### [Visit Readers' Advisory](https://readersadvisory.herokuapp.com/)
 
 ---
 
@@ -70,60 +70,58 @@
 * Dynamically create, update, and delete reader's preferences
 * View reader's subscription
 * Dynamically create, update, and delete reader's subscription
-* Dynamically delete reader's account
+* Dynamically delete reader's account - **currently only available for non-Demo user to preserve Demo experience**
 
 **Secondary Login Auth Path**
-* Advisors login separately
+* Advisors have dedicated login process
 * View readers assigned to an advisor
 
 ### Project Details
 >“We read books to find out who we are. What other people, real or imaginary, do and think and feel... is an essential guide to our understanding of what we ourselves are and may become.”
 ― Ursula K. LeGuin
 
-My gin & tonnies Full-Stack Project aims to bring delight to fellow cocktail connoisseurs, highball hobbyists, and every other liquor liker in between. Inspired by Untappd, I've created a community where drink enthusiasts can discover new beverages and share their thoughts on everything they try.
+My Readers' Advisory Full-Stack Project aims to unite readers with books they'll love. One-part subscription box service, one-part blind date with a book, topped with a little library science and served up fresh, just for you!
 
-### Visit gin & tonnies
+### Visit Readers' Advisory
 https://readersadvisory.herokuapp.com/
 
 ### Feature Spotlight
 * Readers can create, read, update, and delete book preferences. 
 * Readers can also create, read, update, and delete subscriptions.
-<!-- * I implemented basic front end authorization so the current user is guided to only update and delete drinks and reviews they created. -->
+* When a reader is done with the service, they can delete their account and moved on - no strings attached. **(Currently only available for non-Demo user to preserve Demo experience)**
+* Advisors can view a simple dashboard listing the readers assigned to them.
 
 ### Challenges
-<!-- 
-This was my first solo build of a full React app. I found the integration with Redux to be particularly challenging. With less than a week of knowledge under my belt, I took on the task and I'm quite pleased with the outcome.
+One of the biggest challenges I faced with this project was implementing two separate login paths for two different types of users. Because I want my Advisors to be able to put together orders specifically based on their Advisees' preferences, I needed to protect that information for the right eyes only.
 
-* The learning curve for interacting with the Redux store to grab state was steep for me. It was eye-opening when I finally understood how to connect those dots and select only the information I wanted to show.
-
-* I felt more comfortable with PostgreSQL and Sequelize during this project after having used them in a previous group project. Still, it's a daunting task to make sure all the relationships are implemented correctly, knowing that the functionality of your app depends on it! -->
+Having only ever worked with authorizing and authenticating a single type of user, I had to do my research! I created separate role types and wrote dedicated routes for each to grant the appropriate permissions to the correct users.
 
 ### Code Snippets
-<!-- *Nested routes access*
+Examples from advisor authorization and authentication work:
+![Setting Advisor Role](react-app/src/images/advisor-role.png)
+![Checking for Role Type](react-app/src/images/advisor-loader.png)
 
-One difficulty I face was accessing my reviews through my drink id route. I researched and employed mergeParams along with useParams to accomplish this.
+Complex Query to get a list of Readers assigned to an Advisor and to include access to each Reader's preferences:
+![Reader Query with Preferences](react-app/src/images/reader-query.png)
 
-By merging the route on the backend, I was able to write my review update and delete methods as if they were the direct route. Then, on the front end, I assigned the drinkId and reviewId to standin for the correct paths in the URL. From there, I was able to access everything I needed to call upon a single drink, get its reviews, and allow the user to update and delete reviews they'd written.
+### Application GIFs
+*Navigation Bar Menus*
 
-![Merge Params Route Access](frontend/public/images/mergeParamsReviews.png) -->
+Demonstrates different menu experiences based on user needs
 
-### Application Screenshots
-<!-- *Single Drink Details*
+![NavBarDemo](react-app/src/images/navbar-demo.gif)
 
-Demonstrates that a user (in this case, nari) does not have authority to update or delete drinks or reviews they did not create
-
-![SingleDrinkDetails](/frontend/public/images/singleDrinkDetail.png)
-
-### [View Additional Screenshots](https://github.com/jemcodes/ginAndTonnies/wiki/Application-Screenshots) -->
+### [View Additional Screenshots](https://github.com/jemcodes/readersAdvisory/wiki/Application-GIFs-and-Screenshots)
 
 
 ### Installation Instructions
-<!-- * Git clone the project file
-* On your local machine, run 'npm install' to install required dependenices
-* Initiate database setup as stated in .env.example
-* Run npx dotenv sequelize commands (migrate, seed, etc.)
-* Run 'npm start' command on localhost for both backend and front end servers
-* Server should automatically navigate you to localhost:port in browser. -->
+* Git clone the project file
+* On your local machine, run `pipenv install` to install required dependencies.
+* Initiate database setup as shown in .env.example and run database commands (migrate, seed, etc.)
+* Enter your pip environment.
+* In first terminal, use `flask run` to start backend.
+* In second terminal, use `npm star`t to start the front end server.
+* Server should automatically navigate you to localhost:port in browser.
 
 ### [Visit Readers' Advisory](https://readersadvisory.herokuapp.com/)
 
@@ -133,30 +131,34 @@ Hiya, I'm jane! 👋
 
 Programming brings together my passions for building, creating, and problem-solving. Before coming to the coding world, I worked several lifetimes' worth of creative and analytical careers, from founding and managing companies to voiceover work to digging deep into disability law - and almost everything else in between. As a multipotentialite, I'm thrilled to see where this programming journey takes me!
 
-You can find me right here [Github](https://github.com/jemcodes) or over on [Linkedin](https://www.linkedin.com/in/jemcodes/) 
+You can find me right here on [Github](https://github.com/jemcodes) or over on [Linkedin](https://www.linkedin.com/in/jemcodes/) 
 
 
 ---
 
 ## Future Features
 
-<!-- **Venues**
-* See a list of venues associated with drinks
-* As a venue owner, create, update, and delete a listing for your venue's details
+**Advisor CRUD**
+* See a list of all orders assigned to an advisor
+* Get a list of all products from which to curate orders
+* Create, update, and delete orders
 
-**Badges**
-* Earn badges for trying and reviewing new drinks
+**Message CRUD**
+* Readers and Advisors can see a list of all their messages
+* Readers and Advisors can create, update, and delete messages
 
-**Expanded User Profiles**
-* See profile page for each user
-* As a user, create, update, and delete details on your profile page
-* Drinks and badges dynamically added to your profile
+**Full Reader Dashboard**
+* Expand simple preferences view to include more robust checkout and subscription management
 
-**Additional Protections**
-* Amplify security measures, particularly backend considerations, to prevent current user from updating or deleting another user's created drinks and reviews. -->
+**Full Advisor Dashboard**
+* Expand simple reader view to include varieties of tasks and phases for Advisor's work progress with particular Readers
+
+**Stripe Integration**
+* Expand Reader checkout from simple credit to Stripe dev-mode checkout
 
 ## Future Fixes
 
-<!-- **Heroku Hosting Improvements**
-* Loadtimes for backend calls are quite slow at the moment. As we haven't yet learned about database optimization, I would like to improve this when I have time to revist the project. -->
+**Additional Protections**
+* Amplify security measures, particularly backend considerations
+* Improve subscription/checkout process with success notifications
 

@@ -35,7 +35,7 @@
 
 [Installation Instructions](#Installation-Instructions)
 
-[Visit gin & tonnies!](https://readersadvisory.herokuapp.com/)
+[Visit Readers' Advisory!](https://readersadvisory.herokuapp.com/)
 
 [Meet The Dev](#Meet-The-Dev)
 
@@ -97,11 +97,11 @@ One of the biggest challenges I faced with this project was implementing two sep
 Having only ever worked with authorizing and authenticating a single type of user, I had to do my research! I created separate role types and wrote dedicated routes for each to grant the appropriate permissions to the correct users.
 
 ### Code Snippets
-Examples from advisor authorization and authentication work:
+*Examples from advisor authorization and authentication work:*
 ![Setting Advisor Role](react-app/src/images/advisor-role.png)
 ![Checking for Role Type](react-app/src/images/advisor-loader.png)
 
-Complex Query to get a list of Readers assigned to an Advisor and to include access to each Reader's preferences:
+*Complex Query to get a list of Readers assigned to an Advisor and to include access to each Reader's preferences:*
 ![Reader Query with Preferences](react-app/src/images/reader-query.png)
 
 ### Application GIFs
@@ -120,7 +120,7 @@ Demonstrates different menu experiences based on user needs
 * Initiate database setup as shown in .env.example and run database commands (migrate, seed, etc.)
 * Enter your pip environment.
 * In first terminal, use `flask run` to start backend.
-* In second terminal, use `npm star`t to start the front end server.
+* In second terminal, use `npm start` to start the front end server.
 * Server should automatically navigate you to localhost:port in browser.
 
 ### [Visit Readers' Advisory](https://readersadvisory.herokuapp.com/)

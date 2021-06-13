@@ -31,7 +31,7 @@
 
 [Adobe XD Design Mockups](https://github.com/jemcodes/readersAdvisory/wiki/Adobe-XD-Design-Mockups)
 
-[Application Screenshots](#Application-Screenshots)
+[Application Design](#Application-Design)
 
 [Installation Instructions](#Installation-Instructions)
 
@@ -104,7 +104,7 @@ Having only ever worked with authorizing and authenticating a single type of use
 *Complex Query to get a list of Readers assigned to an Advisor and to include access to each Reader's preferences:*
 ![Reader Query with Preferences](react-app/src/images/reader-query.png)
 
-### Application GIFs
+### Application Design
 *Navigation Bar Menus*
 
 Demonstrates different menu experiences based on user needs

@@ -27,6 +27,10 @@ const ShowPreferences = () => {
         return <Redirect to='/login' />;
     }
 
+    if (reader.id !== parseInt(reader_id)) {
+        return <Redirect to={`/readers/${reader.id}/subscription`} />;
+    }
+
     return (
         <div id="subscription-container">
             <img className="show-sub-book-bubble" src={bookBubble} />

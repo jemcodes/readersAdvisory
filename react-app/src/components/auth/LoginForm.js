@@ -7,7 +7,7 @@ import '../styles/login-form.css';
 
 
 const LoginForm = () => {
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const reader = useSelector(state => state.session.reader);
@@ -49,11 +49,6 @@ const LoginForm = () => {
   return (
     <div>
       <form onSubmit={onLogin}>
-        <div>
-          {errors.map((error) => (
-            <div>{error}</div>
-          ))}
-        </div>
         <div id="login-container">
           <div id="login-email">
             <label className="input-labels" htmlFor="email">Email</label>
@@ -65,6 +60,9 @@ const LoginForm = () => {
               onChange={updateEmail}
               required={true}
             />
+            {errors.email && (
+              <small>{errors.email}</small>
+            )}
           </div>
           <div id="login-password">
             <label htmlFor="password">Password</label>
@@ -76,6 +74,9 @@ const LoginForm = () => {
               onChange={updatePassword}
               required={true}
             />
+            {errors.password && (
+              <small>{errors.password}</small>
+            )}
             <button id="login-button" type="submit">Reader Login</button>
             <NavLink className="nav-switch" to="/sign-up" onClick={toggleReaderMenu} exact={true} activeClassName="active">
               Don't have an account? Get started!

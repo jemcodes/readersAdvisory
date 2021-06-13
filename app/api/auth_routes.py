@@ -19,6 +19,14 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
+def validation_errors_to_error_dict(validation_errors):
+    """Simple function to translate errors to dictionary"""
+    errorMessages = {}
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages[field] = error
+    return errorMessages
+
 @auth_routes.route('/')
 def authenticate():
     """
@@ -45,7 +53,7 @@ def login():
         login_user(reader)
         session["role"] = "reader"
         return reader.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': form.errors}, 401
 
 @auth_routes.route('/advisor-login', methods=['POST'])
 def advisor_login():
@@ -63,7 +71,7 @@ def advisor_login():
         login_user(advisor)
         session["role"] = "advisor"
         return advisor.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': form.errors}, 401
 
 
 @auth_routes.route('/logout')
@@ -94,7 +102,7 @@ def sign_up():
         login_user(reader)
         session["role"] = "reader"
         return reader.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': form.errors}, 401
 
 
 @auth_routes.route('/unauthorized')

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { Redirect, useHistory, NavLink } from 'react-router-dom';
+import { Redirect, useHistory, NavLink, useParams} from 'react-router-dom';
 import { showPreferences, removePreferences } from '../store/reader';
 import { deleteAccount } from '../store/session';
 import ShowSubscription from './ShowSubscription';
@@ -11,11 +11,12 @@ import bookBubble from '../images/book-bubble.png';
 const ShowPreferences = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const { reader_id } = useParams();
     const reader = useSelector(state => state.session.reader);
     const preferences = useSelector(state => state.reader.preferences);
     // let authors;
-    const reader_id = reader.id
-    console.log('THIS IS THE READER ID', reader_id)
+    // const reader_id = reader.id
+    // console.log('THIS IS THE READER ID', reader_id)
     
     useEffect(() => {
         dispatch(showPreferences(reader_id))
@@ -31,6 +32,10 @@ const ShowPreferences = () => {
 
     if (!reader) {
         return <Redirect to='/login' />;
+    }
+
+    if (reader.id !== parseInt(reader_id)) {
+        return <Redirect to={`/readers/${reader.id}/preferences`} />;
     }
 
     return (

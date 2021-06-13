@@ -17,7 +17,6 @@ const ShowPreferences = () => {
     }, [dispatch, reader_id])
     
     const subscription = useSelector(state => state.subscription);
-    // console.log('$$$$$$$$$$ THIS IS A SUBSCRIPTION', subscription[subscription])
     
     // const hiddenPayment = (subscription) => {
     //     return subscription.payment_method.slice(-5)

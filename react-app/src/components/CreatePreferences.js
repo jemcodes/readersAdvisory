@@ -34,7 +34,6 @@ const CreatePreferences = () => {
         } else {
             genre_collection.push(e.target.value);
         }
-        // console.log(genre_collection)
         setGenreChoices(genre_collection);
     };
 
@@ -58,7 +57,6 @@ const CreatePreferences = () => {
             other_choices,
             reader_id
         }
-        // console.log('&&&&&&&&&&&&&&&&&', reader.id)
         await dispatch(capturePreferences(preferencePayload))
         history.push(`/readers/${reader_id}/preferences`)
 

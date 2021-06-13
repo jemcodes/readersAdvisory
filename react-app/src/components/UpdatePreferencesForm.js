@@ -36,7 +36,6 @@ const UpdatePreferencesForm = () => {
         } else {
             genre_collection.push(e.target.value);
         }
-        // console.log(genre_collection)
         setGenreChoices(genre_collection);
     };
 

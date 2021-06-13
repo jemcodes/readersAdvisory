@@ -12,7 +12,7 @@ import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import CreatePreferences from "./components/CreatePreferences";
 import CreateSubscription from "./components/CreateSubscription";
-import CreateOrder from "./components/CreateOrder";
+// import CreateOrder from "./components/CreateOrder";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
@@ -46,9 +46,9 @@ function App() {
         <ProtectedRoute path="/my-readers" exact={true}>
           <ShowReaders />
         </ProtectedRoute>
-        <ProtectedRoute path="/orders/new" exact={true}>
+        {/* <ProtectedRoute path="/orders/new" exact={true}>
           <CreateOrder />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path="/products" exact={true}>
           <ShowProducts />
         </ProtectedRoute>

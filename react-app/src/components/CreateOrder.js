@@ -27,7 +27,6 @@
 //             advisor_id,
 //             product_id
 //         }
-//         // console.log('&&&&&&&&&&&&&&&&&', reader.id)
 //         await dispatch(captureOrder(orderPayload))
 //         history.push(`/orders`)
 

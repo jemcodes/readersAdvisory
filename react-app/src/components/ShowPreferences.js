@@ -16,7 +16,6 @@ const ShowPreferences = () => {
     const preferences = useSelector(state => state.reader.preferences);
     // let authors;
     // const reader_id = reader.id
-    // console.log('THIS IS THE READER ID', reader_id)
     
     useEffect(() => {
         dispatch(showPreferences(reader_id))

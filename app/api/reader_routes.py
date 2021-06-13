@@ -53,11 +53,9 @@ def get_reader_preferences(reader_id):
 @login_required
 def add_reader_preferences(reader_id):
     """Post a new reader's quiz to create an account"""
-    print('$$$$$$$$$$$$$$THIS IS A ROUTE!!!!!!!!!!$$$$$$$$$$$$$$$$$$$')
     form = ReaderPreferenceForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        print('THIS IS THE FORM DATA', form.data, 'THIS IS THE FORM DATA')
         new_reader_preferences = ReaderPreference(
             user_name=form.data['user_name'],
             cover_choices=form.data['cover_choices'],

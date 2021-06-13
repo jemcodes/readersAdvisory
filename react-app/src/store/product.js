@@ -44,7 +44,7 @@ export const addingToOrder = (orderPayload) => async (dispatch) => {
 }
 
 export const removingFromOrder = (orderPayload) => async (dispatch) => {
-    const { advisor_id, order_id } = orderPayload
+    const { advisor_id } = orderPayload
     const response = await fetch(`/api/advisors/${advisor_id}/orders`, {
         method: "DELETE"
     });

@@ -62,7 +62,7 @@ const UpdateSubscriptionForm = () => {
 
     return (
         <div id="update-subscription-container">
-            <img className="update-sub-book-flame" src={bookFlame} />
+            <img className="update-sub-book-flame" src={bookFlame} alt="Book with a flame over it" />
             <form id="update-subscription-form" onSubmit={handleSubmit}>
                 <h3 id="update-subscription-title">Update Your Subscription</h3>
                 <div className="update-subscription-div">

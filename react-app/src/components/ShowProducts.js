@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { useParams, NavLink, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { showAllProducts } from '../store/product';
 
 const ShowProducts = () => {
     const dispatch = useDispatch();
-    const reader = useSelector(state => state.session.reader);
+    // const reader = useSelector(state => state.session.reader);
     const advisor = useSelector(state => state.session.advisor);
     const product = useSelector(state => state.product)
-    let authors;
+    // let authors;
 
     useEffect(() => {
         dispatch(showAllProducts())

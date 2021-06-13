@@ -33,7 +33,7 @@ const ShowPreferences = () => {
 
     return (
         <div id="subscription-container">
-            <img className="show-sub-book-bubble" src={bookBubble} />
+            <img className="show-sub-book-bubble" src={bookBubble} alt="Book with smiling bubble over it"/>
             <div id="subscription-contents">
             <h2 id="subscription-header">Your Subscription</h2>
             {subscription.subscription_type ? (

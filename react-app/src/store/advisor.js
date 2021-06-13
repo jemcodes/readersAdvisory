@@ -98,7 +98,7 @@ const initialState = {
 };
 
 export default function advisor(state = initialState, action) {
-    let nextState = {}
+    // let nextState = {}
     switch (action.type) {
         // case GET_ORDERS:
         //     return {

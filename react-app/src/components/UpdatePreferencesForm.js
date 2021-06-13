@@ -143,7 +143,7 @@ const UpdatePreferencesForm = () => {
                                 onChange={updateGenreChoices}
                                 value={genre}
                                 checked={genre_choices.includes(genre)}
-                            ></input>
+                            />
                             <label className="update-preferences-genre-label" htmlFor={genre}>{genre}</label>
                         </>
                     ))}

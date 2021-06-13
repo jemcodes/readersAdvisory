@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import Advisor, Order, Reader
+from app.models import Advisor, Order, Reader, ReaderPreference
 
 advisor_routes = Blueprint('advisors', __name__)
 
@@ -39,8 +39,13 @@ def advisor(advisor_id):
 @login_required
 def get_assigned_readers(advisor_id):
     """Get a list of readers assigned to a single advisor"""
-    readers = Reader.query.filter(Reader.advisor_id == advisor_id).all()
-    return {"readers": [reader.to_dict() for reader in readers]}
+    readers = Reader.query.filter(Reader.advisor_id == advisor_id).join(ReaderPreference).all()
+    reader_collection = []
+    for reader in readers:
+        new_reader = reader.to_dict()
+        new_reader['user_name'] = reader.reader_profile.user_name
+        reader_collection.append(new_reader)
+    return {"readers": reader_collection}
 
 
 # @advisor_routes.route('/<int:advisor_id>/readers/<int:reader_id>/preferences', methods=['GET'])

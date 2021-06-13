@@ -1,17 +1,36 @@
 from werkzeug.security import generate_password_hash
-from app.models import db, Reader
+from app.models import db, Reader, Advisor
 
 # Adds a demo user, you can add other users here if you want
 def seed_readers():
 
+    demo_advisor = Advisor.query.filter_by(email='demo_ad@aa.io').first()
+
     demo = Reader(email='demo@aa.io',
-                password='password',)
+                password='password',
+                advisor_id=demo_advisor.id)
     
     bookworm = Reader(email='bookworm@aa.io',
-                password='password')
+                password='password',
+                advisor_id=demo_advisor.id)
+
+    bookdragon = Reader(email='bookdragon@aa.io',
+                password='password',
+                advisor_id=demo_advisor.id)
+
+    lovebooks = Reader(email='lovebooks@aa.io',
+                password='password',
+                advisor_id=demo_advisor.id)
+
+    readwell = Reader(email='readwell@aa.io',
+                password='password',
+                advisor_id=demo_advisor.id)
 
     db.session.add(demo)
     db.session.add(bookworm)
+    db.session.add(bookdragon)
+    db.session.add(lovebooks)
+    db.session.add(readwell)
 
     db.session.commit()
 

@@ -10,7 +10,7 @@ export default function ShowOrders() {
     const dispatch = useDispatch();
     const reader = useSelector(state => state.session.reader);
     const advisor = useSelector(state => state.session.advisor);
-    const orders = useSelector(state => state.advisor.orders)
+    const readers = useSelector(state => state.advisor.readers)
     
     useEffect(() => {
         dispatch(showReaders(advisor.id))
@@ -27,8 +27,8 @@ export default function ShowOrders() {
                 <h3 id="orders-header">My Readers</h3>
             <ul id="show-orders-ul">
                     <div className="orders-list-div">
-                {orders.map((order) => (
-                    <li className="preference-list-items">Readers: {advisor.readers[0].id}</li>
+                {readers.map((reader) => (
+                    <li className="preference-list-items">{reader.user_name}</li>
                 ))}
                 </div>
             </ul>

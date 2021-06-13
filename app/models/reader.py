@@ -12,7 +12,7 @@ class Reader(db.Model, UserMixin):
   advisor_id = db.Column(db.Integer, db.ForeignKey("advisors.id"))
   created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
   updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable = False)
-  reader_profile = db.relationship('ReaderPreference', back_populates="reader")
+  reader_profile = db.relationship('ReaderPreference', uselist=False, back_populates="reader")
   advisor = db.relationship('Advisor', back_populates="readers")
   subscription = db.relationship('ReaderSubscription', back_populates="reader_sub")
   order = db.relationship('Order', back_populates="reader_order")

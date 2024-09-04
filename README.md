@@ -3,8 +3,6 @@
 
 ## Greetings, fellow book enthusiasts!
 
-### [Visit Readers' Advisory](https://readersadvisory.herokuapp.com/)
-
 ---
 
 ### Menu
@@ -34,8 +32,6 @@
 [Application Design](#Application-Design)
 
 [Installation Instructions](#Installation-Instructions)
-
-[Visit Readers' Advisory!](https://readersadvisory.herokuapp.com/)
 
 [Meet The Dev](#Meet-The-Dev)
 
@@ -82,9 +78,6 @@
 
 My Readers' Advisory Full-Stack Project aims to unite readers with books they'll love. One-part subscription box service, one-part blind date with a book, topped with a little library science and served up fresh, just for you!
 
-### Visit Readers' Advisory
-https://readersadvisory.herokuapp.com/
-
 ### Feature Spotlight
 * Readers can create, read, update, and delete book preferences. 
 * Readers can also create, read, update, and delete subscriptions.
@@ -122,8 +115,6 @@ Demonstrates different menu experiences based on user needs
 * In first terminal, use `flask run` to start backend.
 * In second terminal, use `npm start` to start the front end server.
 * Server should automatically navigate you to localhost:port in browser.
-
-### [Visit Readers' Advisory](https://readersadvisory.herokuapp.com/)
 
 ### Meet The Dev
 
